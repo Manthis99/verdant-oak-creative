@@ -89,7 +89,7 @@ export default function ProjectBlueprint({ onComplete }) {
                 ← Back
               </button>
               <button type="submit" disabled={!formData.obstacle} className="relative overflow-hidden rounded-md border border-gold/50 bg-gold/10 px-8 py-4 text-sm tracking-[0.2em] text-gold uppercase transition-all duration-500 hover:bg-gold hover:text-black disabled:opacity-30 disabled:cursor-not-allowed">
-                Generate Blueprint
+                Next: Set Priorities
               </button>
             </div>
           </div>

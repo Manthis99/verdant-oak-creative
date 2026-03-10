@@ -6,9 +6,9 @@ import PriorityMatrix from '../components/contact/PriorityMatrix';
 import LeadMagnet from '../components/contact/LeadMagnet';
 
 export default function ContactPage() {
-  const [activeFlow, setActiveFlow] = useState('blueprint'); // 'standard', 'blueprint', 'matrix'
-  const [flowStage, setFlowStage] = useState('input'); // 'input', 'lead_capture', 'success'
-  const [flowData, setFlowData] = useState(null);
+  const [flowStage, setFlowStage] = useState('blueprint'); // 'blueprint', 'matrix', 'lead_capture', 'success'
+  const [blueprintData, setBlueprintData] = useState(null);
+  const [matrixData, setMatrixData] = useState(null);
   const [status, setStatus] = useState('');
   
   const containerRef = useRef(null);
@@ -18,10 +18,15 @@ export default function ContactPage() {
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out' }
     );
-  }, { scope: containerRef, dependencies: [activeFlow, flowStage] });
+  }, { scope: containerRef, dependencies: [flowStage] });
 
-  const handleFlowComplete = (data, type) => {
-    setFlowData(data);
+  const handleBlueprintComplete = (data) => {
+    setBlueprintData(data);
+    setFlowStage('matrix');
+  };
+
+  const handleMatrixComplete = (data) => {
+    setMatrixData(data);
     setFlowStage('lead_capture');
   };
 
@@ -33,18 +38,19 @@ export default function ContactPage() {
     payload.append("access_key", "YOUR_ACCESS_KEY_HERE");
     payload.append("name", finalData.name);
     payload.append("email", finalData.email);
-    payload.append("Inquiry Type", finalData.flowType);
+    payload.append("Inquiry Type", "Combined Blueprint & Priority Matrix");
     
     if (finalData.projectDetails) {
         payload.append("Additional Details", finalData.projectDetails);
     }
 
-    if (finalData.flowType === 'blueprint') {
-        payload.append("Tension", finalData.flowData.tension);
-        payload.append("Outcome", finalData.flowData.outcome);
-        payload.append("Obstacle", finalData.flowData.obstacle);
-    } else if (finalData.flowType === 'matrix') {
-        payload.append("Ranked Priorities", finalData.flowData.rankings.join(' > '));
+    if (blueprintData) {
+        payload.append("Tension", blueprintData.tension);
+        payload.append("Outcome", blueprintData.outcome);
+        payload.append("Obstacle", blueprintData.obstacle);
+    }
+    if (matrixData) {
+        payload.append("Ranked Priorities", matrixData.rankings.join(' > '));
     }
 
     try {
@@ -72,55 +78,48 @@ export default function ContactPage() {
     <div className="min-h-screen bg-charcoal text-parchment pt-32 pb-24 px-4 md:px-8 lg:px-16" ref={containerRef}>
       <div className="max-w-3xl mx-auto">
         
-        {/* Header & Flow Toggles */}
+        {/* Header - No Toggles Needed Now */}
         {flowStage !== 'success' && (
           <header className="mb-16 contact-reveal">
             <h1 className="font-serif text-5xl md:text-7xl mb-6 tracking-tighter">Start The Process.</h1>
-            <p className="font-sans text-lg md:text-xl text-parchment/70 leading-relaxed font-light mb-12">
-              Every effective project starts with a diagnosis. Choose how you want to frame your project below.
+            <p className="font-sans text-lg md:text-xl text-parchment/70 leading-relaxed font-light mb-12 border-b border-parchment/10 pb-6">
+              Every effective project starts with a diagnosis. Let's frame your project context and constraints.
             </p>
-
-            <div className="flex flex-wrap gap-4 border-b border-parchment/10 pb-6">
-              <button 
-                onClick={() => { setActiveFlow('blueprint'); setFlowStage('input'); }}
-                className={`text-sm tracking-[0.2em] uppercase transition-colors px-6 py-3 rounded ${activeFlow === 'blueprint' ? 'bg-parchment/10 text-gold' : 'text-parchment/40 hover:text-parchment/80'}`}
-              >
-                Project Blueprint
-              </button>
-              <button 
-                onClick={() => { setActiveFlow('matrix'); setFlowStage('input'); }}
-                className={`text-sm tracking-[0.2em] uppercase transition-colors px-6 py-3 rounded ${activeFlow === 'matrix' ? 'bg-parchment/10 text-gold' : 'text-parchment/40 hover:text-parchment/80'}`}
-              >
-                Priority Matrix
-              </button>
-            </div>
           </header>
         )}
 
         {/* Dynamic Flow Rendering */}
-        {flowStage === 'input' && activeFlow === 'blueprint' && (
-          <ProjectBlueprint onComplete={handleFlowComplete} />
+        {flowStage === 'blueprint' && (
+          <ProjectBlueprint onComplete={handleBlueprintComplete} />
         )}
 
-        {flowStage === 'input' && activeFlow === 'matrix' && (
-          <PriorityMatrix onComplete={handleFlowComplete} />
+        {flowStage === 'matrix' && (
+          <div className="space-y-8 animate-in fade-in zoom-in-95 duration-500">
+            <button 
+              onClick={() => setFlowStage('blueprint')} 
+              className="text-xs tracking-widest text-parchment/40 uppercase hover:text-parchment inline-flex items-center gap-2"
+            >
+              ← Back to Blueprint
+            </button>
+            <PriorityMatrix onComplete={handleMatrixComplete} />
+          </div>
         )}
 
         {flowStage === 'lead_capture' && (
-          <div className="space-y-8">
+          <div className="space-y-8 animate-in fade-in zoom-in-95 duration-500">
             <button 
-              onClick={() => setFlowStage('input')} 
-              className="text-xs tracking-widest text-parchment/40 uppercase hover:text-parchment contact-reveal inline-flex items-center gap-2"
+              onClick={() => setFlowStage('matrix')} 
+              className="text-xs tracking-widest text-parchment/40 uppercase hover:text-parchment inline-flex items-center gap-2"
             >
-              ← Edit Previous Steps
+              ← Back to Priorities
             </button>
             <LeadMagnet 
-              data={flowData} 
-              componentType={activeFlow} 
+              data={{ blueprint: blueprintData, matrix: matrixData }} 
+              componentType="combined" 
               onSubmitLead={submitFinalLead} 
             />
             {status && (
-              <p className="text-sm tracking-wide text-gold contact-reveal mt-4">{status}</p>
+              <p className="text-sm tracking-wide text-gold mt-4">{status}</p>
             )}
           </div>
         )}

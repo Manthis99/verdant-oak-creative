@@ -26,11 +26,11 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
       </div>
 
       <h3 className="font-serif text-3xl md:text-4xl text-parchment mb-4 relative z-10">
-        Your {componentType === 'blueprint' ? 'Blueprint' : 'Priority Matrix'} is Ready.
+        Your Project Blueprint is Ready.
       </h3>
       
       <p className="text-parchment/70 font-light mb-10 relative z-10 leading-relaxed md:pr-12">
-        Submit your details below to send this inquiry to my desk. In exchange for your time, you will immediately receive the 
+        Submit your details below to send this comprehensive inquiry to my desk. In exchange for your time, you will immediately receive the 
         <span className="italic text-parchment"> Verdant Oak Framework Field Guide</span>—a breakdown of how to build communication infrastructure that actually converts.
       </p>
 

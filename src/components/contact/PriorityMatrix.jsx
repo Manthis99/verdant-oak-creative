@@ -47,9 +47,10 @@ export default function PriorityMatrix({ onComplete }) {
     <div className="bg-charcoal border border-parchment/10 p-8 md:p-12 rounded-lg contact-reveal">
       <div className="mb-8 flex items-center justify-between text-xs tracking-widest text-gold uppercase">
         <span>Priority Matrix</span>
+        <span>Step 4 of 4</span>
       </div>
 
-      <h3 className="font-serif text-3xl md:text-4xl text-parchment mb-4">Rank Your Constraints</h3>
+      <h3 className="font-serif text-3xl md:text-4xl text-parchment mb-4">4. Rank Your Constraints</h3>
       <p className="text-parchment/60 font-light mb-8">
         No project can be incredibly fast, dirt cheap, and a cinematic masterpiece. 
         Select your priorities below to establish the true parameters of your project.
