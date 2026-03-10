@@ -40,7 +40,15 @@ export default function ContactPage() {
     
     // Construct the payload for Web3Forms
     const payload = new FormData();
-    payload.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    
+    if (!accessKey) {
+      console.error("Web3Forms Access Key is missing. Please check your .env file.");
+      setStatus("Configuration error. Please contact the administrator.");
+      return;
+    }
+    
+    payload.append("access_key", accessKey);
     payload.append("name", finalData.name);
     payload.append("email", finalData.email);
     payload.append("Inquiry Type", "Combined Blueprint & Priority Matrix");
