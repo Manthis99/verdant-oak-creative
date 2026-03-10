@@ -79,44 +79,52 @@ export default function SelectedWork() {
                 </h2>
             </div>
 
-            <div className="flex flex-col md:flex-row w-full overflow-x-hidden">
+            <div className="relative w-full">
                 
-                {/* Left Side: Sticky Image Exhibition Container */}
-                <div className="w-full md:w-[60%] shrink-0 h-[60vh] md:h-screen sticky top-0 overflow-hidden">
-                    {projects.map((project, i) => (
-                        <div key={i} className="absolute inset-0">
-                            <img 
-                                src={project.image} 
-                                alt={project.name}
-                                className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
-                            />
-                            {/* Smooth gradient blend that extends image beautifully beneath text */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/40 to-[#111] md:bg-gradient-to-r md:from-[#111]/0 md:via-[#111]/80 md:to-[#111]"></div>
-                        </div>
-                    ))}
+                {/* Background Image Container */}
+                <div className="absolute top-0 left-0 w-full md:w-[85%] h-full">
+                    <div className="sticky top-0 w-full h-[60vh] md:h-screen overflow-hidden">
+                        {projects.map((project, i) => (
+                            <div key={i} className="absolute inset-0">
+                                <img 
+                                    src={project.image} 
+                                    alt={project.name}
+                                    className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
+                                />
+                                {/* Smooth gradient blend that extends image beautifully beneath text */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/40 to-[#111] md:bg-gradient-to-r md:from-transparent md:via-[#111]/20 md:to-[#111]"></div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Right Side: Scrolling Case Study Texts */}
-                <div className="w-full md:w-[55%] shrink-0 relative z-10 py-[60vh] px-6 md:px-16 lg:pr-32 md:-ml-[15%]">
-                    {projects.map((project, i) => (
-                        <div key={i} className="project-text-block min-h-[60vh] flex flex-col justify-center pb-24 md:pb-48">
-                            <h3 className="mb-8 font-serif text-4xl lg:text-6xl text-parchment leading-tight">
-                                {project.name}
-                            </h3>
-                            <div className="mb-6 h-[1px] w-24 bg-gold/50"></div>
-                            <p className="mb-10 font-serif text-2xl lg:text-3xl italic leading-relaxed text-gold md:pr-10">
-                                {project.tension}
-                            </p>
-                            <p className="mb-12 font-sans text-xl font-light leading-relaxed text-parchment/70 md:pr-10">
-                                {project.story}
-                            </p>
-                            
-                            <Link to={project.link} className="group relative self-start overflow-hidden rounded-md border border-parchment/20 px-10 py-4 text-xs tracking-[0.2em] text-parchment uppercase transition-all duration-500 hover:border-gold/50 cursor-pointer block">
-                                <span className="relative z-10 transition-colors duration-500 group-hover:text-black">View Case Study</span>
-                                <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
-                            </Link>
-                        </div>
-                    ))}
+                {/* Content Container */}
+                <div className="relative z-10 flex flex-col md:flex-row w-full">
+                    {/* Invisible spacer to push text to the right on desktop */}
+                    <div className="hidden md:block md:w-[45%] lg:w-[45%] shrink-0"></div>
+
+                    {/* Right Side: Scrolling Case Study Texts */}
+                    <div className="w-full md:w-[55%] lg:w-[55%] shrink-0 py-[60vh] px-6 md:pl-0 md:pr-16 lg:pr-32">
+                        {projects.map((project, i) => (
+                            <div key={i} className="project-text-block min-h-[60vh] flex flex-col justify-center pb-24 md:pb-48">
+                                <h3 className="mb-8 font-serif text-4xl lg:text-6xl text-parchment leading-tight">
+                                    {project.name}
+                                </h3>
+                                <div className="mb-6 h-[1px] w-24 bg-gold/50"></div>
+                                <p className="mb-10 font-serif text-2xl lg:text-3xl italic leading-relaxed text-gold md:pr-10">
+                                    {project.tension}
+                                </p>
+                                <p className="mb-12 font-sans text-xl font-light leading-relaxed text-parchment/70 md:pr-10">
+                                    {project.story}
+                                </p>
+                                
+                                <Link to={project.link} className="group relative self-start overflow-hidden rounded-md border border-parchment/20 px-10 py-4 text-xs tracking-[0.2em] text-parchment uppercase transition-all duration-500 hover:border-gold/50 cursor-pointer block">
+                                    <span className="relative z-10 transition-colors duration-500 group-hover:text-black">View Case Study</span>
+                                    <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
             </div>
