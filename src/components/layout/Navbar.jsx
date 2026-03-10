@@ -14,17 +14,27 @@ export default function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const navRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   // Initial Load Animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         navRef.current,
-        { y: -24, opacity: 0 },
+        { y: -30, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
       );
     });
     return () => ctx.revert();
+  }, []);
+
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close mobile menu on route change
@@ -32,26 +42,26 @@ export default function Navbar() {
     setOpen(false);
   }, [location.pathname]);
 
-  // We will build the dynamic color flipping hook here later.
-  // For now, we will use a semi-transparent glass backing plate as a baseline 
-  // so the text is always somewhat legible immediately while we build the hook.
-
   return (
     <header 
       ref={navRef} 
-      className="fixed inset-x-0 top-6 z-50 mx-auto w-[min(1200px,92vw)] transition-colors duration-300"
+      className="fixed inset-x-0 top-6 z-[100] mx-auto w-max max-w-[92vw] transition-all duration-500"
     >
-      <div className="flex items-center justify-between mix-blend-difference text-[#F0EFEB]">
-        <Link to="/" className="text-xl font-serif tracking-tight flex items-center gap-2">
+      <div 
+        className={`relative flex items-center justify-between bg-charcoal/95 backdrop-blur-xl border border-white/10 text-parchment shadow-2xl rounded-full transition-all duration-500 ${
+          scrolled ? 'px-6 py-3 shadow-black/40' : 'px-8 py-4 shadow-black/20'
+        }`}
+      >
+        <Link to="/" className="text-xl font-serif tracking-tight pr-6 sm:pr-8 border-r border-white/10 flex items-center gap-2">
           Verdant Oak
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 pl-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               className={`text-sm tracking-wide transition-colors ${
-                location.pathname === link.to ? 'font-medium opacity-100' : 'opacity-70 hover:opacity-100'
+                location.pathname === link.to ? 'font-medium text-gold' : 'text-parchment/70 hover:text-parchment'
               }`}
             >
               {link.label}
@@ -59,30 +69,31 @@ export default function Navbar() {
           ))}
           <Link
             to="/start"
-            className="ml-4 rounded-full border border-white/30 px-6 py-2 text-sm tracking-wide transition-all hover:bg-white hover:text-charcoal hover:mix-blend-normal"
+            className="ml-2 rounded-full border border-gold/40 text-gold px-5 py-2 text-xs font-semibold uppercase tracking-widest transition-all hover:bg-gold hover:text-charcoal shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
           >
             Start Exploring
           </Link>
         </nav>
         <button
-          className="md:hidden opacity-80 hover:opacity-100"
+          className="md:hidden ml-6 opacity-80 hover:opacity-100 text-parchment"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle navigation"
         >
-          {open ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
       </div>
       
       {open && (
-        <nav className="mt-4 flex flex-col gap-4 border-t border-white/20 pt-4 md:hidden text-charcoal bg-parchment/95 p-6 rounded-lg backdrop-blur-md">
+        <nav className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-sm flex flex-col gap-4 border border-white/10 md:hidden bg-charcoal/95 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center origin-top animate-in fade-in slide-in-from-top-4 duration-300">
           {navLinks.map((link) => (
-            <Link key={link.to} to={link.to} className="text-xl font-serif">
+            <Link key={link.to} to={link.to} className="text-2xl font-serif text-parchment hover:text-gold transition-colors">
               {link.label}
             </Link>
           ))}
+          <div className="w-12 h-px bg-white/10 mx-auto my-4"></div>
           <Link 
             to="/start" 
-            className="mt-4 inline-block rounded border border-charcoal/20 bg-charcoal text-parchment px-6 py-3 text-center text-sm uppercase tracking-widest transition-colors hover:bg-gold hover:text-charcoal hover:border-gold"
+            className="inline-block rounded-full border border-gold/40 bg-transparent text-gold px-6 py-4 text-center text-sm font-semibold uppercase tracking-widest transition-colors hover:bg-gold hover:text-charcoal"
           >
             Start Exploring
           </Link>

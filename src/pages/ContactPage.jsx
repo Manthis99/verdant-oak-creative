@@ -144,9 +144,36 @@ export default function ContactPage() {
               </div>
             </div>
             
-            {/* Right Column: Lead Magnet Visual Representation */}
-            <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0">
-              <div className="relative w-full max-w-sm group">
+            {/* Right Column: Lead Magnet Visual & Photography Collage */}
+            <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0 items-center h-full group">
+              
+              {/* Background Ambient Photos for Visual Interest */}
+              <div className="absolute -top-6 -left-8 w-36 lg:w-48 h-48 lg:h-64 z-0 hidden sm:block group-hover:-translate-y-6 group-hover:-translate-x-4 group-hover:rotate-[-12deg] transition-all duration-1000 pointer-events-none origin-bottom-right">
+                <img 
+                  src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG" 
+                  alt="Creative process"
+                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[-6deg]"
+                />
+              </div>
+              
+              <div className="absolute -bottom-8 -left-4 w-40 lg:w-56 h-32 lg:h-40 z-0 hidden sm:block group-hover:translate-y-6 group-hover:-translate-x-2 group-hover:rotate-[8deg] transition-all duration-1000 pointer-events-none origin-top-right">
+                <img 
+                  src="/images/misc photos/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg" 
+                  alt="Collaboration"
+                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[4deg]"
+                />
+              </div>
+              
+              <div className="absolute top-1/2 -translate-y-1/2 -right-12 w-32 lg:w-40 h-44 lg:h-56 z-0 hidden xl:block group-hover:translate-x-8 group-hover:rotate-[15deg] transition-all duration-1000 pointer-events-none origin-left">
+                <img 
+                  src="/images/misc photos/Oxford-20203-guardening_shed_working-40.jpg" 
+                  alt="Craft"
+                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[8deg]"
+                />
+              </div>
+
+              {/* The Visual Card */}
+              <div className="relative w-full max-w-sm z-10 transition-transform duration-700 group-hover:scale-[1.02]">
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-br from-charcoal/10 to-charcoal/5 blur-2xl opacity-60 group-hover:opacity-100 transition duration-1000 rounded-full"></div>
                 
