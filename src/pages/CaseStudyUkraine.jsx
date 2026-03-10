@@ -10,7 +10,7 @@ export default function CaseStudyUkraine() {
       client="One Collective Ukraine"
       role="Videographer & Editor"
       year="2022"
-      heroImage="/images/misc photos/athens-acropolise_door-framed-2023-278.jpg"
+      heroImage="/images/Ukrain campaign/Rebuild Ukriane Screen Grab_2.203.1.T.jpg"
     >
       <div className="cs-reveal space-y-6">
         <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-8">The Context</h2>
@@ -24,10 +24,10 @@ export default function CaseStudyUkraine() {
 
       <div className="cs-reveal grid grid-cols-1 md:grid-cols-2 gap-4 py-12 w-[100vw] relative left-1/2 -translate-x-1/2 px-4 md:px-12">
         <div className="aspect-[4/5] bg-smoke/20 w-full overflow-hidden">
-             <img src="/images/misc photos/athens-scaffeling-construction-2023-296.jpg" alt="Construction detail" className="w-full h-full object-cover" />
+             <img src="/images/Ukrain campaign/Rebuild Ukriane Screen Grab_1.14.1.jpg" alt="Construction detail" className="w-full h-full object-cover" />
         </div>
         <div className="aspect-[4/5] bg-smoke/20 w-full overflow-hidden">
-             <img src="/images/misc photos/sunset_ocean_athens-2023-211.jpg" alt="Local environment" className="w-full h-full object-cover" />
+             <img src="/images/Ukrain campaign/Rebuild Ukriane Screen Grab_2.126.1.jpg" alt="Local environment" className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export default function CaseStudyUkraine() {
       <div className="cs-reveal w-[100vw] relative left-1/2 -translate-x-1/2 h-[70vh] bg-charcoal my-12" onClick={() => setIsPlaying(true)}>
         {!isPlaying ? (
           <div className="w-full h-full relative cursor-pointer group">
-             <img src="/images/misc photos/athens-acropolise_door-framed-2023-278.jpg" alt="Play Campaign Video" className="w-full h-full object-cover" />
+             <img src="/images/Ukrain campaign/Rebuild+Ukriane+Screen+Grab_2.221.1.T.jpg" alt="Play Campaign Video" className="w-full h-full object-cover" />
              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
                  <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transition-transform duration-500 group-hover:scale-110">
                      <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>

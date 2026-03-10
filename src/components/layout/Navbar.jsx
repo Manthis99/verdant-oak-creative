@@ -7,10 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { to: '/', label: 'Work' },
-  { to: '/approach', label: 'Approach' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' } // Keep or change based on CTA setup
+  { to: '/work', label: 'Work' },
+  { to: '/contact', label: 'Contact' }
 ];
 
 export default function Navbar() {

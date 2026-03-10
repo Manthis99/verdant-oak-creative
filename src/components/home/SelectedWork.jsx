@@ -124,6 +124,19 @@ export default function SelectedWork() {
                                 </Link>
                             </div>
                         ))}
+
+                        <div className="flex flex-col items-start mt-24 pb-24 border-t border-parchment/10 pt-16">
+                            <h3 className="mb-6 font-serif text-3xl text-parchment leading-tight">
+                                Deep Archives
+                            </h3>
+                            <p className="mb-10 font-sans text-lg font-light leading-relaxed text-parchment/70 md:pr-10">
+                                Beyond these selected stories lies a deep archive of commercial work, documentary shorts, and comprehensive campaigns.
+                            </p>
+                            <Link to="/work" className="group relative self-start overflow-hidden rounded-md bg-parchment/5 border border-parchment/20 px-10 py-5 text-sm tracking-[0.2em] text-parchment uppercase transition-all duration-500 hover:border-gold/50 cursor-pointer block">
+                                <span className="relative z-10 transition-colors duration-500 group-hover:text-black">Explore The Full Archives</span>
+                                <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
