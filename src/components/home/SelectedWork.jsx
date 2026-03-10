@@ -10,7 +10,7 @@ const projects = [
         name: "Ukraine Housing Campaign",
         tension: "A story built to move people from awareness to action, helping raise over $500,000 for safe homes in Ukraine.",
         story: "What looked like a fundraising video was really a trust and clarity problem. The work needed to do more than inform. It needed to help people feel the stakes, understand the response, and believe their giving would matter.",
-        image: "/images/project-2-thumb.jpg",
+        image: "/images/misc photos/athens-acropolise_door-framed-2023-278.jpg",
         link: "/work/ukraine"
     },
     {
@@ -79,10 +79,10 @@ export default function SelectedWork() {
                 </h2>
             </div>
 
-            <div className="flex flex-col md:flex-row w-full">
+            <div className="flex flex-col md:flex-row w-full overflow-x-hidden">
                 
                 {/* Left Side: Sticky Image Exhibition Container */}
-                <div className="md:w-[45%] lg:w-1/2 h-[60vh] md:h-screen sticky top-0 overflow-hidden">
+                <div className="w-full md:w-[60%] shrink-0 h-[60vh] md:h-screen sticky top-0 overflow-hidden">
                     {projects.map((project, i) => (
                         <div key={i} className="absolute inset-0">
                             <img 
@@ -90,14 +90,14 @@ export default function SelectedWork() {
                                 alt={project.name}
                                 className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
                             />
-                            {/* Gradient blend into the background */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-[#111] md:bg-gradient-to-r md:from-transparent md:to-[#111] opacity-90"></div>
+                            {/* Smooth gradient blend that extends image beautifully beneath text */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/40 to-[#111] md:bg-gradient-to-r md:from-[#111]/0 md:via-[#111]/80 md:to-[#111]"></div>
                         </div>
                     ))}
                 </div>
 
                 {/* Right Side: Scrolling Case Study Texts */}
-                <div className="md:w-[55%] lg:w-1/2 relative z-10 py-[60vh] px-6 md:px-16 lg:pr-32">
+                <div className="w-full md:w-[55%] shrink-0 relative z-10 py-[60vh] px-6 md:px-16 lg:pr-32 md:-ml-[15%]">
                     {projects.map((project, i) => (
                         <div key={i} className="project-text-block min-h-[60vh] flex flex-col justify-center pb-24 md:pb-48">
                             <h3 className="mb-8 font-serif text-4xl lg:text-6xl text-parchment leading-tight">
