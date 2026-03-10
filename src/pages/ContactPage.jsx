@@ -80,20 +80,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div ref={containerRef} className="bg-charcoal text-parchment min-h-screen flex flex-col font-sans">
+    <div ref={containerRef} className={`min-h-screen flex flex-col font-sans transition-colors duration-1000 ${flowStage === 'intro' ? 'bg-[#F0EFEB] text-charcoal' : 'bg-charcoal text-parchment'}`}>
       
       {/* Intro View (Full Screen Bleed) */}
       {flowStage === 'intro' ? (
         <div className="relative flex-grow w-full flex flex-col items-center justify-center pt-32 pb-24 contact-reveal overflow-hidden">
           {/* Stunning Full Screen Background Image & Overlays */}
-          <div className="absolute inset-0 z-0 bg-charcoal">
+          <div className="absolute inset-0 z-0 bg-[#F0EFEB]">
             <img 
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" 
               alt="Architectural structure" 
-              className="w-full h-full object-cover grayscale opacity-20 hover:opacity-30 transition-all duration-1000 mix-blend-overlay"
+              className="w-full h-full object-cover grayscale opacity-20 hover:opacity-30 transition-all duration-1000 mix-blend-multiply"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-charcoal/95 via-charcoal/70 to-charcoal/95"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-transparent to-charcoal/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F0EFEB]/95 via-[#F0EFEB]/70 to-[#F0EFEB]/95"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F0EFEB] via-transparent to-[#F0EFEB]/90"></div>
           </div>
           
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -102,25 +102,25 @@ export default function ContactPage() {
             <div className="text-left space-y-12">
               <div>
                 <div className="text-sm tracking-[0.2em] text-gold uppercase font-medium mb-6">Inquiry & Partnership</div>
-                <h1 className="font-serif text-5xl md:text-7xl lg:text-[5rem] leading-[1.05] tracking-tighter text-[#F0EFEB] drop-shadow-2xl">
+                <h1 className="font-serif text-5xl md:text-7xl lg:text-[5rem] leading-[1.05] tracking-tighter text-charcoal drop-shadow-sm">
                   Let's explore <br/> 
-                  <span className="italic text-parchment/70">what's possible.</span>
+                  <span className="italic text-charcoal/70">what's possible.</span>
                 </h1>
               </div>
 
               <div className="space-y-8 max-w-xl">
                 {/* Scannable Point 1 */}
-                <div className="border-l-[3px] border-gold/40 pl-6 hover:border-gold transition-colors duration-500">
-                  <h3 className="font-serif text-2xl text-parchment mb-3 tracking-wide">1. Stop Guessing.</h3>
-                  <p className="font-light text-parchment/60 leading-relaxed text-lg">
+                <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
+                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">1. Stop Guessing.</h3>
+                  <p className="font-light text-charcoal/70 leading-relaxed text-lg">
                     Finding the right partner shouldn't feel like a gamble. We start by unpacking your exact frustrations and identifying the true roadblocks in your way.
                   </p>
                 </div>
                 
                 {/* Scannable Point 2 */}
-                <div className="border-l-[3px] border-gold/40 pl-6 hover:border-gold transition-colors duration-500">
-                  <h3 className="font-serif text-2xl text-parchment mb-3 tracking-wide">2. The Diagnostic.</h3>
-                  <p className="font-light text-parchment/60 leading-relaxed text-lg">
+                <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
+                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">2. The Diagnostic.</h3>
+                  <p className="font-light text-charcoal/70 leading-relaxed text-lg">
                     Answer four strategic questions. This process forces us to look beyond just "making a video" toward solving real business problems.
                   </p>
                 </div>
@@ -129,15 +129,15 @@ export default function ContactPage() {
               <div className="pt-4 flex flex-col sm:flex-row gap-8 items-center sm:items-start">
                 <button 
                   onClick={() => setFlowStage('blueprint')}
-                  className="relative overflow-hidden rounded-md border border-gold bg-gold px-10 py-5 text-sm tracking-[0.2em] text-charcoal font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-gold w-full sm:w-auto shadow-xl shadow-gold/5 group text-center"
+                  className="relative overflow-hidden rounded-md border border-charcoal bg-charcoal px-10 py-5 text-sm tracking-[0.2em] text-parchment font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-charcoal w-full sm:w-auto shadow-xl shadow-charcoal/5 group text-center"
                 >
                   <span className="relative z-10 transition-colors duration-500">Explore A Partnership</span>
-                  <div className="absolute inset-0 h-full w-full translate-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
+                  <div className="absolute inset-0 h-full w-full translate-y-0 bg-charcoal transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
                 </button>
                 
                 <a 
                   href="mailto:hello@verdantoak.com" 
-                  className="text-sm tracking-widest text-parchment/40 uppercase hover:text-parchment border-b border-parchment/20 hover:border-parchment/50 pb-1 transition-colors mt-2 sm:mt-0"
+                  className="text-sm tracking-widest text-charcoal/50 uppercase hover:text-charcoal border-b border-charcoal/20 hover:border-charcoal/50 pb-1 transition-colors mt-2 sm:mt-0"
                 >
                   Or email me directly
                 </a>
@@ -148,19 +148,19 @@ export default function ContactPage() {
             <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0">
               <div className="relative w-full max-w-sm group">
                 {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-gold/20 to-parchment/5 blur-2xl opacity-40 group-hover:opacity-60 transition duration-1000 rounded-full"></div>
+                <div className="absolute -inset-1 bg-gradient-to-br from-charcoal/10 to-charcoal/5 blur-2xl opacity-60 group-hover:opacity-100 transition duration-1000 rounded-full"></div>
                 
                 {/* The Visual Card */}
-                <div className="relative bg-[#111] border border-parchment/10 rounded-xl p-10 shadow-2xl overflow-hidden flex flex-col items-center text-center">
+                <div className="relative bg-white border border-charcoal/10 rounded-xl p-10 shadow-2xl overflow-hidden flex flex-col items-center text-center">
                   
                   {/* The "Field Guide" PDF Thumbnail Mockup */}
-                  <div className="w-56 h-72 bg-[#F0EFEB] rounded shadow-2xl flex flex-col items-center justify-center p-6 mb-10 transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] border border-charcoal/20">
+                  <div className="w-56 h-72 bg-[#F0EFEB] rounded shadow-sm flex flex-col items-center justify-center p-6 mb-10 transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] border border-charcoal/10">
                     <div className="w-full text-left mb-8">
                       <div className="w-12 h-[2px] bg-charcoal/80 mb-1.5"></div>
                       <div className="w-6 h-[2px] bg-gold"></div>
                     </div>
                     <h4 className="font-serif text-charcoal text-2xl leading-[1.1] mb-auto text-left w-full tracking-tight">The Four<br/>Failures of<br/>Creative<br/>Execution.</h4>
-                    <div className="w-full mt-auto flex justify-between items-end border-t border-charcoal/20 pt-3">
+                    <div className="w-full mt-auto flex justify-between items-end border-t border-charcoal/10 pt-3">
                       <span className="text-[9px] text-charcoal/60 uppercase tracking-widest font-semibold flex flex-col text-left gap-1">
                         <span>Verdant Oak</span>
                         <span className="text-charcoal/40">Field Guide</span>
@@ -169,11 +169,11 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-3xl text-parchment mb-4">The Framework</h3>
-                  <p className="font-light text-parchment/50 text-sm leading-relaxed mb-6">
+                  <h3 className="font-serif text-3xl text-charcoal mb-4">The Framework</h3>
+                  <p className="font-light text-charcoal/70 text-sm leading-relaxed mb-6">
                     Complete the diagnostic to receive your free, printable manual outlining how to bridge the gap between strategy and execution.
                   </p>
-                  <span className="text-[10px] tracking-[0.2em] text-gold font-medium uppercase bg-gold/10 px-4 py-2 rounded-full border border-gold/20">
+                  <span className="text-[10px] tracking-[0.2em] text-charcoal font-medium uppercase bg-charcoal/5 px-4 py-2 rounded-full border border-charcoal/10">
                     Free Resource Download
                   </span>
                 </div>
