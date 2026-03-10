@@ -39,8 +39,8 @@ export default function FinalCTA() {
                         Next Steps
                     </p>
                     <h2 className="font-serif text-5xl md:text-7xl lg:text-[8rem] leading-[1.05] tracking-tighter text-parchment mb-12">
-                        Ready to build <br/> 
-                        <span className="italic text-[#D4C3A3] opacity-90">something real?</span>
+                        Start exploring <br/> 
+                        <span className="italic text-[#D4C3A3] opacity-90">what's possible.</span>
                     </h2>
                     <p className="max-w-2xl mx-auto font-sans text-xl lg:text-2xl font-light text-parchment/60 leading-relaxed">
                         I would rather help you get honest about what is worth making than just sell you the nearest deliverable.
@@ -67,17 +67,17 @@ export default function FinalCTA() {
                     </a>
 
                     {/* Path 2: Inquiry */}
-                    <a href="/inquiry" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                    <a href="/start" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-parchment/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
                         <div className="relative z-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6">
-                                Project Inquiry
+                                Start Exploring
                             </h3>
-                            <p className="font-sans text-base font-light text-parchment/60 leading-relaxed max-w-xs mx-auto mb-10">
-                                For scoping a new film, campaign, or comprehensive brand system.
+                            <p className="font-sans text-base font-light text-parchment/60 leading-relaxed max-w-sm mx-auto mb-10">
+                                Answer four strategic questions about your roadblocks and get immediate access to the Verdant Oak Project Framework.
                             </p>
                             <span className="inline-block border-b border-parchment/30 pb-1 text-xs tracking-[0.2em] text-parchment uppercase group-hover:border-parchment transition-colors duration-500">
-                                Start the process
+                                Get The Framework
                             </span>
                         </div>
                     </a>

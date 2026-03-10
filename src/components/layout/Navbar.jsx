@@ -7,8 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { to: '/work', label: 'Work' },
-  { to: '/start', label: 'Start' }
+  { to: '/work', label: 'Work' }
 ];
 
 export default function Navbar() {
@@ -58,6 +57,12 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            to="/start"
+            className="ml-4 rounded-full border border-white/30 px-6 py-2 text-sm tracking-wide transition-all hover:bg-white hover:text-charcoal hover:mix-blend-normal"
+          >
+            Start Exploring
+          </Link>
         </nav>
         <button
           className="md:hidden opacity-80 hover:opacity-100"
@@ -75,6 +80,12 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link 
+            to="/start" 
+            className="mt-4 inline-block rounded border border-charcoal/20 bg-charcoal text-parchment px-6 py-3 text-center text-sm uppercase tracking-widest transition-colors hover:bg-gold hover:text-charcoal hover:border-gold"
+          >
+            Start Exploring
+          </Link>
         </nav>
       )}
     </header>
