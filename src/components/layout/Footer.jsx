@@ -17,7 +17,7 @@ export default function Footer() {
               <span className="text-gold italic">More clarity.</span>
             </h2>
             <p className="max-w-md text-[#D4C3A3] font-light text-lg leading-relaxed">
-              Verdant Oak partners with founders and organizations to build films, campaigns, and systems that actually work.
+              I partner with founders and organizations to bridge the gap between business strategy and creative execution.<br/><br/>No disconnects. Just good creative work that solves actual marketing problems.
             </p>
           </div>
           
@@ -34,41 +34,42 @@ export default function Footer() {
 
         {/* Middle Section: Massive Logo */}
         <div className="mb-20 border-y border-white/10 py-12 text-center md:text-left">
-          <h1 className="text-[12vw] leading-none font-serif tracking-tighter text-[#F0EFEB]/90 uppercase">
-            Verdant Oak<span className="text-gold">.</span>
-          </h1>
+          <Link to="/" className="block">
+            <h1 className="text-[12vw] leading-none font-serif tracking-tighter text-[#F0EFEB]/90 uppercase hover:text-gold transition-colors duration-500">
+              Verdant Oak<span className="text-gold group-hover:text-parchment">.</span>
+            </h1>
+          </Link>
         </div>
 
         {/* Bottom Section: Links & Legal */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm text-parchment/60 font-light">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm text-parchment/60 font-light">
           {/* Col 1 */}
           <div className="flex flex-col gap-4">
             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Navigation</span>
-            <Link to="/" className="hover:text-parchment transition-colors">Work</Link>
-            <Link to="/approach" className="hover:text-parchment transition-colors">Approach</Link>
-            <Link to="/about" className="hover:text-parchment transition-colors">About</Link>
+            <Link to="/" className="hover:text-parchment transition-colors">Home</Link>
+            <Link to="/work" className="hover:text-parchment transition-colors">Work</Link>
+            <Link to="/start" className="hover:text-parchment transition-colors">Start</Link>
           </div>
 
           {/* Col 2 */}
           <div className="flex flex-col gap-4">
-            <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Social</span>
-            <a href="#" className="hover:text-parchment transition-colors flex items-center gap-2">
+            <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Elsewhere</span>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors flex items-center gap-2">
+              LinkedIn
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors flex items-center gap-2">
               Instagram
             </a>
             <a href="#" className="hover:text-parchment transition-colors flex items-center gap-2">
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-parchment transition-colors flex items-center gap-2">
-              Twitter
+              Wedding Portfolio
             </a>
           </div>
           
           {/* Col 3 */}
-          <div className="flex flex-col gap-4 col-span-2 md:col-span-2 md:items-end md:text-right">
-             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Location</span>
-             <p>Serving forward-thinking<br/>brands worldwide.</p>
-             <p className="mt-8 text-xs text-parchment/40">
-               © {new Date().getFullYear()} Verdant Oak Creative.<br/>All rights reserved.
+          <div className="flex flex-col gap-4 col-span-2 md:col-span-1 md:items-end md:text-right">
+             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2 opacity-0 hidden md:block">Legal</span>
+             <p className="mt-8 md:mt-0 text-xs text-parchment/40">
+               © {new Date().getFullYear()} Verdant Oak Creative.<br/>Serving forward-thinking brands worldwide.
              </p>
           </div>
         </div>

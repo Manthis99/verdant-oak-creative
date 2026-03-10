@@ -31,7 +31,7 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
       
       <p className="text-parchment/70 font-light mb-10 relative z-10 leading-relaxed md:pr-12">
         Submit your details below to send this comprehensive inquiry to my desk. In exchange for your time, you will immediately receive the 
-        <span className="italic text-parchment"> Verdant Oak Framework Field Guide</span>—a breakdown of how to build communication infrastructure that actually converts.
+        <span className="italic text-parchment"> Verdant Oak Project Framework</span>—a breakdown of how to build communication infrastructure that actually converts.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
@@ -83,7 +83,7 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
           disabled={!formData.name || !formData.email}
           className="w-full md:w-auto mt-8 relative overflow-hidden rounded-md border border-gold bg-gold px-12 py-5 text-sm tracking-[0.2em] text-charcoal font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-gold disabled:opacity-30 disabled:cursor-not-allowed group"
         >
-          <span className="relative z-10 transition-colors duration-500">Submit & Get Field Guide</span>
+          <span className="relative z-10 transition-colors duration-500">Submit & Get Framework</span>
           <div className="absolute inset-0 h-full w-full translate-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
         </button>
       </form>

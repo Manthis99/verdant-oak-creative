@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/work" element={<WorkPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/start" element={<ContactPage />} />
           <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
           <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
         </Routes>
