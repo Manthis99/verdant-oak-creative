@@ -13,8 +13,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 gap-16 mb-32">
           <div>
             <h2 className="text-4xl md:text-6xl font-serif text-[#F0EFEB] tracking-tight mb-6">
-              Less noise.<br/>
-              <span className="text-gold italic">More clarity.</span>
+              Strategic insight.<br/>
+              <span className="text-gold italic">Precise execution.</span>
             </h2>
             <p className="max-w-md text-[#D4C3A3] font-light text-lg leading-relaxed">
               I partner with founders and organizations to bridge the gap between business strategy and creative execution.<br/><br/>No disconnects. Just good creative work that solves actual marketing problems.

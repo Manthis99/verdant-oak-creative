@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdant Oak Project Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#0F0F0F',
+                        parchment: '#F0EFEB',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F0EFEB; /* Parchment background for print */
+            color: #0F0F0F;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        @page {
+            size: letter;
+            margin: 0;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        .pdf-page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            position: relative;
+            background-color: #F0EFEB;
+            overflow: hidden;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        @media print {
+            .pdf-page {
+                box-shadow: none;
+            }
+            body {
+                background-color: white;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased py-8 bg-gray-100 print:py-0 print:bg-white flex flex-col items-center gap-8">
+
+    <div class="fixed top-4 right-4 z-50 no-print">
+        <button onclick="window.print()" class="bg-charcoal text-parchment px-6 py-3 rounded text-sm tracking-widest uppercase hover:bg-gold transition-colors shadow-lg">
+            Save as PDF
+        </button>
+    </div>
+
+    <!-- PAGE 1: COVER -->
+    <div class="pdf-page p-16 flex flex-col justify-between border-8 border-charcoal m-4">
+        <div class="flex justify-between items-start">
+            <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Verdant Oak Creative</h4>
+            <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Field Guide 01</h4>
+        </div>
+        
+        <div class="py-24">
+            <h1 class="font-serif text-6xl leading-[1.1] tracking-tight mb-8">
+                The Four Failures of Creative Execution.
+            </h1>
+            <p class="font-sans text-xl text-charcoal/80 font-light leading-relaxed max-w-lg border-l-2 border-gold pl-6">
+                Why beautiful videos fail to convert, and how to bridge the gap between business strategy and creative production.
+            </p>
+        </div>
+
+        <div class="flex items-end justify-between border-t border-charcoal/10 pt-8">
+            <div class="text-sm font-sans text-charcoal/60">
+                Prepared by Michael Procton<br/>
+                Strategist & Director
+            </div>
+            <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+
+    <!-- PAGE 2: INTRODUCTION & PROBLEM 1 -->
+    <div class="pdf-page p-16 flex flex-col">
+        <div class="mb-16 border-b border-charcoal/10 pb-6 flex justify-between items-end">
+            <h2 class="font-serif text-3xl">Diagnosis & Doctrine</h2>
+            <span class="text-xs tracking-[0.2em] text-gold uppercase">01</span>
+        </div>
+
+        <div class="prose prose-lg max-w-none font-sans font-light leading-relaxed text-charcoal/80 flex-grow">
+            <p class="text-2xl font-serif text-charcoal mb-8 leading-snug">
+                Every year, organizations waste thousands of dollars on "cinematic" creative assets that look incredible but accomplish absolutely nothing.
+            </p>
+            <p class="mb-12">
+                This happens when creative execution is decoupled from business strategy. We hire artists to make things look beautiful, but we fail to hire strategists to ensure those beautiful things solve real problems. Here are the four primary points of failure, and how the Verdant Oak Framework solves them.
+            </p>
+
+            <div class="bg-charcoal text-parchment p-10 rounded-sm mb-8 shadow-xl">
+                <div class="text-gold text-sm tracking-widest uppercase mb-4">Failure Point 01</div>
+                <h3 class="font-serif text-3xl mb-4 text-[#F0EFEB]">Ignoring the Strategy.</h3>
+                <p class="font-light opacity-80 leading-relaxed mb-6">
+                    A video is just a delivery vehicle. If the underlying message is confused, a beautiful video will only deliver that confusion faster and more effectively. Most creative projects fail because the organization hasn't clearly defined the singular, strategic outcome the asset needs to achieve.
+                </p>
+                <div class="pt-4 border-t border-white/10">
+                    <strong class="text-gold font-medium">The Fix:</strong> We do not touch a camera until we can articulate the exact tension, the desired outcome, and the specific audience roadblock we are trying to remove.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+
+    <!-- PAGE 3: PROBLEM 2 & 3 -->
+    <div class="pdf-page p-16 flex flex-col">
+        <div class="mb-12 border-b border-charcoal/10 pb-6 flex justify-between items-end">
+            <h2 class="font-serif text-3xl">Ecosystem & Empathy</h2>
+            <span class="text-xs tracking-[0.2em] text-gold uppercase">02</span>
+        </div>
+
+        <div class="prose prose-lg max-w-none font-sans font-light leading-relaxed text-charcoal/80 flex-grow space-y-12">
+            
+            <div>
+                <div class="text-gold text-sm font-semibold tracking-widest uppercase mb-2">Failure Point 02</div>
+                <h3 class="font-serif text-4xl mb-6 text-charcoal">Forgetting the End User.</h3>
+                <p class="mb-4">
+                    Companies love talking about themselves. They build creative that highlights their history, their features, and their internal jargon. But the end user only cares about one thing: <em>can you solve my problem?</em>
+                </p>
+                <p class="pl-6 border-l-2 border-gold text-charcoal/60 italic">
+                    The Fix: Frame every piece of creative around the end user's felt frustration. You play the guide, they play the hero. We build assets that make them feel deeply understood first, and pitched to second.
+                </p>
+            </div>
+
+            <div>
+                <div class="text-gold text-sm font-semibold tracking-widest uppercase mb-2">Failure Point 03</div>
+                <h3 class="font-serif text-4xl mb-6 text-charcoal">The Orphaned Asset.</h3>
+                <p class="mb-4">
+                    A great video is completely useless if the landing page it lives on contradicts it. Often, a company will spend heavily on a flagship video, but drop it onto a poorly converting, confusing webpage. The marketing ecosystem is broken. What do the social ads say? Does the copy on the landing page mirror the hook in the video?
+                </p>
+                <p class="pl-6 border-l-2 border-gold text-charcoal/60 italic">
+                    The Fix: We look at the entire funnel. We ensure the creative asset seamlessly integrates with your existing website copy, sales pipelines, and distribution channels so the user experience is unbroken from first click to conversion.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+
+    <!-- PAGE 4: PROBLEM 4 & OUTRO -->
+    <div class="pdf-page p-16 flex flex-col justify-between bg-charcoal text-parchment">
+        
+        <div>
+            <div class="mb-16 border-b border-parchment/10 pb-6 flex justify-between items-end">
+                <h2 class="font-serif text-3xl">Systems & Success</h2>
+                <span class="text-xs tracking-[0.2em] text-gold uppercase">03</span>
+            </div>
+
+            <div class="text-gold text-sm tracking-widest uppercase mb-4">Failure Point 04</div>
+            <h3 class="font-serif text-4xl leading-tight mb-8">Failing the Handoff.</h3>
+            <p class="font-sans font-light text-xl text-parchment/70 leading-relaxed max-w-2xl mb-12">
+                Let's assume the creative is perfect, and the landing page works. The final failure point is internal: capturing the lead, but failing to hand it over to sales effectively. A lack of automated CRM infrastructure or immediate follow-up means the momentum generated by the creative is instantly lost.
+            </p>
+            
+            <p class="font-sans font-light text-lg text-parchment/50 pl-6 border-l-2 border-gold max-w-2xl">
+                <strong class="text-parchment">The Fix:</strong> Creative must serve operations. We engineer campaigns that not only capture attention, but safely format and deliver that attention directly to the folks on your team responsible for closing the deal.
+            </p>
+        </div>
+
+        <div class="border-t border-parchment/10 pt-12 flex flex-col items-center text-center">
+            <h2 class="font-serif text-4xl mb-6">Ready to build something that actually works?</h2>
+            <p class="font-sans font-light text-parchment/60 mb-8 max-w-md">
+                I've received your diagnostic answers. I'll be reviewing your current roadblocks and will reach out shortly to schedule a clarity call. 
+            </p>
+            <a href="https://verdantoak.com" class="text-sm tracking-widest uppercase text-gold hover:text-[#F0EFEB] transition-colors border-b border-gold/30 pb-1">
+                Return to verdantoak.com
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

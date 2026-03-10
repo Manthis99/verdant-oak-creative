@@ -88,8 +88,8 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center min-h-[60vh] contact-reveal">
             <div className="order-2 md:order-1 relative aspect-[4/5] overflow-hidden rounded-lg">
               <img 
-                src="https://raw.githubusercontent.com/Manthis99/verdant-oak-creative/refs/heads/main/src/assets/images/misc%20photos/Nicaragua%2BScreen%2BGrab_2.26.1.jpg_compressed" 
-                alt="Cinematic production still" 
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" 
+                alt="Architectural structure" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
@@ -97,17 +97,17 @@ export default function ContactPage() {
             
             <div className="order-1 md:order-2 space-y-8">
               <div className="text-sm tracking-[0.2em] text-gold uppercase">Inquiry</div>
-              <h1 className="font-serif text-5xl md:text-6xl tracking-tighter">Start The Process.</h1>
+              <h1 className="font-serif text-5xl md:text-6xl tracking-tighter">Let's Explore What's Possible.</h1>
               
               <div className="space-y-6 text-lg text-parchment/70 font-light leading-relaxed">
                 <p>
-                  Finding the right creative partner shouldn't feel like a gamble. Before we get on a call, I want to understand exactly what you are trying to solve.
+                  Finding the right partner shouldn't feel like a gamble. Before we jump into a project, I want to understand exactly who you are, what you're trying to achieve, and what roadblocks are in the way.
                 </p>
                 <p>
-                  Take two minutes to answer <span className="text-parchment font-medium italic">four strategic questions</span>. It gives me the context I need to actually help you, and forces us to look beyond just "making a video."
+                  Take a moment to answer <span className="text-parchment font-medium italic">four strategic questions</span>. These give me an idea of how I can actually help you, and forces us to look beyond just "making a video" toward solving real business problems.
                 </p>
                 <p>
-                  In exchange for your time setting this up for success, I'll send you a copy of the <span className="text-parchment font-medium italic">Verdant Oak Project Framework</span> upon submission.
+                  As a thank you for your time, I'll send you a copy of the <span className="text-parchment font-medium italic">Verdant Oak Project Framework</span> upon submission.
                 </p>
               </div>
 
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   onClick={() => setFlowStage('blueprint')}
                   className="relative overflow-hidden rounded-md border border-gold bg-gold px-8 py-4 text-sm tracking-[0.2em] text-charcoal uppercase transition-all duration-500 hover:bg-transparent hover:text-gold group"
                 >
-                  <span className="relative z-10 transition-colors duration-500">Begin The Questions</span>
+                  <span className="relative z-10 transition-colors duration-500">Explore A Partnership</span>
                   <div className="absolute inset-0 h-full w-full translate-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
                 </button>
                 
@@ -187,14 +187,15 @@ export default function ContactPage() {
             </p>
             
             <a 
-              href="/Verdant_Oak_Field_Guide_Mock.pdf" 
-              download
+              href="/Verdant_Oak_Field_Guide_Mock.pdf.html" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-md border border-gold px-10 py-4 text-sm tracking-[0.2em] text-gold uppercase transition-all duration-500 hover:text-charcoal cursor-pointer block"
             >
-              <span className="relative z-10 transition-colors duration-500">Download Your Field Guide</span>
+              <span className="relative z-10 transition-colors duration-500">View & Download Your Framework</span>
               <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
             </a>
-            <p className="text-xs text-parchment/40 mt-4 tracking-widest uppercase">PDF • 2.4 MB</p>
+            <p className="text-xs text-parchment/40 mt-4 tracking-widest uppercase">HTML / Printable PDF</p>
           </div>
         )}
 
