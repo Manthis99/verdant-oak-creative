@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -67,7 +68,7 @@ export default function FinalCTA() {
                     </a>
 
                     {/* Path 2: Inquiry */}
-                    <a href="/start" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                    <Link to="/start" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-parchment/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
                         <div className="relative z-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6">
@@ -80,7 +81,7 @@ export default function FinalCTA() {
                                 Get The Framework
                             </span>
                         </div>
-                    </a>
+                    </Link>
 
                 </div>
             </div>
