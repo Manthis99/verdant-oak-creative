@@ -85,15 +85,18 @@ export default function ContactPage() {
       {/* Intro View (Full Screen Bleed) */}
       {flowStage === 'intro' ? (
         <div className="relative flex-grow w-full flex flex-col items-center justify-center pt-32 pb-24 contact-reveal overflow-hidden">
-          {/* Stunning Full Screen Background Image & Overlays */}
+          {/* Stunning Full Screen Background Image, Overlays & Grain */}
           <div className="absolute inset-0 z-0 bg-[#F0EFEB]">
             <img 
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" 
               alt="Architectural structure" 
-              className="w-full h-full object-cover grayscale opacity-20 hover:opacity-30 transition-all duration-1000 mix-blend-multiply"
+              className="w-full h-full object-cover opacity-20 hover:opacity-30 transition-all duration-1000 mix-blend-hard-light saturate-50"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#F0EFEB]/95 via-[#F0EFEB]/70 to-[#F0EFEB]/95"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#F0EFEB] via-transparent to-[#F0EFEB]/90"></div>
+            {/* Grit / Grain Texture */}
+            <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+            {/* Gradients to ensure text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F0EFEB]/95 via-[#F0EFEB]/60 to-[#F0EFEB]/95"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F0EFEB] via-transparent to-[#F0EFEB]/80"></div>
           </div>
           
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -152,7 +155,7 @@ export default function ContactPage() {
                 <img 
                   src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG" 
                   alt="Creative process"
-                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[-6deg]"
+                  className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[-6deg]"
                 />
               </div>
               
@@ -160,7 +163,7 @@ export default function ContactPage() {
                 <img 
                   src="/images/misc photos/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg" 
                   alt="Collaboration"
-                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[4deg]"
+                  className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[4deg]"
                 />
               </div>
               
@@ -168,7 +171,7 @@ export default function ContactPage() {
                 <img 
                   src="/images/misc photos/Oxford-20203-guardening_shed_working-40.jpg" 
                   alt="Craft"
-                  className="w-full h-full object-cover rounded-sm shadow-2xl opacity-90 grayscale mix-blend-multiply border-[6px] lg:border-[8px] border-white transform rotate-[8deg]"
+                  className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[8deg]"
                 />
               </div>
 
