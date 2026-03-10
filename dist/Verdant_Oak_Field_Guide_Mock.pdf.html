@@ -24,14 +24,15 @@
         }
     </script>
     <style>
+        @page {
+            size: letter;
+            margin: 0;
+        }
         body {
             background-color: #F0EFEB; /* Parchment background for print */
             color: #0F0F0F;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
-        }
-        @page {
-            size: letter;
             margin: 0;
         }
         .page-break {
@@ -46,13 +47,15 @@
             overflow: hidden;
             box-sizing: border-box;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            break-after: page;
         }
         @media print {
-            .pdf-page {
-                box-shadow: none;
-            }
             body {
                 background-color: white;
+            }
+            .pdf-page {
+                box-shadow: none;
+                margin: 0;
             }
             .no-print {
                 display: none;
@@ -60,7 +63,7 @@
         }
     </style>
 </head>
-<body class="antialiased py-8 bg-gray-100 print:py-0 print:bg-white flex flex-col items-center gap-8">
+<body class="antialiased py-8 bg-gray-100 print:py-0 print:gap-0 flex flex-col items-center gap-8">
 
     <div class="fixed top-4 right-4 z-50 no-print">
         <button onclick="window.print()" class="bg-charcoal text-parchment px-6 py-3 rounded text-sm tracking-widest uppercase hover:bg-gold transition-colors shadow-lg">
@@ -69,7 +72,7 @@
     </div>
 
     <!-- PAGE 1: COVER -->
-    <div class="pdf-page p-16 flex flex-col justify-between border-8 border-charcoal m-4">
+    <div class="pdf-page p-16 flex flex-col justify-between border-8 border-charcoal m-4 print:m-0 print:border-[12px]">
         <div class="flex justify-between items-start">
             <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Verdant Oak Creative</h4>
             <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Field Guide 01</h4>
@@ -184,8 +187,8 @@
             <p class="font-sans font-light text-parchment/60 mb-8 max-w-md">
                 I've received your diagnostic answers. I'll be reviewing your current roadblocks and will reach out shortly to schedule a clarity call. 
             </p>
-            <a href="https://verdantoak.com" class="text-sm tracking-widest uppercase text-gold hover:text-[#F0EFEB] transition-colors border-b border-gold/30 pb-1">
-                Return to verdantoak.com
+            <a href="https://creative.michaelproctor.co" class="text-sm tracking-widest uppercase text-gold hover:text-[#F0EFEB] transition-colors border-b border-gold/30 pb-1">
+                Return to creative.michaelproctor.co
             </a>
         </div>
     </div>

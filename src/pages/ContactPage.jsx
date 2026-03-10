@@ -85,36 +85,42 @@ export default function ContactPage() {
         
         {/* Intro View */}
         {flowStage === 'intro' && (
-          <div className="grid md:grid-cols-2 gap-12 items-center min-h-[60vh] contact-reveal">
-            <div className="order-2 md:order-1 relative aspect-[4/5] overflow-hidden rounded-lg">
+          <div className="relative min-h-[75vh] flex flex-col items-center justify-center text-center p-8 md:p-16 contact-reveal rounded-2xl overflow-hidden mt-4 shadow-2xl">
+            {/* Background Image & Overlays */}
+            <div className="absolute inset-0 z-0 bg-charcoal">
               <img 
                 src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" 
                 alt="Architectural structure" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 opacity-80"
+                className="w-full h-full object-cover grayscale opacity-30 hover:grayscale-0 transition-all duration-1000 mix-blend-overlay"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-transparent to-transparent opacity-80"></div>
             </div>
             
-            <div className="order-1 md:order-2 space-y-8">
-              <div className="text-sm tracking-[0.2em] text-gold uppercase">Inquiry</div>
-              <h1 className="font-serif text-5xl md:text-6xl tracking-tighter">Let's Explore What's Possible.</h1>
+            {/* Content Payload */}
+            <div className="relative z-10 max-w-3xl space-y-10">
+              <div className="text-sm tracking-[0.2em] text-gold uppercase font-medium">Inquiry</div>
               
-              <div className="space-y-6 text-lg text-parchment/70 font-light leading-relaxed">
+              <h1 className="font-serif text-5xl md:text-7xl tracking-tighter text-[#F0EFEB] drop-shadow-lg">
+                Let's Explore What's Possible.
+              </h1>
+              
+              <div className="space-y-6 text-lg text-parchment/80 font-light leading-relaxed max-w-2xl mx-auto">
                 <p>
                   Finding the right partner shouldn't feel like a gamble. Before we jump into a project, I want to understand exactly who you are, what you're trying to achieve, and what roadblocks are in the way.
                 </p>
                 <p>
-                  Take a moment to answer <span className="text-parchment font-medium italic">four strategic questions</span>. These give me an idea of how I can actually help you, and forces us to look beyond just "making a video" toward solving real business problems.
+                  Take a moment to answer <span className="text-white font-medium italic">four strategic questions</span>. These give me an idea of how I can actually help you, and formats our discussion to look beyond just "making a video" toward solving real business problems.
                 </p>
-                <p>
-                  As a thank you for your time, I'll send you a copy of the <span className="text-parchment font-medium italic">Verdant Oak Project Framework</span> upon submission.
-                </p>
+                <div className="pt-6 mt-6 border-t border-parchment/10 text-sm tracking-wide text-parchment/50">
+                  As a thank you for your time, I'll send you a copy of the <span className="text-white font-medium italic">Verdant Oak Project Framework</span> upon submission.
+                </div>
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+              <div className="pt-8 flex flex-col sm:flex-row gap-8 items-center justify-center w-full">
                 <button 
                   onClick={() => setFlowStage('blueprint')}
-                  className="relative overflow-hidden rounded-md border border-gold bg-gold px-8 py-4 text-sm tracking-[0.2em] text-charcoal uppercase transition-all duration-500 hover:bg-transparent hover:text-gold group"
+                  className="relative overflow-hidden rounded-md border border-gold bg-gold px-10 py-5 text-sm tracking-[0.2em] text-charcoal font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-gold w-full sm:w-auto shadow-xl shadow-gold/10 group"
                 >
                   <span className="relative z-10 transition-colors duration-500">Explore A Partnership</span>
                   <div className="absolute inset-0 h-full w-full translate-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
@@ -122,7 +128,7 @@ export default function ContactPage() {
                 
                 <a 
                   href="mailto:hello@verdantoak.com" 
-                  className="text-sm tracking-widest text-parchment/40 uppercase hover:text-parchment border-b border-parchment/20 pb-1 transition-colors"
+                  className="text-sm tracking-widest text-parchment/40 uppercase hover:text-parchment border-b border-parchment/20 hover:border-parchment/50 pb-1 transition-colors"
                 >
                   Or simply email me directly
                 </a>
