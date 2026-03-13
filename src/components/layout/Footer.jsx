@@ -47,7 +47,6 @@ export default function Footer() {
             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Navigation</span>
             <Link to="/" className="hover:text-parchment transition-colors">Home</Link>
             <Link to="/work" className="hover:text-parchment transition-colors">Work</Link>
-            <Link to="/writing" className="hover:text-parchment transition-colors">Writing</Link>
             <Link to="/start" className="hover:text-parchment transition-colors">Start the Diagnostic</Link>
             <Link to="/book" className="hover:text-parchment transition-colors">Schedule a Call</Link>
           </div>

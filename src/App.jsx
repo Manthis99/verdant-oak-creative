@@ -8,8 +8,6 @@ import WorkPage from './pages/WorkPage';
 import ContactPage from './pages/ContactPage';
 import CaseStudyUkraine from './pages/CaseStudyUkraine';
 import CaseStudyNicaragua from './pages/CaseStudyNicaragua';
-import WritingPage from './pages/WritingPage';
-import ArticlePage from './pages/ArticlePage';
 import BookingPage from './pages/BookingPage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -36,8 +34,6 @@ export default function App() {
           <Route path="/start" element={<ContactPage />} />
           <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
           <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
-          <Route path="/writing" element={<WritingPage />} />
-          <Route path="/writing/:slug" element={<ArticlePage />} />
           <Route path="/book" element={<BookingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

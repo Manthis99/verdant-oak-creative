@@ -7,8 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { to: '/work', label: 'Work' },
-  { to: '/writing', label: 'Writing' }
+  { to: '/work', label: 'Work' }
 ];
 
 export default function Navbar() {
