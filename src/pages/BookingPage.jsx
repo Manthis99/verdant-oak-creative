@@ -1,9 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 export default function BookingPage() {
   const containerRef = useRef(null);
+  const widgetRef = useRef(null);
+  const [showFallback, setShowFallback] = useState(false);
 
   // Load Calendly widget script once
   useEffect(() => {
@@ -13,6 +15,48 @@ export default function BookingPage() {
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.body.appendChild(script);
+  }, []);
+
+  useEffect(() => {
+    const widgetNode = widgetRef.current;
+    if (!widgetNode) return;
+
+    let resolved = false;
+
+    const markLoaded = () => {
+      resolved = true;
+      setShowFallback(false);
+    };
+
+    const checkForEmbed = () => {
+      const iframe = widgetNode.querySelector('iframe');
+      if (iframe) {
+        markLoaded();
+        return true;
+      }
+      return false;
+    };
+
+    if (checkForEmbed()) return;
+
+    const observer = new MutationObserver(() => {
+      if (checkForEmbed()) {
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(widgetNode, { childList: true, subtree: true });
+
+    const fallbackTimer = window.setTimeout(() => {
+      if (!resolved && !checkForEmbed()) {
+        setShowFallback(true);
+      }
+    }, 4000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallbackTimer);
+    };
   }, []);
 
   useGSAP(() => {
@@ -31,14 +75,20 @@ export default function BookingPage() {
       {/* Hero Header */}
       <header className="pt-48 pb-16 px-6 md:px-12 text-center max-w-4xl mx-auto">
         <p className="book-reveal text-xs uppercase tracking-[0.3em] text-charcoal/40 font-medium mb-6">
-          Let's Talk
+          Schedule a Call
         </p>
         <h1 className="book-reveal font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 text-charcoal">
-          Book a <span className="italic">Conversation</span>
+          Schedule a <span className="italic">Call</span>
         </h1>
         <p className="book-reveal text-xl md:text-2xl font-light italic text-charcoal/60 leading-relaxed max-w-2xl mx-auto">
           45 minutes. No pressure, no pitch. Just an honest look at your project and whether we're the right fit.
         </p>
+        <a
+          href="mailto:hello@michaelproctor.co"
+          className="book-reveal inline-block mt-8 border-b border-charcoal/20 pb-1 text-sm uppercase tracking-[0.2em] text-charcoal/50 transition-colors hover:border-charcoal/50 hover:text-charcoal"
+        >
+          Email Me Directly
+        </a>
       </header>
 
       {/* Divider */}
@@ -47,10 +97,41 @@ export default function BookingPage() {
       {/* Calendly Inline Widget */}
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <div
+          ref={widgetRef}
           className="calendly-inline-widget rounded-2xl overflow-hidden shadow-sm"
           data-url="https://calendly.com/proctom/45?primary_color=cc5c38"
-          style={{ minWidth: '320px', height: '700px' }}
+          style={{ minWidth: '320px', height: '1150px' }}
         />
+
+        {showFallback && (
+          <div className="book-reveal mt-8 rounded-2xl border border-charcoal/10 bg-white/60 px-6 py-5 text-center">
+            <p className="text-sm uppercase tracking-[0.2em] text-charcoal/40 font-medium mb-3">
+              Calendar not loading?
+            </p>
+            <p className="text-base md:text-lg font-light text-charcoal/65 leading-relaxed">
+              If the embed is blocked by cookie or privacy settings, you can
+              {' '}
+              <a
+                href="https://calendly.com/proctom/45"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-charcoal/20 text-charcoal transition-colors hover:border-charcoal/50 hover:text-charcoal/80"
+              >
+                open Calendly in a new tab
+              </a>
+              {' '}
+              or
+              {' '}
+              <a
+                href="mailto:hello@michaelproctor.co"
+                className="border-b border-charcoal/20 text-charcoal transition-colors hover:border-charcoal/50 hover:text-charcoal/80"
+              >
+                email me directly
+              </a>
+              .
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

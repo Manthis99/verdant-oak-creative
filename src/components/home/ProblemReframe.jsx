@@ -96,7 +96,7 @@ export default function ProblemReframe() {
 
   return (
     <section ref={containerRef} className="h-[560vh] w-full bg-[#EBE9E1]">
-      <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-center px-6 overflow-hidden">
+      <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-start px-6 pt-28 md:pt-36 overflow-hidden">
         
         {/* The Headline starts centered via JS animation */}
         <h2 className="reframe-headline z-20 text-center font-serif text-4xl leading-tight text-charcoal md:text-[3.5rem] lg:text-[4rem] max-w-4xl tracking-tight">
@@ -108,7 +108,7 @@ export default function ProblemReframe() {
         </div>
 
         {/* Central Architectural Area */}
-        <div className="relative w-full max-w-5xl flex-1 flex items-center justify-center pt-4 pb-44 md:pb-56">
+        <div className="relative w-full max-w-5xl flex-1 flex items-center justify-center pt-8 md:pt-10 pb-44 md:pb-56">
             
             {/* The Spine */}
             <div className="reframe-spine absolute top-0 bottom-28 md:bottom-36 w-[1.5px] bg-charcoal/30 z-0"></div>

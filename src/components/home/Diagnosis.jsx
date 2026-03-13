@@ -87,7 +87,7 @@ export default function Diagnosis() {
         <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 grid-rows-1 place-items-center text-center px-4">
           
           {/* Line 1 — large, authoritative serif */}
-          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-tight">
+          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-[0.03em]">
             You probably do not need more creative.
           </h1>
           

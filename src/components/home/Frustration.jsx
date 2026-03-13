@@ -89,7 +89,7 @@ export default function Frustration() {
                   The brief was clear.
               </p>
               <p className="frustration-main font-serif text-5xl md:text-7xl lg:text-[6rem] frustration-text-primary text-charcoal leading-[1.1] tracking-tight opacity-0">
-                  The situation<br/>
+                  The underlying problem<br/>
                   <span className="italic text-[#D4C3A3] opacity-90">was not.</span>
               </p>
           </div>

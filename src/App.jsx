@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -12,9 +13,20 @@ import ArticlePage from './pages/ArticlePage';
 import BookingPage from './pages/BookingPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-parchment text-charcoal font-sans selection:bg-moss selection:text-parchment">
+      <ScrollToTop />
       <Navbar />
       <main>
         <Routes>

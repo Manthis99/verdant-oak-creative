@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tiers = [
   {
@@ -50,10 +51,10 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-            <a href="mailto:hello@verdantoak.com" className="cta-button mt-8 w-full justify-center">
-              Book a Call <ArrowRight size={16} />
+            <Link to="/book" className="cta-button mt-8 w-full justify-center">
+              Schedule a Call <ArrowRight size={16} />
               <span className="cta-slide" aria-hidden="true" />
-            </a>
+            </Link>
           </article>
         ))}
       </section>

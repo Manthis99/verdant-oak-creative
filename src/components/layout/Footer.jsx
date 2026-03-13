@@ -17,16 +17,16 @@ export default function Footer() {
               <span className="text-gold italic">starts here.</span>
             </h2>
             <p className="max-w-md text-[#D4C3A3] font-light text-lg leading-relaxed">
-              If something on this site felt true — even if you're not sure what to do with that yet — reach out. The conversation is free.
+              If something on this site felt true, start the diagnostic, schedule a call, or send a direct email. All of it is free.
             </p>
           </div>
           
           <div className="flex flex-col md:items-end justify-center">
             <a 
-              href="mailto:hello@verdantoak.com" 
+              href="mailto:hello@michaelproctor.co" 
               className="group inline-flex items-center gap-3 text-xl md:text-2xl font-serif text-[#F0EFEB] hover:text-gold transition-colors duration-500 border-b border-white/10 hover:border-gold/30 pb-2"
             >
-              hello@verdantoak.com
+              hello@michaelproctor.co
               <ArrowRight size={20} className="transition-transform duration-500 group-hover:translate-x-2" />
             </a>
           </div>
@@ -48,8 +48,8 @@ export default function Footer() {
             <Link to="/" className="hover:text-parchment transition-colors">Home</Link>
             <Link to="/work" className="hover:text-parchment transition-colors">Work</Link>
             <Link to="/writing" className="hover:text-parchment transition-colors">Writing</Link>
-            <Link to="/start" className="hover:text-parchment transition-colors">Start</Link>
-            <Link to="/book" className="hover:text-parchment transition-colors">Book a Call</Link>
+            <Link to="/start" className="hover:text-parchment transition-colors">Start the Diagnostic</Link>
+            <Link to="/book" className="hover:text-parchment transition-colors">Schedule a Call</Link>
           </div>
 
           <div className="flex flex-col gap-4">

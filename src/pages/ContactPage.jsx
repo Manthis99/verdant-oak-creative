@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ProjectBlueprint from '../components/contact/ProjectBlueprint';
@@ -146,12 +147,12 @@ export default function ContactPage() {
                   <div className="absolute inset-0 h-full w-full translate-y-0 bg-charcoal transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
                 </button>
                 
-                <a 
-                  href="mailto:hello@verdantoak.com" 
+                <Link 
+                  to="/book"
                   className="text-sm tracking-widest text-charcoal/50 uppercase hover:text-charcoal border-b border-charcoal/20 hover:border-charcoal/50 pb-1 transition-colors mt-2 sm:mt-0"
                 >
-                  Or email me directly
-                </a>
+                  Schedule a call
+                </Link>
               </div>
             </div>
             

@@ -45,41 +45,50 @@ export default function FinalCTA() {
                     </p>
                 </div>
 
-                {/* Dual Response Paths */}
+                {/* Primary and secondary CTA paths */}
                 <div className="cta-fade grid md:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
                     
-                    {/* Path 1: Direct */}
-                    <a href="mailto:hello@verdantoak.com" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-gold/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gold/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+                    {/* Primary */}
+                    <Link to="/start" className="group relative border border-gold/25 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-gold/40 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gold/8 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
                         <div className="relative z-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6 group-hover:text-gold transition-colors duration-500">
-                                Direct Email
-                            </h3>
-                            <p className="font-sans text-base font-light text-parchment/70 leading-relaxed max-w-xs mx-auto mb-10">
-                                For quick questions, availability, or early fit checks.
-                            </p>
-                            <span className="inline-block border-b border-gold/30 pb-1 text-xs tracking-[0.2em] text-gold uppercase group-hover:border-gold transition-colors duration-500">
-                                hello@verdantoak.com
-                            </span>
-                        </div>
-                    </a>
-
-                    {/* Path 2: Inquiry */}
-                    <Link to="/start" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-parchment/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
-                        <div className="relative z-10">
-                            <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6">
-                                Start the Conversation
+                                Start the Diagnostic
                             </h3>
                             <p className="font-sans text-base font-light text-parchment/70 leading-relaxed max-w-sm mx-auto mb-10">
-                                Answer four strategic questions and get the Verdant Oak Project Framework.
+                                Walk through the core tension, outcome, and obstacles first. It is the best fit if you are interested but still sorting out what is really needed.
                             </p>
-                            <span className="inline-block border-b border-parchment/30 pb-1 text-xs tracking-[0.2em] text-parchment uppercase group-hover:border-parchment transition-colors duration-500">
-                                Get The Framework
+                            <span className="inline-block border-b border-gold/30 pb-1 text-xs tracking-[0.2em] text-gold uppercase group-hover:border-gold transition-colors duration-500">
+                                Start the Diagnostic
                             </span>
                         </div>
                     </Link>
 
+                    {/* Secondary */}
+                    <Link to="/book" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-parchment/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
+                        <div className="relative z-10">
+                            <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6">
+                                Schedule a Call
+                            </h3>
+                            <p className="font-sans text-base font-light text-parchment/70 leading-relaxed max-w-sm mx-auto mb-10">
+                                If you already know you want to talk, book time directly and we will look at the problem together.
+                            </p>
+                            <span className="inline-block border-b border-parchment/30 pb-1 text-xs tracking-[0.2em] text-parchment uppercase group-hover:border-parchment transition-colors duration-500">
+                                Schedule a Call
+                            </span>
+                        </div>
+                    </Link>
+
+                </div>
+
+                <div className="cta-fade mt-10 text-center">
+                    <a
+                        href="mailto:hello@michaelproctor.co"
+                        className="text-sm tracking-[0.2em] uppercase text-parchment/45 border-b border-parchment/15 pb-1 transition-colors hover:text-parchment hover:border-parchment/35"
+                    >
+                        Email Me Directly
+                    </a>
                 </div>
             </div>
         </section>
