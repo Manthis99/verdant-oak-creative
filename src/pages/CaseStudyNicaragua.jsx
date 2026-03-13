@@ -15,10 +15,10 @@ export default function CaseStudyNicaragua() {
       <div className="cs-reveal space-y-6">
         <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-8">The Context</h2>
         <p>
-          One Collective had a highly specific, complex missional goal: they needed to hire a "Catalyst" to lead an expansion at Papagayo, a 29-acre pineapple farm and eco-lodge in Nicaragua acting as a hub for sustainable community transformation in Ticuantepe. 
+          One Collective had a specific, complex goal: they needed to hire a "Catalyst" to lead an expansion at Papagayo, a 29-acre pineapple farm and eco-lodge in Nicaragua acting as a hub for sustainable community transformation in Ticuantepe.
         </p>
         <p>
-          The nonprofit space is saturated with campaigns leaning into guilt to drive donations. Our client needed to break that mold. The goal wasn't to raise money; it was to find a highly qualified leader. We had to spend significant time defining exactly who that audience was, what motivated them, and how to communicate effectively without falling into the trap of "poverty porn."
+          The nonprofit space is saturated with campaigns leaning into guilt to drive donations. Our client needed to break that mold. The goal wasn't to raise money; it was to find a highly qualified leader. We had to spend significant time defining exactly who that audience was, what motivated them, and how to communicate effectively without reducing people to a fundraising trope.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ export default function CaseStudyNicaragua() {
       <div className="cs-reveal space-y-6">
          <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-8">The Approach</h2>
          <p>
-           I walked closely with key stakeholders from the very beginning to ensure absolute alignment. Because this was such a nuanced request, pre-production had to be rigorous. Before booking flights, I wrote a comprehensive script and built a drafted video using entirely "fake" placeholder footage (a rip-o-matic) to guarantee everyone understood exactly how the script and visuals would feel together.
+           I worked closely with key stakeholders from the beginning to ensure alignment. Because this was such a nuanced request, pre-production had to be rigorous. Before booking flights, I wrote a comprehensive script and built a drafted video using "fake" placeholder footage (a rip-o-matic) to make sure everyone understood how the script and visuals would feel together.
          </p>
          <p>
            After several rounds of stakeholder revisions, I flew out to Nicaragua to lead the production on the ground. This meant acting as the lead filmmaker while simultaneously managing a local crew of over 30 people, including translators, contractors, and rented gear, in an environment completely unaccustomed to all-day film productions.

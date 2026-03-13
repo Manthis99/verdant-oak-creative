@@ -30,8 +30,8 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
       </h3>
       
       <p className="text-parchment/70 font-light mb-10 relative z-10 leading-relaxed md:pr-12">
-        Submit your details below to send this comprehensive inquiry to my desk. In exchange for your time, you will immediately receive the 
-        <span className="italic text-parchment"> Verdant Oak Project Framework</span>—a breakdown of how to build communication infrastructure that actually converts.
+        Submit your details to send this inquiry directly to my desk. In return, you will get the
+        <span className="italic text-parchment"> Verdant Oak Project Framework</span>: a practical breakdown for closing the gap between strategy and execution.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-8 relative z-10">

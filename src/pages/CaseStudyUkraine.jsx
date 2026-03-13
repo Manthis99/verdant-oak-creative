@@ -34,10 +34,10 @@ export default function CaseStudyUkraine() {
       <div className="cs-reveal space-y-6">
          <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-8">The Approach</h2>
          <p>
-           I traveled to Ukraine during a volatile window in 2022. Time was drastically limited—the local leader was moving at a frantic pace coordinating relief efforts, and safety concerns in an active warzone meant we had to strike fast and be invisible. I acted primarily as the lead videographer on the ground.
+           I traveled to Ukraine during a volatile window in 2022. Time was limited - the local leader was moving fast to coordinate relief efforts, and safety concerns in an active warzone meant we had to move quickly and stay low profile. I acted as the lead videographer on the ground.
          </p>
          <p>
-           The production was highly reactive. I worked hand-in-hand directly with our CEO, guiding and directing videos largely on the fly as situations unfolded. We weren't just shooting b-roll; we were attempting to craft a timeless documentary anchor that could support a prolonged campaign. Because I couldn't shoot everything personally, I coordinated with local videographers, eventually editing and synthesizing footages into over 10 cohesive campaign videos.
+           The production was reactive. I worked directly with our CEO, guiding and directing videos on the fly as situations unfolded. We were not just shooting b-roll; we were building a documentary anchor that could support a prolonged campaign. Because I could not shoot everything personally, I coordinated with local videographers, eventually editing and synthesizing footage into over 10 cohesive campaign videos.
          </p>
       </div>
       

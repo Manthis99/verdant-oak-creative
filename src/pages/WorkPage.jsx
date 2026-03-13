@@ -8,66 +8,164 @@ export default function WorkPage() {
   const [playingId, setPlayingId] = useState(null);
 
   useGSAP(() => {
-    gsap.fromTo(".portfolio-item", 
-      { y: 50, opacity: 0 },
+    gsap.fromTo(".case-study", 
+      { y: 60, opacity: 0 },
       { 
         y: 0, 
         opacity: 1, 
-        duration: 0.8, 
-        stagger: 0.1, 
-        ease: "power2.out",
+        duration: 1, 
+        stagger: 0.2, 
+        ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
+          start: "top 70%",
         }
       }
     );
   }, { scope: containerRef });
 
   return (
-    <div className="min-h-screen bg-parchment pt-32 pb-24 px-4 md:px-8 lg:px-16 text-charcoal" ref={containerRef}>
+    <div className="min-h-screen bg-[#111] pt-32 pb-32 px-4 md:px-8 lg:px-16 text-parchment" ref={containerRef}>
       <div className="max-w-[1400px] mx-auto">
-        <header className="mb-20 max-w-2xl">
-          <h1 className="font-serif text-5xl md:text-7xl mb-6">Selected Archives</h1>
-          <p className="font-sans text-lg md:text-xl text-charcoal/70 leading-relaxed">
-            A comprehensive catalog of documentary campaigns, commercial spots, and narrative films built to solve complex communication problems.
+        
+        {/* Header */}
+        <header className="mb-24 lg:mb-32 max-w-3xl">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[6rem] tracking-tight leading-none mb-8">
+            Deep<br />Archives.
+          </h1>
+          <div className="h-[1px] w-24 bg-gold/50 mb-8"></div>
+          <p className="font-sans text-xl md:text-2xl font-light text-parchment/70 leading-relaxed">
+            A working archive of documentary campaigns, commercial work, and narrative films built to solve real communication problems.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {portfolioData.map((project) => (
-            <div key={project.id} className="portfolio-item group flex flex-col cursor-pointer" onClick={() => setPlayingId(project.id)}>
-              <div className="relative aspect-video bg-smoke/20 overflow-hidden mb-4">
-                {playingId === project.id ? (
-                  <iframe 
-                    src={`${project.embedUrl}${project.provider === 'vimeo' ? '&' : '?'}autoplay=1&color=ffffff&title=0&byline=0&portrait=0`} 
-                    className="absolute inset-0 w-full h-full"
-                    frameBorder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowFullScreen
-                    title={project.title}
-                  ></iframe>
-                ) : (
-                  <>
-                    <img 
-                      src={project.thumbnail} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center text-white transition-transform duration-500 group-hover:scale-110">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        {/* Case Studies List */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          {portfolioData.map((project, index) => {
+            // First item (South Africa) spans full width
+            const isFullWidth = index === 0;
+            const colSpanClass = isFullWidth ? "xl:col-span-2" : "xl:col-span-1";
+            
+            // Layout classes depending on if it's full width or not
+            const layoutClass = isFullWidth 
+              ? "flex-col lg:flex-row gap-8 lg:gap-16" 
+              : "flex-col gap-8 lg:gap-10";
+
+            // Width constraints
+            const leftColWidth = isFullWidth ? "lg:w-[45%]" : "w-full";
+            const rightColWidth = isFullWidth ? "lg:w-[55%]" : "w-full";
+
+            const cardBg = index % 2 === 0 ? "bg-moss/10" : "bg-charcoal/40";
+            
+            return (
+              <div 
+                key={project.id} 
+                className={`case-study group/card flex ${layoutClass} p-6 md:p-12 lg:p-12 xl:p-16 rounded-[2rem] md:rounded-[3rem] border border-parchment/10 ${cardBg} ${colSpanClass} hover:-translate-y-2 hover:shadow-2xl hover:shadow-moss/20 transition-all duration-500 cursor-default`}
+              >
+                
+                {/* Left Column: Narrative (Title, Problem, Deliverables) */}
+                <div className={`w-full ${leftColWidth} flex flex-col justify-between`}>
+                  <div>
+                    {/* Eyebrow / Client */}
+                    <div className="overflow-hidden mb-4">
+                      <p className="font-sans text-xs md:text-sm uppercase tracking-[0.2em] text-gold/70 font-medium transform translate-y-0 group-hover/card:text-gold transition-colors duration-500">
+                        {project.client || "Verdant Oak Project"}
+                      </p>
+                    </div>
+                    
+                    {/* Title */}
+                    <h2 className={`font-serif leading-[1.1] tracking-tight mb-6 md:mb-8 group-hover/card:text-white transition-colors duration-500 ${isFullWidth ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-3xl md:text-4xl'}`}>
+                      {project.title}
+                    </h2>
+                    
+                    {/* Description / Problem Solved */}
+                    {project.description && (
+                      <p className={`font-sans font-light text-parchment/70 group-hover/card:text-parchment/90 transition-colors duration-500 leading-relaxed mb-8 ${isFullWidth ? 'text-lg md:text-xl lg:mb-16' : 'text-base md:text-lg lg:mb-10'}`}>
+                        {project.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Deliverables / Tags */}
+                  {project.deliverables && project.deliverables.length > 0 && (
+                    <div className={!isFullWidth ? "mb-8 lg:mb-0" : "mt-auto"}>
+                      <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] text-parchment/40 font-medium mb-4">
+                        Deliverables
+                      </p>
+                      <div className="flex flex-wrap gap-2 md:gap-3">
+                        {project.deliverables.map((deliverable, i) => (
+                          <span 
+                            key={i} 
+                            className="px-4 py-2 rounded-full border border-parchment/20 text-xs md:text-sm text-parchment/70 bg-black/20 hover:bg-parchment/10 hover:text-parchment hover:border-parchment/40 transition-all duration-300"
+                          >
+                            {deliverable}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                  </>
-                )}
+                  )}
+                </div>
+
+                {/* Right Column: Results & Video */}
+                <div className={`w-full ${rightColWidth} flex flex-col gap-8`}>
+                  
+                  {/* Stats Row */}
+                  {project.stats && project.stats.length > 0 && (
+                    <div className={`grid gap-4 md:gap-6 w-full auto-rows-fr ${isFullWidth ? 'grid-cols-2 lg:grid-cols-3' : 'grid-cols-2'}`}>
+                      {project.stats.map((stat, i) => (
+                        <div 
+                          key={i} 
+                          className="flex flex-col justify-center items-start p-4 md:p-6 rounded-2xl bg-parchment text-[#111] min-h-[100px] h-full break-words group-hover/card:bg-parchment/90 hover:!bg-white hover:scale-105 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out cursor-default"
+                        >
+                          <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#111]/50 font-medium mb-2 w-full truncate">
+                            {stat.label}
+                          </p>
+                          <p className={`font-sans font-medium tracking-tight break-words w-full ${isFullWidth ? 'text-lg md:text-xl xl:text-2xl' : 'text-lg md:text-xl'}`}>
+                            {stat.value}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Video Player Area */}
+                  <div 
+                    className={`relative w-full rounded-3xl overflow-hidden bg-black cursor-pointer group/video ${!isFullWidth ? 'mt-auto aspect-video' : 'mt-auto aspect-video lg:flex-1 lg:min-h-[300px]'}`}
+                    onClick={() => setPlayingId(project.id)}
+                  >
+                    {playingId === project.id ? (
+                      <iframe 
+                        src={`${project.embedUrl}${project.provider === 'vimeo' ? '&' : '?'}autoplay=1&color=ffffff&title=0&byline=0&portrait=0`} 
+                        className="absolute inset-0 w-full h-full"
+                        frameBorder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowFullScreen
+                        title={project.title}
+                      ></iframe>
+                    ) : (
+                      <>
+                        <img 
+                          src={project.thumbnail} 
+                          alt={project.title} 
+                          className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/video:scale-105 group-hover/card:opacity-100 transition-all duration-[1.5s] ease-out" 
+                        />
+                        {/* Play Button Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/video:bg-black/10 transition-colors duration-500">
+                           <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white scale-100 group-hover/video:scale-110 group-hover/video:bg-white/20 transition-all duration-500">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                </div>
+
               </div>
-              <h3 className="font-serif text-xl tracking-tight leading-snug group-hover:text-charcoal/70 transition-colors">
-                {project.title}
-              </h3>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </div>
   );

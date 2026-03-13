@@ -43,7 +43,7 @@ export default function PersonalGrounding() {
                         </h2>
                         <div className="h-[1px] w-24 bg-charcoal/20 mb-8"></div>
                         <p className="font-sans text-lg font-light leading-relaxed text-charcoal/70">
-                            I am looking to collaborate with teams and leaders who value clarity over noise, who are willing to ask the hard questions, and who want to build things that actually matter.
+                            I like collaborating with leaders who value clarity over noise, ask hard questions, and want to build work that is actually useful.
                         </p>
                     </div>
 
@@ -54,16 +54,16 @@ export default function PersonalGrounding() {
                                 Clarity & Honesty
                             </h3>
                             <p className="font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
-                                I care about work that is clear, honest, and useful. I care about beauty, but not as decoration. I care about the kind of process that helps people feel heard, not handled.
+                                I care about work that is clear, honest, and useful. Beauty matters, but not as decoration.
                             </p>
                         </div>
 
                         <div className="ground-item border-t border-charcoal/10 pt-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-charcoal mb-6">
-                                Architecture & Action
+                                Structure & Action
                             </h3>
                             <p className="font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
-                                I am drawn to the intersection of story, structure, faith, art, and action. I like asking better questions. I like building things that make sense.
+                                I am drawn to the intersection of story, structure, faith, art, and action. Better questions usually lead to better decisions.
                             </p>
                         </div>
 
@@ -72,7 +72,7 @@ export default function PersonalGrounding() {
                                 Truth & Utility
                             </h3>
                             <p className="font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
-                                I am not interested in building a beautiful answer to the wrong problem. I want to help you get closer to what is true, and then package that into something your audience can actually use.
+                                I am not interested in a beautiful answer to the wrong problem. I want to help you get closer to what is true, then build something your audience can actually use.
                             </p>
                         </div>
                     </div>

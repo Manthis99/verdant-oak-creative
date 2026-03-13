@@ -114,25 +114,25 @@ export default function ContactPage() {
               <div>
                 <div className="text-sm tracking-[0.2em] text-gold uppercase font-medium mb-6">Inquiry & Partnership</div>
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-[5rem] leading-[1.05] tracking-tighter text-charcoal drop-shadow-sm">
-                  Let's explore <br/> 
-                  <span className="italic text-charcoal/70">what's possible.</span>
+                  Let's get clear on <br/> 
+                  <span className="italic text-charcoal/70">what is actually in the way.</span>
                 </h1>
               </div>
 
               <div className="space-y-8 max-w-xl">
                 {/* Scannable Point 1 */}
                 <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
-                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">1. Stop Guessing.</h3>
+                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">1. Name the real problem.</h3>
                   <p className="font-light text-charcoal/70 leading-relaxed text-lg">
-                    Finding the right partner shouldn't feel like a gamble. We start by unpacking your exact frustrations and identifying the true roadblocks in your way.
+                    Finding the right partner should not feel like a gamble. We start by unpacking your friction and identifying the real roadblocks.
                   </p>
                 </div>
                 
                 {/* Scannable Point 2 */}
                 <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
-                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">2. The Diagnostic.</h3>
+                  <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">2. Run the diagnostic.</h3>
                   <p className="font-light text-charcoal/70 leading-relaxed text-lg">
-                    Answer four strategic questions. This process forces us to look beyond just "making a video" toward solving real business problems.
+                    Answer four strategic questions. We use that to move past "make a video" and toward the problem that needs solving.
                   </p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                   onClick={() => setFlowStage('blueprint')}
                   className="relative overflow-hidden rounded-md border border-charcoal bg-charcoal px-10 py-5 text-sm tracking-[0.2em] text-parchment font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-charcoal w-full sm:w-auto shadow-xl shadow-charcoal/5 group text-center"
                 >
-                  <span className="relative z-10 transition-colors duration-500">Explore A Partnership</span>
+                  <span className="relative z-10 transition-colors duration-500">Start the Diagnostic</span>
                   <div className="absolute inset-0 h-full w-full translate-y-0 bg-charcoal transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
                 </button>
                 

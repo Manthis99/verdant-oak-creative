@@ -5,7 +5,6 @@ import MichaelIntro from '../components/home/MichaelIntro';
 import ProcessSteps from '../components/home/ProcessSteps';
 import SelectedWork from '../components/home/SelectedWork';
 import Capabilities from '../components/home/Capabilities';
-import PersonalGrounding from '../components/home/PersonalGrounding';
 import FinalCTA from '../components/home/FinalCTA';
 
 export default function HomePage() {
@@ -18,7 +17,6 @@ export default function HomePage() {
       <ProcessSteps />
       <SelectedWork />
       <Capabilities />
-      <PersonalGrounding />
       <FinalCTA />
     </div>
   );

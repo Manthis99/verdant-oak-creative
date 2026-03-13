@@ -12,83 +12,83 @@ export default function MichaelIntro() {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: 'top top',
-                    end: 'bottom bottom',
+                    start: 'top 80%',
+                    end: 'bottom top',
                     scrub: 1,
                 }
             });
 
-            // --- 🖼️ IMAGE COLLAGE ANIMATIONS ---
+            // --- IMAGE COLLAGE ANIMATIONS ---
             
-            // 1. Primary Portrait: starts massive, blurred, and centered, then scales down into position
+            // 1. Primary Portrait: starts massive, blurred, then resolves into position
             tl.fromTo('.collage-primary',
                 { scale: 2.5, x: '-30vw', y: '10vh', filter: 'blur(15px)', opacity: 0.3 },
                 { scale: 1, x: 0, y: 0, filter: 'blur(0px)', opacity: 1, duration: 2, ease: 'power2.inOut' },
                 0
             );
 
-            // 2. Secondary Image (Abstract): Slides in from the top right behind the portrait
+            // 2. Secondary Image: Slides in from top right
             tl.fromTo('.collage-secondary',
                 { y: '-50vh', opacity: 0, rotate: -10 },
                 { y: 0, opacity: 1, rotate: -2, duration: 1.5, ease: 'power2.out' },
-                1.5 // Start as portrait is settling
+                1.2
             );
 
-            // 3. Tertiary Image (Trees): Slides up from the bottom left
+            // 3. Tertiary Image: Slides up from bottom left
             tl.fromTo('.collage-tertiary',
                 { y: '50vh', opacity: 0, rotate: 10 },
                 { y: 0, opacity: 1, rotate: 3, duration: 1.5, ease: 'power2.out' },
-                2.0
+                1.6
             );
 
+            // --- TYPOGRAPHIC ESSAY ANIMATIONS ---
 
-            // --- 📝 TYPOGRAPHIC ESSAY ANIMATIONS ---
-
-            // Block 1: Intro
+            // Block 1
             tl.fromTo('.text-block-1',
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1 },
-                0.5
+                0.4
             ).to('.text-block-1', 
-                { opacity: 0, y: -50, duration: 1 }, 
-                2.5 // Fade out as next block comes in
+                { opacity: 0, y: -50, duration: 0.8 }, 
+                2.2
             );
 
-            // Block 2: Method
+            // Block 2
             tl.fromTo('.text-block-2',
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1 },
-                2.5
+                2.2
             ).to('.text-block-2', 
-                { opacity: 0, y: -50, duration: 1 }, 
-                4.5
+                { opacity: 0, y: -50, duration: 0.8 }, 
+                3.8
             );
 
-            // Block 3: Philosophy
+            // Block 3
             tl.fromTo('.text-block-3',
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1 },
-                4.5
+                3.8
             );
 
-            // Pause at end so there is comfortable reading space for Block 3
-            tl.to({}, { duration: 1.5 });
+            tl.to({}, { duration: 1.2 });
             
         }, containerRef);
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="h-[400vh] w-full bg-parchment">
-            <div className="sticky top-0 flex h-screen w-full items-center justify-center px-6 overflow-hidden">
+        <section ref={containerRef} className="relative h-[340vh] w-full bg-parchment">
+            {/* Blend transition from previous section into this blur-heavy intro */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 md:h-48 bg-gradient-to-b from-[#EBE9E1] via-[#EBE9E1]/85 to-transparent"></div>
+            <div className="sticky top-0 z-20 flex h-screen w-full items-center justify-center px-6 overflow-hidden">
                 <div className="mx-auto grid max-w-7xl w-full gap-12 lg:gap-24 md:grid-cols-2 md:items-center h-full py-20">
                     
-                    {/* Text Column (Interactive Essay) */}
+                    {/* Text Column */}
                     <div className="relative h-full w-full flex flex-col justify-center order-2 md:order-1">
                         
                         <div className="text-block-1 absolute w-full top-1/2 -translate-y-1/2 pr-4">
                             <h2 className="font-serif text-5xl text-charcoal md:text-6xl lg:text-[5rem] mb-6 tracking-tight">
-                                I’m Michael.
+                                I'm Michael.
                             </h2>
                             <p className="font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
                                 I make films, campaigns, and brand work. <br/>
@@ -98,11 +98,11 @@ export default function MichaelIntro() {
 
                         <div className="text-block-2 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pl-6 md:pl-10 border-l border-moss/30 pr-4">
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
-                                I look for real friction.
+                                I ask the uncomfortable question first.
                             </h3>
-                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/70">
-                                I ask questions. I wonder, and I want to wonder with you.<br/><br/>
-                                I listen for what is being requested versus what is actually going on. Then I help turn that clarity into something useful, beautiful, and real.
+                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
+                                Not "what do you want made?" but "what is actually going on?"<br/><br/>
+                                Most creative problems are clarity problems in disguise.
                             </p>
                         </div>
 
@@ -110,36 +110,36 @@ export default function MichaelIntro() {
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
                                 I build what matters.
                             </h3>
-                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/70">
-                                I am drawn to meaningful work, complex problems, and the space where story, systems, and human reality collide.<br/><br/>
-                                I care about how things look and how they feel, but I care even more whether they are true, aligned, and built to do what they are supposed to do.
+                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
+                                I like complex problems where story, systems, and human reality collide.<br/><br/>
+                                Beauty matters — but not as decoration. I care more whether the work is true, aligned, and built to do what it is supposed to do.
                             </p>
                         </div>
 
                     </div>
                     
-                    {/* Image Column (Dynamic Collage) */}
+                    {/* Image Column */}
                     <div className="relative h-full w-full flex items-center justify-center order-1 md:order-2">
                         
-                        {/* Secondary Image (Back Right) */}
+                        {/* Secondary Image — Nicaragua sunlit coffeeshop scene */}
                         <img 
-                            src="/images/misc photos/Oxford-20203-street-building-17.jpg" 
-                            alt="Oxford Street"
+                            src="/images/Nicaragua campaign/Nicaragua-laughing-sun-friend-coffeeshop-workign-2025--234.jpg" 
+                            alt="Working in Nicaragua"
                             className="collage-secondary absolute -right-4 top-[15%] w-3/5 aspect-square object-cover shadow-xl opacity-0 filter contrast-125"
                         />
 
-                        {/* Tertiary Image (Back Left) */}
+                        {/* Tertiary Image — South Africa production still */}
                         <img 
-                            src="/images/misc photos/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg" 
-                            alt="Nicaragua Coffeeshop"
+                            src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG" 
+                            alt="Field production"
                             className="collage-tertiary absolute -left-8 bottom-[15%] w-1/2 aspect-[4/5] object-cover shadow-xl opacity-0 filter contrast-[1.1]"
                         />
 
-                        {/* Primary Image (Center Front) */}
+                        {/* Primary: Portrait */}
                         <img 
                             src="/images/headshot_michael_casual.JPG" 
                             alt="Michael portrait"
-                            className="collage-primary relative z-10 w-3/4 aspect-[3/4] rounded-sm object-cover grayscale-[20%] sepia-[5%] shadow-2xl transition-all duration-700 hover:grayscale-0"
+                            className="collage-primary relative z-10 w-3/4 aspect-[3/4] rounded-sm object-cover grayscale-[20%] shadow-2xl transition-all duration-700 hover:grayscale-0"
                         />
                         
                     </div>
