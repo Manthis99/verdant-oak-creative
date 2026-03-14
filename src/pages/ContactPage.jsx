@@ -192,13 +192,15 @@ export default function ContactPage() {
                 {/* The Visual Card */}
                 <div className="relative bg-white border border-charcoal/10 rounded-xl p-10 shadow-2xl overflow-hidden flex flex-col items-center text-center">
                   
-                  {/* The "Field Guide" PDF Thumbnail Mockup */}
+                  {/* The field guide PDF thumbnail mockup */}
                   <div className="w-56 h-72 bg-[#F0EFEB] rounded shadow-sm flex flex-col items-center justify-center p-6 mb-10 transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] border border-charcoal/10">
                     <div className="w-full text-left mb-8">
                       <div className="w-12 h-[2px] bg-charcoal/80 mb-1.5"></div>
                       <div className="w-6 h-[2px] bg-gold"></div>
                     </div>
-                    <h4 className="font-serif text-charcoal text-2xl leading-[1.1] mb-auto text-left w-full tracking-tight">The Four<br/>Failures of<br/>Creative<br/>Execution.</h4>
+                    <h4 className="font-serif text-charcoal text-[1.55rem] leading-[1.02] mb-auto text-left w-full tracking-tight">
+                      Why a Great<br/>Video Is a<br/>Waste of<br/>Money
+                    </h4>
                     <div className="w-full mt-auto flex justify-between items-end border-t border-charcoal/10 pt-3">
                       <span className="text-[9px] text-charcoal/60 uppercase tracking-widest font-semibold flex flex-col text-left gap-1">
                         <span>Verdant Oak</span>
@@ -208,9 +210,9 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-3xl text-charcoal mb-4">The Framework</h3>
+                  <h3 className="font-serif text-3xl text-charcoal mb-4">The Field Guide</h3>
                   <p className="font-light text-charcoal/70 text-sm leading-relaxed mb-6">
-                    Complete the diagnostic to receive your free, printable manual outlining how to bridge the gap between strategy and execution.
+                    Complete the diagnostic to get a free printable guide on the four places creative work usually breaks before it ever has a chance to help.
                   </p>
                   <span className="text-[10px] tracking-[0.2em] text-charcoal font-medium uppercase bg-charcoal/5 px-4 py-2 rounded-full border border-charcoal/10">
                     Free Resource Download
@@ -275,7 +277,7 @@ export default function ContactPage() {
             </div>
             <h3 className="font-serif text-4xl md:text-5xl text-parchment mb-6">Inquiry Received.</h3>
             <p className="text-parchment/70 font-light text-lg max-w-lg mb-12">
-              Your project details have been sent directly to my desk. I will review them and be in touch shortly to schedule a clarity call.
+              Your project details have been sent directly to my desk. I will review them and follow up shortly. In the meantime, your free field guide is ready below.
             </p>
             
             <a 
@@ -284,7 +286,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-md border border-gold px-10 py-4 text-sm tracking-[0.2em] text-gold uppercase transition-all duration-500 hover:text-charcoal cursor-pointer block"
             >
-              <span className="relative z-10 transition-colors duration-500">View & Download Your Framework</span>
+              <span className="relative z-10 transition-colors duration-500">View & Download the Field Guide</span>
               <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
             </a>
             <p className="text-xs text-parchment/40 mt-4 tracking-widest uppercase">HTML / Printable PDF</p>

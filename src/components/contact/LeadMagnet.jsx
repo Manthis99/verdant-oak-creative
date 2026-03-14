@@ -26,12 +26,12 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
       </div>
 
       <h3 className="font-serif text-3xl md:text-4xl text-parchment mb-4 relative z-10">
-        Your Project Blueprint is Ready.
+        Your Field Guide Is Ready.
       </h3>
       
       <p className="text-parchment/70 font-light mb-10 relative z-10 leading-relaxed md:pr-12">
-        Submit your details to send this inquiry directly to my desk. In return, you will get the
-        <span className="italic text-parchment"> Verdant Oak Project Framework</span>: a practical breakdown for closing the gap between strategy and execution.
+        Submit your details to send this inquiry directly to my desk. In return, you will get
+        <span className="italic text-parchment"> Why a Great Video Is a Waste of Money</span>: a practical field guide to the places creative work usually breaks before it ever has a chance to help.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
@@ -83,7 +83,7 @@ export default function LeadMagnet({ data, componentType, onSubmitLead }) {
           disabled={!formData.name || !formData.email}
           className="w-full md:w-auto mt-8 relative overflow-hidden rounded-md border border-gold bg-gold px-12 py-5 text-sm tracking-[0.2em] text-charcoal font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-gold disabled:opacity-30 disabled:cursor-not-allowed group"
         >
-          <span className="relative z-10 transition-colors duration-500">Submit & Get Framework</span>
+          <span className="relative z-10 transition-colors duration-500">Submit & Get the Guide</span>
           <div className="absolute inset-0 h-full w-full translate-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
         </button>
       </form>

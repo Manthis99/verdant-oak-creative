@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import PricingPage from './pages/PricingPage';
 import WorkPage from './pages/WorkPage';
+import WorkPageImmersive from './pages/WorkPageImmersive';
 import ContactPage from './pages/ContactPage';
 import CaseStudyUkraine from './pages/CaseStudyUkraine';
 import CaseStudyNicaragua from './pages/CaseStudyNicaragua';
@@ -22,6 +23,9 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation();
+  const hideFooter = location.pathname === '/work' || location.pathname === '/work-immersive';
+
   return (
     <div className="min-h-screen bg-parchment text-charcoal font-sans selection:bg-moss selection:text-parchment">
       <ScrollToTop />
@@ -30,7 +34,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/work" element={<WorkPage />} />
+          <Route path="/work" element={<WorkPageImmersive />} />
+          <Route path="/work-archive" element={<WorkPage />} />
+          <Route path="/work-immersive" element={<WorkPageImmersive />} />
           <Route path="/start" element={<ContactPage />} />
           <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
           <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
@@ -38,7 +44,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { portfolioData } from '../data/portfolioData';
@@ -37,6 +38,15 @@ export default function WorkPage() {
           <p className="font-sans text-xl md:text-2xl font-light text-parchment/70 leading-relaxed">
             A working archive of documentary campaigns, commercial work, and narrative films built to solve real communication problems.
           </p>
+          <div className="mt-8">
+            <Link
+              to="/work-immersive"
+              className="group inline-flex items-center gap-3 border-b border-gold/30 pb-2 text-xs font-medium uppercase tracking-[0.24em] text-gold transition-colors duration-300 hover:border-gold hover:text-parchment"
+            >
+              Explore the immersive version
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
         </header>
 
         {/* Case Studies List */}
@@ -106,28 +116,8 @@ export default function WorkPage() {
                   )}
                 </div>
 
-                {/* Right Column: Results & Video */}
+                {/* Right Column: Video + case study link */}
                 <div className={`w-full ${rightColWidth} flex flex-col gap-8`}>
-                  
-                  {/* Stats Row */}
-                  {project.stats && project.stats.length > 0 && (
-                    <div className={`grid gap-4 md:gap-6 w-full auto-rows-fr ${isFullWidth ? 'grid-cols-2 lg:grid-cols-3' : 'grid-cols-2'}`}>
-                      {project.stats.map((stat, i) => (
-                        <div 
-                          key={i} 
-                          className="flex flex-col justify-center items-start p-4 md:p-6 rounded-2xl bg-parchment text-[#111] min-h-[100px] h-full break-words group-hover/card:bg-parchment/90 hover:!bg-white hover:scale-105 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out cursor-default"
-                        >
-                          <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#111]/50 font-medium mb-2 w-full truncate">
-                            {stat.label}
-                          </p>
-                          <p className={`font-sans font-medium tracking-tight break-words w-full ${isFullWidth ? 'text-lg md:text-xl xl:text-2xl' : 'text-lg md:text-xl'}`}>
-                            {stat.value}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
                   {/* Video Player Area */}
                   <div 
                     className={`relative w-full rounded-3xl overflow-hidden bg-black cursor-pointer group/video ${!isFullWidth ? 'mt-auto aspect-video' : 'mt-auto aspect-video lg:flex-1 lg:min-h-[300px]'}`}
@@ -158,6 +148,18 @@ export default function WorkPage() {
                       </>
                     )}
                   </div>
+
+                  {project.caseStudyLink && (
+                    <div className="flex">
+                      <Link
+                        to={project.caseStudyLink}
+                        className="group inline-flex items-center gap-3 self-start border-b border-gold/30 pb-2 text-xs font-medium uppercase tracking-[0.2em] text-gold transition-colors duration-300 hover:border-gold hover:text-parchment"
+                      >
+                        View Full Case Study
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      </Link>
+                    </div>
+                  )}
 
                 </div>
 

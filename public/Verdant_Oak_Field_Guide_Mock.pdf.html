@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verdant Oak Project Framework</title>
+    <title>Why a Great Video Is a Waste of Money</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <script>
@@ -51,6 +51,48 @@
             page-break-after: auto;
             break-after: auto;
         }
+        .cover-frame {
+            position: absolute;
+            inset: 0.33in;
+            border: 10px solid #0F0F0F;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+        .ask-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem 0.85rem;
+        }
+        .ask-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            padding: 0.85rem 0.95rem;
+            border: 1px solid rgba(240, 239, 235, 0.12);
+            background: rgba(240, 239, 235, 0.03);
+            border-radius: 0.1rem;
+        }
+        .ask-number {
+            width: 1.65rem;
+            height: 1.65rem;
+            flex: 0 0 1.65rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 500;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+        .ask-text {
+            color: rgba(240, 239, 235, 0.8);
+            font-size: 1rem;
+            line-height: 1.45;
+            font-weight: 300;
+        }
         @media print {
             body {
                 background-color: white;
@@ -75,25 +117,27 @@
     </div>
 
     <!-- PAGE 1: COVER -->
-    <div class="pdf-page p-16 flex flex-col justify-between border-8 border-charcoal m-4 print:m-0 print:border-[12px]">
+    <div class="pdf-page p-16 flex flex-col justify-between m-4 print:m-0">
+        <div class="cover-frame"></div>
         <div class="flex justify-between items-start">
             <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Verdant Oak Creative</h4>
             <h4 class="text-xs tracking-[0.3em] uppercase text-charcoal/60 font-semibold">Field Guide 01</h4>
         </div>
         
-        <div class="py-24">
-            <h1 class="font-serif text-6xl leading-[1.1] tracking-tight mb-8">
-                The Four Failures of Creative Execution.
+        <div class="py-20">
+            <h1 class="font-serif text-[3.7rem] leading-[1.02] tracking-tight mb-8 max-w-[6.5in]">
+                Why a Great Video<br/>
+                Is a Waste of Money
             </h1>
-            <p class="font-sans text-xl text-charcoal/80 font-light leading-relaxed max-w-lg border-l-2 border-gold pl-6">
-                Why beautiful videos fail to convert, and how to bridge the gap between business strategy and creative production.
+            <p class="font-sans text-xl text-charcoal/80 font-light leading-relaxed max-w-xl border-l-2 border-gold pl-6">
+                A field guide for leaders who are tired of paying for polished creative that does not solve the real problem.
             </p>
         </div>
 
         <div class="flex items-end justify-between border-t border-charcoal/10 pt-8">
             <div class="text-sm font-sans text-charcoal/60">
                 Prepared by Michael Proctor<br/>
-                Strategist & Director
+                Clarity before creative
             </div>
             <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -101,95 +145,164 @@
         </div>
     </div>
 
-    <!-- PAGE 2: INTRODUCTION & PROBLEM 1 -->
+    <!-- PAGE 2: THE REAL PROBLEM -->
     <div class="pdf-page p-16 flex flex-col">
-        <div class="mb-16 border-b border-charcoal/10 pb-6 flex justify-between items-end">
-            <h2 class="font-serif text-3xl">Diagnosis</h2>
+        <div class="mb-12 border-b border-charcoal/10 pb-6 flex justify-between items-end">
+            <h2 class="font-serif text-3xl">The Real Problem</h2>
             <span class="text-xs tracking-[0.2em] text-gold uppercase">01</span>
         </div>
 
-        <div class="prose prose-lg max-w-none font-sans font-light leading-relaxed text-charcoal/80 flex-grow">
-            <p class="text-2xl font-serif text-charcoal mb-8 leading-snug">
-                Every year, organizations waste thousands of dollars on "cinematic" creative assets that look incredible but accomplish absolutely nothing.
-            </p>
-            <p class="mb-12">
-                This happens when creative execution is decoupled from business strategy. We hire artists to make things look beautiful, but we fail to hire strategists to ensure those beautiful things solve real problems. Here are the four primary points of failure, and how the Verdant Oak Framework solves them.
+        <div class="flex flex-col gap-7 flex-grow">
+            <p class="text-[1.72rem] font-serif text-charcoal leading-snug max-w-[6.15in]">
+                Most teams do not waste money because they hired the wrong creative. They waste money because the brief was trying to solve a symptom.
             </p>
 
-            <div class="bg-charcoal text-parchment p-10 rounded-sm mb-8 shadow-xl">
-                <div class="text-gold text-sm tracking-widest uppercase mb-4">Failure Point 01</div>
-                <h3 class="font-serif text-3xl mb-4 text-[#F0EFEB]">Ignoring the Strategy.</h3>
-                <p class="font-light opacity-80 leading-relaxed mb-6">
-                    A video is just a delivery vehicle. If the underlying message is confused, a beautiful video will only deliver that confusion faster and more effectively. Most creative projects fail because the organization hasn't clearly defined the singular, strategic outcome the asset needs to achieve.
-                </p>
-                <div class="pt-4 border-t border-white/10">
-                    <strong class="text-gold font-medium">The Fix:</strong> We do not touch a camera until we can articulate the exact tension, the desired outcome, and the specific audience roadblock we are trying to remove.
+            <p class="font-sans text-[1.05rem] font-light leading-relaxed text-charcoal/80 max-w-[6.15in]">
+                Someone says they need a video, a campaign, a rebrand, or a better website. But often what they actually have is a positioning problem, a trust problem, audience confusion, weak internal alignment, or a broken handoff between leadership, marketing, and sales.
+            </p>
+
+            <p class="font-sans text-[1.05rem] font-light leading-relaxed text-charcoal/75 max-w-[6.15in]">
+                After enough rounds of this, smart leaders start to wonder whether marketing is worth paying for at all. Usually the problem is not that creative never works. It is that creative was asked to carry a problem it was never designed to solve by itself.
+            </p>
+
+            <div class="bg-charcoal text-parchment px-9 py-8 rounded-sm border border-charcoal/80">
+                <div class="text-gold text-sm tracking-widest uppercase mb-6">What Is Usually Underneath the Ask</div>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-5 text-[1.05rem] font-light leading-relaxed">
+                    <p class="border-l border-gold/30 pl-4">A lack of clarity about what actually matters</p>
+                    <p class="border-l border-gold/30 pl-4">A message that still feels muddy</p>
+                    <p class="border-l border-gold/30 pl-4">A weak understanding of the audience</p>
+                    <p class="border-l border-gold/30 pl-4">Beautiful work built on a confused foundation</p>
                 </div>
             </div>
+
+            <p class="font-sans text-[1.05rem] font-light leading-relaxed text-charcoal/75 max-w-[6.15in]">
+                If you are the person trying to hold vision and execution together, this gets expensive fast. You carry the pressure of making the right call, translating between teams, and trying not to waste budget again.
+            </p>
+
+            <p class="font-sans text-[1.02rem] italic text-charcoal/60 border-l-2 border-gold pl-6 max-w-[5.7in]">
+                This guide is for people who want to think clearly before they make something beautiful.
+            </p>
         </div>
     </div>
 
-    <!-- PAGE 3: PROBLEM 2 & 3 -->
+    <!-- PAGE 3: FAILURE POINTS 1 & 2 -->
     <div class="pdf-page p-16 flex flex-col">
         <div class="mb-12 border-b border-charcoal/10 pb-6 flex justify-between items-end">
-            <h2 class="font-serif text-3xl">Ecosystem & Empathy</h2>
+            <h2 class="font-serif text-3xl">Failure Points</h2>
             <span class="text-xs tracking-[0.2em] text-gold uppercase">02</span>
         </div>
 
-        <div class="prose prose-lg max-w-none font-sans font-light leading-relaxed text-charcoal/80 flex-grow space-y-12">
-            
+        <div class="flex flex-col gap-12 flex-grow">
             <div>
-                <div class="text-gold text-sm font-semibold tracking-widest uppercase mb-2">Failure Point 02</div>
-                <h3 class="font-serif text-4xl mb-6 text-charcoal">Forgetting the End User.</h3>
-                <p class="mb-4">
-                    Companies love talking about themselves. They build creative that highlights their history, their features, and their internal jargon. But the end user only cares about one thing: <em>can you solve my problem?</em>
+                <div class="text-gold text-sm tracking-widest uppercase mb-3">Failure Point 01</div>
+                <h3 class="font-serif text-4xl leading-tight mb-5">Solving the wrong problem</h3>
+                <p class="font-sans text-lg font-light leading-relaxed text-charcoal/80 mb-5">
+                    A video is a delivery vehicle, not a diagnosis. If the real issue is weak positioning, audience confusion, or internal misalignment, even strong creative will miss. It may look better, but it will still be aimed at the wrong thing.
                 </p>
-                <p class="pl-6 border-l-2 border-gold text-charcoal/60 italic">
-                    The Fix: Frame every piece of creative around the end user's felt frustration. You play the guide, they play the hero. We build assets that make them feel deeply understood first, and pitched to second.
+                <p class="font-sans text-base font-light text-charcoal/70 mb-3">
+                    <strong class="font-medium text-charcoal">What this usually sounds like:</strong> "We need a video."
+                </p>
+                <p class="font-sans text-base font-light text-charcoal/70 pl-6 border-l-2 border-gold">
+                    <strong class="font-medium text-charcoal">The move:</strong> Define the decision you need to influence, the confusion you need to remove, and the exact problem the asset is supposed to solve before you talk about production.
                 </p>
             </div>
 
-            <div>
-                <div class="text-gold text-sm font-semibold tracking-widest uppercase mb-2">Failure Point 03</div>
-                <h3 class="font-serif text-4xl mb-6 text-charcoal">The Orphaned Asset.</h3>
-                <p class="mb-4">
-                    A great video is completely useless if the landing page it lives on contradicts it. Often, a company will spend heavily on a flagship video, but drop it onto a poorly converting, confusing webpage. The marketing ecosystem is broken. What do the social ads say? Does the copy on the landing page mirror the hook in the video?
+            <div class="border-t border-charcoal/10 pt-10">
+                <div class="text-gold text-sm tracking-widest uppercase mb-3">Failure Point 02</div>
+                <h3 class="font-serif text-4xl leading-tight mb-5">Your message is still muddy</h3>
+                <p class="font-sans text-lg font-light leading-relaxed text-charcoal/80 mb-5">
+                    If a stranger cannot quickly understand what you do, who it is for, and why it matters, the creative has to carry too much weight. Beautiful confusion is still confusion. Expensive confusion is worse.
                 </p>
-                <p class="pl-6 border-l-2 border-gold text-charcoal/60 italic">
-                    The Fix: We look at the entire funnel. We ensure the creative asset seamlessly integrates with your existing website copy, sales pipelines, and distribution channels so the user experience is unbroken from first click to conversion.
+                <p class="font-sans text-base font-light text-charcoal/70 pl-6 border-l-2 border-gold">
+                    <strong class="font-medium text-charcoal">The move:</strong> Get painfully clear about the core problem you solve and the language your audience already uses to describe it. Then make the creative serve that clarity.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 4: PROBLEM 4 & OUTRO -->
-    <div class="pdf-page p-16 flex flex-col justify-between bg-charcoal text-parchment">
-        
-        <div>
-            <div class="mb-16 border-b border-parchment/10 pb-6 flex justify-between items-end">
-                <h2 class="font-serif text-3xl">Systems & Success</h2>
-                <span class="text-xs tracking-[0.2em] text-gold uppercase">03</span>
-            </div>
-
-            <div class="text-gold text-sm tracking-widest uppercase mb-4">Failure Point 04</div>
-            <h3 class="font-serif text-4xl leading-tight mb-8">Failing the Handoff.</h3>
-            <p class="font-sans font-light text-xl text-parchment/70 leading-relaxed max-w-2xl mb-12">
-                Let's assume the creative is perfect, and the landing page works. The final failure point is internal: capturing the lead, but failing to hand it over to sales effectively. A lack of automated CRM infrastructure or immediate follow-up means the momentum generated by the creative is instantly lost.
-            </p>
-            
-            <p class="font-sans font-light text-lg text-parchment/50 pl-6 border-l-2 border-gold max-w-2xl">
-                <strong class="text-parchment">The Fix:</strong> Creative must serve operations. We engineer campaigns that not only capture attention, but safely format and deliver that attention directly to the folks on your team responsible for closing the deal.
-            </p>
+    <!-- PAGE 4: FAILURE POINTS 3 & 4 -->
+    <div class="pdf-page p-16 flex flex-col">
+        <div class="mb-12 border-b border-charcoal/10 pb-6 flex justify-between items-end">
+            <h2 class="font-serif text-3xl">What Usually Breaks</h2>
+            <span class="text-xs tracking-[0.2em] text-gold uppercase">03</span>
         </div>
 
-        <div class="border-t border-parchment/10 pt-12 flex flex-col items-center text-center">
-            <h2 class="font-serif text-4xl mb-6">Ready to build something that actually works?</h2>
-            <p class="font-sans font-light text-parchment/60 mb-8 max-w-md">
-                I've received your diagnostic answers. I'll be reviewing your current roadblocks and will reach out shortly to schedule a clarity call. 
+        <div class="flex flex-col gap-12 flex-grow">
+            <div>
+                <div class="text-gold text-sm tracking-widest uppercase mb-3">Failure Point 03</div>
+                <h3 class="font-serif text-4xl leading-tight mb-5">The work is polished, but not memorable</h3>
+                <p class="font-sans text-lg font-light leading-relaxed text-charcoal/80 mb-5">
+                    A lot of creative is technically good and strategically forgettable. It is tasteful, well shot, and emotionally pleasant, but nobody can repeat the core idea afterward. Nothing lodges. Nothing travels.
+                </p>
+                <p class="font-sans text-base font-light text-charcoal/70 pl-6 border-l-2 border-gold">
+                    <strong class="font-medium text-charcoal">The move:</strong> Decide what people should still remember one hour later, one day later, and one week later. Then shape the asset around that idea instead of around general atmosphere.
+                </p>
+            </div>
+
+            <div class="border-t border-charcoal/10 pt-10">
+                <div class="text-gold text-sm tracking-widest uppercase mb-3">Failure Point 04</div>
+                <h3 class="font-serif text-4xl leading-tight mb-5">There is no system after the asset</h3>
+                <p class="font-sans text-lg font-light leading-relaxed text-charcoal/80 mb-5">
+                    Even a strong video cannot carry a broken funnel. If the landing page is vague, the CTA is weak, the follow-up is missing, or nobody owns the next step, the asset becomes a very pretty dead end.
+                </p>
+                <p class="font-sans text-base font-light text-charcoal/70 pl-6 border-l-2 border-gold">
+                    <strong class="font-medium text-charcoal">The move:</strong> Build the handoff before you launch. Clarify the page, the CTA, the follow-up, and who is responsible for turning attention into action.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: WHAT TO DO INSTEAD -->
+    <div class="pdf-page p-14 flex flex-col bg-charcoal text-parchment">
+        <div class="flex-1">
+            <div class="mb-8 border-b border-parchment/10 pb-5 flex justify-between items-end">
+                <h2 class="font-serif text-3xl">Before You Spend More</h2>
+                <span class="text-xs tracking-[0.2em] text-gold uppercase">04</span>
+            </div>
+
+            <p class="font-serif text-[2.3rem] leading-tight mb-8 max-w-[6.1in]">
+                This is not an argument against creative. It is an argument against using creative as a substitute for diagnosis.
             </p>
-            <a href="https://creative.michaelproctor.co" class="text-sm tracking-widest uppercase text-gold hover:text-[#F0EFEB] transition-colors border-b border-gold/30 pb-1">
-                Return to creative.michaelproctor.co
-            </a>
+
+            <div class="grid grid-cols-[1.15fr_0.85fr] gap-7 items-start">
+                <div>
+                    <div class="text-gold text-sm tracking-widest uppercase mb-4">Ask These First</div>
+                    <div class="ask-grid">
+                        <div class="ask-item"><div class="ask-number">1</div><p class="ask-text">What problem are we actually trying to solve?</p></div>
+                        <div class="ask-item"><div class="ask-number">2</div><p class="ask-text">What would success look like in plain language?</p></div>
+                        <div class="ask-item"><div class="ask-number">3</div><p class="ask-text">What would still confuse a stranger right now?</p></div>
+                        <div class="ask-item"><div class="ask-number">4</div><p class="ask-text">What do we need people to remember after they watch?</p></div>
+                        <div class="ask-item"><div class="ask-number">5</div><p class="ask-text">What happens right after someone watches, lands, or clicks?</p></div>
+                        <div class="ask-item"><div class="ask-number">6</div><p class="ask-text">Where are we most likely to waste money if we get this wrong?</p></div>
+                        <div class="ask-item"><div class="ask-number">7</div><p class="ask-text">Are we solving the real issue, or just making the symptom prettier?</p></div>
+                    </div>
+                </div>
+
+                <div class="bg-parchment text-charcoal p-7 rounded-sm">
+                    <div class="text-sm tracking-widest uppercase text-charcoal/45 mb-4">What I Actually Help With</div>
+                    <p class="font-serif text-[2rem] leading-snug mb-5">
+                        I help thoughtful teams figure out what is actually wrong before they waste more time, money, and energy making the wrong thing beautifully.
+                    </p>
+                    <div class="space-y-3 font-sans text-[1rem] font-light text-charcoal/75">
+                        <p class="border-l-2 border-gold/50 pl-3">Clarify the real problem</p>
+                        <p class="border-l-2 border-gold/50 pl-3">Sharpen the message</p>
+                        <p class="border-l-2 border-gold/50 pl-3">Find the right creative response</p>
+                        <p class="border-l-2 border-gold/50 pl-3">Build the system around it</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-parchment/10 pt-7 flex flex-col items-center text-center">
+            <h2 class="font-serif text-[2.7rem] leading-none mb-3">Best next steps</h2>
+            <p class="font-sans font-light text-parchment/60 mb-6 max-w-[5.4in] text-[1rem] leading-relaxed">
+                If this felt familiar, start with the diagnostic. If you already know you want to talk, schedule a call. If you prefer the simplest route, send a direct email.
+            </p>
+            <div class="flex items-center gap-6 text-[0.72rem] tracking-[0.2em] uppercase">
+                <a href="https://www.michaelproctor.co/start" class="text-gold hover:text-parchment transition-colors border-b border-gold/30 pb-1">Start the Diagnostic</a>
+                <a href="https://www.michaelproctor.co/book" class="text-gold hover:text-parchment transition-colors border-b border-gold/30 pb-1">Schedule a Call</a>
+                <a href="mailto:hello@michaelproctor.co" class="text-parchment/60 hover:text-parchment transition-colors border-b border-parchment/20 pb-1">Email Me Directly</a>
+            </div>
         </div>
     </div>
 
