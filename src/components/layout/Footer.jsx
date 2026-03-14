@@ -53,13 +53,13 @@ export default function Footer() {
 
           <div className="flex flex-col gap-4">
             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Elsewhere</span>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
+            <a href="https://www.linkedin.com/in/m-proctor" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               LinkedIn
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
+            <a href="https://www.instagram.com/manthis99/" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               Instagram
             </a>
-            <a href="#" className="hover:text-parchment transition-colors">
+            <a href="https://wedding.michaelproctor.co/" target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               Wedding Portfolio
             </a>
           </div>

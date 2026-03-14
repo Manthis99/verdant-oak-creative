@@ -63,7 +63,7 @@ export default function WorkPage() {
                 className={`case-study group/card flex ${layoutClass} p-6 md:p-12 lg:p-12 xl:p-16 rounded-[2rem] md:rounded-[3rem] border border-parchment/10 ${cardBg} ${colSpanClass} hover:-translate-y-2 hover:shadow-2xl hover:shadow-moss/20 transition-all duration-500 cursor-default`}
               >
                 
-                {/* Left Column: Narrative (Title, Problem, Deliverables) */}
+                {/* Left Column: Narrative (Title, problem, services offered) */}
                 <div className={`w-full ${leftColWidth} flex flex-col justify-between`}>
                   <div>
                     {/* Eyebrow / Client */}
@@ -78,7 +78,7 @@ export default function WorkPage() {
                       {project.title}
                     </h2>
                     
-                    {/* Description / Problem Solved */}
+                    {/* Description / problem framing */}
                     {project.description && (
                       <p className={`font-sans font-light text-parchment/70 group-hover/card:text-parchment/90 transition-colors duration-500 leading-relaxed mb-8 ${isFullWidth ? 'text-lg md:text-xl lg:mb-16' : 'text-base md:text-lg lg:mb-10'}`}>
                         {project.description}
@@ -86,11 +86,11 @@ export default function WorkPage() {
                     )}
                   </div>
 
-                  {/* Deliverables / Tags */}
+                  {/* Services offered */}
                   {project.deliverables && project.deliverables.length > 0 && (
                     <div className={!isFullWidth ? "mb-8 lg:mb-0" : "mt-auto"}>
                       <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] text-parchment/40 font-medium mb-4">
-                        Deliverables
+                        Services Offered
                       </p>
                       <div className="flex flex-wrap gap-2 md:gap-3">
                         {project.deliverables.map((deliverable, i) => (
