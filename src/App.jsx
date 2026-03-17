@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
+import HomeReviewPage from './pages/HomeReviewPage';
 import PricingPage from './pages/PricingPage';
 import WorkPage from './pages/WorkPage';
 import WorkPageImmersive from './pages/WorkPageImmersive';
@@ -24,15 +25,17 @@ function ScrollToTop() {
 
 export default function App() {
   const location = useLocation();
-  const hideFooter = location.pathname === '/work' || location.pathname === '/work-immersive';
+  const isReviewPage = location.pathname === '/home-review';
+  const hideFooter = location.pathname === '/work' || location.pathname === '/work-immersive' || isReviewPage;
 
   return (
     <div className="min-h-screen bg-parchment text-charcoal font-sans selection:bg-moss selection:text-parchment">
       <ScrollToTop />
-      <Navbar />
+      {!isReviewPage && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/home-review" element={<HomeReviewPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/work" element={<WorkPageImmersive />} />
           <Route path="/work-archive" element={<WorkPage />} />

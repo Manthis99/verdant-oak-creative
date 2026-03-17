@@ -87,15 +87,15 @@ export default function ProblemReframe() {
         '<'
       );
 
-      // Pause at end to read
-      tl.to({}, { duration: 1.6 });
+      // Shorter hold so the next section arrives sooner
+      tl.to({}, { duration: 0.7 });
     }, containerRef);
     
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="h-[560vh] w-full bg-[#EBE9E1]">
+    <section ref={containerRef} className="h-[500vh] w-full bg-[#EBE9E1]">
       <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-start px-6 pt-28 md:pt-36 overflow-hidden">
         
         {/* The Headline starts centered via JS animation */}

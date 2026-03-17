@@ -62,8 +62,8 @@ export default function Diagnosis() {
         4.2
       );
       
-      // Pad end for reading time
-      tl.to({}, { duration: 2.5 }); 
+      // Shorter hold so the next section arrives sooner
+      tl.to({}, { duration: 1.2 }); 
       
     }, containerRef);
 
@@ -71,7 +71,7 @@ export default function Diagnosis() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-[250vh] w-full bg-[#1A1A1A]">
+    <section ref={containerRef} className="relative h-[210vh] w-full bg-[#1A1A1A]">
       <div className="sticky top-0 z-10 flex h-screen w-full items-center justify-center px-6 text-parchment overflow-hidden">
         
         {/* Cinematic grain texture */}

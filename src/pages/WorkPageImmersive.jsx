@@ -98,7 +98,7 @@ export default function WorkPageImmersive() {
       <section className="relative min-h-[100svh] overflow-hidden px-6 pb-12 pt-32 md:px-10 lg:px-16">
         <div className="absolute inset-0">
           <img
-            src={portfolioData[4]?.thumbnail || portfolioData[0]?.thumbnail}
+            src="/images/misc photos/athens-acropolise_door-framed-2023-278.jpg"
             alt="Selected work background"
             className="h-full w-full object-cover object-center"
           />

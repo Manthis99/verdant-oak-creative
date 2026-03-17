@@ -21,13 +21,13 @@ const projects = [
         link: "/work/nicaragua"
     },
     {
-        name: "Deep Archives.",
+        name: "Full Work Archive",
         eyebrow: "Beyond These Two",
         tension: "These two are the sharpest examples. Beyond them is a broader archive of commercial work, documentary shorts, brand campaigns, and full creative systems built over years.",
         story: null,
         image: "/images/South Africa Images/South Africa Reclyclingjpg_2.11.1_1.4.1.jpg_compressed.JPEG",
         link: "/work",
-        buttonText: "Explore The Full Archives"
+        buttonText: "Explore The Full Work Archive"
     }
 ];
 
@@ -131,12 +131,21 @@ export default function SelectedWork() {
                                         </p>
                                     )}
                                     
-                                    <Link to={project.link} className="group relative self-start overflow-hidden rounded-md border border-parchment/20 px-10 py-4 text-xs tracking-[0.2em] text-parchment uppercase transition-all duration-500 hover:border-gold/50 cursor-pointer block">
-                                        <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-                                            View Case Study
-                                        </span>
-                                        <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
-                                    </Link>
+                                    <div className="flex flex-col items-start gap-4">
+                                        <p className="text-[11px] uppercase tracking-[0.28em] text-parchment/45 font-medium">
+                                            Open the full case study
+                                        </p>
+                                        <Link
+                                            to={project.link}
+                                            className="group relative self-start overflow-hidden rounded-full border border-gold/30 bg-black/20 pl-6 pr-4 py-4 text-xs tracking-[0.24em] text-parchment uppercase transition-all duration-500 hover:-translate-y-1 hover:border-gold/55 hover:bg-black/30 hover:shadow-[0_18px_50px_rgba(0,0,0,0.28)] cursor-pointer inline-flex items-center gap-4 backdrop-blur-md"
+                                        >
+                                            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[linear-gradient(90deg,rgba(212,175,55,0.08),transparent_45%)]"></div>
+                                            <span className="relative z-10">View Case Study</span>
+                                            <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gold/35 bg-gold/10 text-gold transition-all duration-500 group-hover:translate-x-1 group-hover:bg-gold group-hover:text-black">
+                                                →
+                                            </span>
+                                        </Link>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -145,25 +154,39 @@ export default function SelectedWork() {
                     {/* Deep Archives block centered over image */}
                     <div className="w-full px-6 md:px-16 lg:px-24 pb-24 md:pb-48">
                         <div className="project-text-block min-h-[80vh] flex flex-col justify-center items-center text-center max-w-4xl mx-auto">
+                            <div className="relative w-full max-w-4xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,15,15,0.34),rgba(15,15,15,0.56))] px-6 py-10 md:px-10 md:py-14 backdrop-blur-md shadow-[0_30px_100px_rgba(0,0,0,0.28)]">
+                                <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.08),transparent_42%)]"></div>
                             {archiveProject.eyebrow && (
-                                <p className="mb-2 text-xs md:text-sm uppercase tracking-[0.25em] text-gold/70 font-sans font-medium">
+                                <p className="relative mb-3 text-xs md:text-sm uppercase tracking-[0.25em] text-gold/80 font-sans font-medium">
                                     {archiveProject.eyebrow}
                                 </p>
                             )}
-                            <h3 className="mb-8 font-serif text-5xl md:text-6xl lg:text-[5rem] text-parchment leading-tight">
-                                Deep<br/><span className="italic">Archives.</span>
+                            <h3 className="relative mb-8 font-serif text-5xl md:text-6xl lg:text-[4.8rem] text-parchment leading-[0.98] tracking-tight">
+                                Full Work<br/><span className="italic">Archive.</span>
                             </h3>
-                            <div className="mb-6 h-[1px] w-24 bg-gold/50"></div>
-                            <p className="mb-10 max-w-2xl font-sans text-lg md:text-xl font-light leading-relaxed text-parchment/70">
+                            <div className="relative mb-6 h-[1px] w-24 bg-gold/60 mx-auto"></div>
+                            <p className="relative mb-10 max-w-2xl mx-auto font-sans text-lg md:text-xl font-light leading-relaxed text-parchment/88">
                                 {archiveProject.tension}
                             </p>
                             
-                            <Link to={archiveProject.link} className="group relative self-center overflow-hidden rounded-md border border-parchment/20 px-8 md:px-10 py-4 text-xs tracking-[0.2em] text-parchment uppercase transition-all duration-500 hover:border-gold/50 cursor-pointer block">
-                                <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-                                    {archiveProject.buttonText || "Explore The Full Archives"}
-                                </span>
-                                <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-gold transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
-                            </Link>
+                            <div className="flex flex-col items-center gap-4">
+                                <p className="relative text-[11px] uppercase tracking-[0.28em] text-parchment/58 font-medium">
+                                    Browse the wider archive
+                                </p>
+                                <Link
+                                    to={archiveProject.link}
+                                    className="group relative self-center overflow-hidden rounded-full border border-gold/35 bg-black/35 pl-6 pr-4 py-4 text-xs tracking-[0.24em] text-parchment uppercase transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:bg-black/40 hover:shadow-[0_18px_50px_rgba(0,0,0,0.28)] cursor-pointer inline-flex items-center gap-4 backdrop-blur-md"
+                                >
+                                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[linear-gradient(90deg,rgba(212,175,55,0.08),transparent_45%)]"></div>
+                                    <span className="relative z-10">
+                                        {archiveProject.buttonText || "Explore The Full Archives"}
+                                    </span>
+                                    <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gold/35 bg-gold/10 text-gold transition-all duration-500 group-hover:translate-x-1 group-hover:bg-gold group-hover:text-black">
+                                        →
+                                    </span>
+                                </Link>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
