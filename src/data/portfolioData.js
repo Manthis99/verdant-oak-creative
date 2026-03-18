@@ -17,103 +17,23 @@ export const portfolioData = [
   },
   {
     id: 2,
-    title: "2022 Cinematography Reel",
-    client: "Verdant Oak Creative",
-    description: "A reel that pulls together documentary, nonprofit, and commercial work without turning into a random collage of pretty shots.",
-    deliverables: [],
+    title: "Recruitment Campaign",
+    client: "One Collective Nicaragua",
+    description: "A recruitment film built to attract the right kind of leader by showing the work in Nicaragua with honesty, dignity, and real strategic clarity.",
+    deliverables: ["Campaign Strategy & Creative Direction", "Film & Video Production", "Brand Messaging & Clarity"],
+    caseStudyLink: "/work/nicaragua",
     immersiveMeta: [
-      { label: "Purpose", value: "Show range without losing a point of view." },
-      { label: "Focus", value: "Documentary instinct, texture, and rhythm." },
-      { label: "Role", value: "Cinematography, edit, and curation." }
+      { label: "Problem", value: "Attract the right leader, not just more applicants." },
+      { label: "Audience", value: "Mission-aligned candidates considering the role." },
+      { label: "Role", value: "Messaging, campaign direction, filming, and edit." }
     ],
-    immersiveNote: "The reel is less about volume and more about what kind of eye and restraint I tend to bring into real projects.",
-    provider: "youtube",
-    embedUrl: "https://www.youtube.com/embed/h4GIqqWMUBI",
-    thumbnail: "https://i.ytimg.com/vi/h4GIqqWMUBI/maxresdefault.jpg"
+    immersiveNote: "Recruitment work gets better when it names the opportunity honestly enough to attract fit and repel mismatch at the same time.",
+    provider: "vimeo",
+    embedUrl: "https://player.vimeo.com/video/1081966602?h=9d06aee52d",
+    thumbnail: "/images/Nicaragua campaign/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg"
   },
   {
     id: 3,
-    title: "A Collaborative Approach to Anti-Trafficking",
-    client: "Nea Zoe - Athens, Greece",
-    description: "A documentary built to show that anti-trafficking work gets stronger when organizations stop operating in silos and start working together.",
-    deliverables: ["Film & Video Production", "Campaign Strategy & Creative Direction"],
-    immersiveMeta: [
-      { label: "Problem", value: "Show collaboration as the real strength of the work." },
-      { label: "Audience", value: "Supporters, partners, and aligned organizations." },
-      { label: "Role", value: "Story direction, interviews, filming, and edit." }
-    ],
-    immersiveNote: "The challenge here was to communicate complexity without flattening the people or the work into nonprofit shorthand.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/994214656?h=a112fc347a",
-    thumbnail: "https://i.vimeocdn.com/video/1910234864-714c407a01085334d9165f07d685a38c121f6174f6342a8d37650b35494462d8-d_640"
-  },
-  {
-    id: 4,
-    title: "La Roca Skate Ministry - Overview",
-    client: "La Roca - Barcelona",
-    description: "A high-energy overview that lets the ministry feel raw, local, and believable instead of cleaned up into generic nonprofit language.",
-    deliverables: ["Film & Video Production", "Brand Messaging & Clarity"],
-    immersiveMeta: [
-      { label: "Problem", value: "Make the ministry feel local, credible, and alive." },
-      { label: "Audience", value: "Donors, supporters, and potential partners." },
-      { label: "Role", value: "Creative direction, filming, and edit." }
-    ],
-    immersiveNote: "This one works because it resists polish in the right places and lets the texture of the community do the talking.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/769944006?h=33a96adff7",
-    thumbnail: "https://i.vimeocdn.com/video/1545335985-590ddf98704408fa1f228b1fb044e4aed0edf45af8f6ae9575a1a089879e5841-d_640"
-  },
-  {
-    id: 5,
-    title: "Rebuild Ukraine Campaign",
-    client: "One Collective Ukraine",
-    description: "A six-part campaign built to help donors understand the crisis, trust the response, and take action for displaced Ukrainian families.",
-    deliverables: ["Campaign Strategy & Creative Direction", "Film & Video Production", "Website Design & Copywriting"],
-    caseStudyLink: "/work/ukraine",
-    immersiveMeta: [
-      { label: "Problem", value: "Turn concern into trust and meaningful donor action." },
-      { label: "Audience", value: "Existing donors and new supporters." },
-      { label: "Role", value: "Campaign strategy, films, website, and copy." }
-    ],
-    immersiveNote: "This was not one asset. It was a full communication system built to help people understand the crisis, trust the response, and act.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/743459806?h=bf755618c3",
-    thumbnail: "https://i.vimeocdn.com/video/1497963731-23403d218e0f4919c2fc524ae01d89b9055de65aaf8561b93a1314de816aea2b-d_640"
-  },
-  {
-    id: 6,
-    title: "Displaced by War - Ukraine Narrative",
-    client: "One Collective Ukraine",
-    description: "A narrative-driven follow-up film that moved the campaign from abstract need to the human reality of displacement.",
-    deliverables: ["Film & Video Production", "Campaign Strategy & Creative Direction"],
-    immersiveMeta: [
-      { label: "Problem", value: "Move the campaign from statistics to human reality." },
-      { label: "Audience", value: "Donors who needed deeper emotional understanding." },
-      { label: "Role", value: "Narrative shaping, filming, and post-production." }
-    ],
-    immersiveNote: "This piece mattered because donor trust often deepens when the story stops talking in scale and starts talking in human terms.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/749583920?h=014c9b0f76",
-    thumbnail: "https://i.vimeocdn.com/video/1508887886-9e3dc95f50db41bf4b07bf6eef85061bdd9d0f6ccc6b2bfef8af89743f97bd3b-d_640"
-  },
-  {
-    id: 7,
-    title: "The Lasting Change Podcast Trailer",
-    client: "One Collective",
-    description: "A launch trailer designed to introduce the podcast with clarity, warmth, and enough tension to make people listen.",
-    deliverables: ["Campaign Strategy & Creative Direction", "Film & Video Production"],
-    immersiveMeta: [
-      { label: "Problem", value: "Launch a podcast with a clear emotional hook." },
-      { label: "Audience", value: "Listeners new to the show and the organization." },
-      { label: "Role", value: "Concept, trailer structure, and edit." }
-    ],
-    immersiveNote: "A good trailer does not just announce the show. It gives people a reason to start caring before they ever press play on an episode.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/828355403?h=dea30a03f8",
-    thumbnail: "https://i.vimeocdn.com/video/1672179994-ac18a6ff27555a723d061287dae1b1925822f4b86d877a396987b1742103aa83-d_640"
-  },
-  {
-    id: 8,
     title: "One Collective Brand Video",
     client: "One Collective",
     description: "A central brand film built to give One Collective a clearer, more unified way to explain who they are and why their work matters.",
@@ -129,25 +49,73 @@ export const portfolioData = [
     thumbnail: "https://i.vimeocdn.com/video/1777773294-a14f8854f20cd32459e4c61b546fc0a9caffe9572fa7790d52e06b6606f60a00-d_640"
   },
   {
-    id: 9,
-    title: "Recruitment Campaign Video",
-    client: "One Collective Nicaragua",
-    description: "A recruitment film built to attract the right kind of leader by showing the work in Nicaragua with honesty, dignity, and real strategic clarity.",
-    deliverables: ["Campaign Strategy & Creative Direction", "Film & Video Production", "Brand Messaging & Clarity"],
-    caseStudyLink: "/work/nicaragua",
+    id: 4,
+    title: "Helping Turn an End into a Legacy",
+    client: "Lincoln Christian University",
+    description: "A legacy film built to help Lincoln Christian University communicate a hard ending with honesty, dignity, and care for the people affected by it.",
+    deliverables: ["Film & Video Production", "Brand Messaging & Clarity"],
     immersiveMeta: [
-      { label: "Problem", value: "Attract the right leader, not just more applicants." },
-      { label: "Audience", value: "Mission-aligned candidates considering the role." },
-      { label: "Role", value: "Messaging, campaign direction, filming, and edit." }
+      { label: "Problem", value: "Communicate a difficult ending with dignity." },
+      { label: "Audience", value: "Alumni, supporters, and the wider community." },
+      { label: "Role", value: "Story shaping, interviews, and edit." }
     ],
-    immersiveNote: "Recruitment work gets better when it names the opportunity honestly enough to attract fit and repel mismatch at the same time.",
-    provider: "vimeo",
-    embedUrl: "https://player.vimeo.com/video/1081966602?h=9d06aee52d",
-    thumbnail: "https://i.vimeocdn.com/video/2041642864-fb81ed026464044f677358d5aa37ad578c1387801afa4134700efda7cfe3b8f2-d_640"
+    immersiveNote: "Some projects are not about promotion at all. They are about helping people tell the truth in a way others can actually receive.",
+    provider: "youtube",
+    embedUrl: "https://www.youtube.com/embed/161qxPLQRec",
+    thumbnail: "https://i.ytimg.com/vi/161qxPLQRec/maxresdefault.jpg"
   },
   {
-    id: 10,
-    title: "Peak Design Everyday Carry Commercial",
+    id: 5,
+    title: "A Collaborative Approach to Anti-Trafficking",
+    client: "Nea Zoe - Athens, Greece",
+    description: "A documentary built to show that anti-trafficking work gets stronger when organizations stop operating in silos and start working together.",
+    deliverables: ["Film & Video Production", "Campaign Strategy & Creative Direction"],
+    immersiveMeta: [
+      { label: "Problem", value: "Show collaboration as the real strength of the work." },
+      { label: "Audience", value: "Supporters, partners, and aligned organizations." },
+      { label: "Role", value: "Story direction, interviews, filming, and edit." }
+    ],
+    immersiveNote: "The challenge here was to communicate complexity without flattening the people or the work into nonprofit shorthand.",
+    provider: "vimeo",
+    embedUrl: "https://player.vimeo.com/video/994214656?h=a112fc347a",
+    thumbnail: "/images/misc photos/athens-2023-25.jpg"
+  },
+  {
+    id: 6,
+    title: "Rebuild Ukraine Campaign",
+    client: "One Collective Ukraine",
+    description: "A six-part campaign built to help donors understand the crisis, trust the response, and take action for displaced Ukrainian families.",
+    deliverables: ["Campaign Strategy & Creative Direction", "Film & Video Production", "Website Design & Copywriting"],
+    caseStudyLink: "/work/ukraine",
+    immersiveMeta: [
+      { label: "Problem", value: "Turn concern into trust and meaningful donor action." },
+      { label: "Audience", value: "Existing donors and new supporters." },
+      { label: "Role", value: "Campaign strategy, films, website, and copy." }
+    ],
+    immersiveNote: "This was not one asset. It was a full communication system built to help people understand the crisis, trust the response, and act.",
+    provider: "vimeo",
+    embedUrl: "https://player.vimeo.com/video/743459806?h=bf755618c3",
+    thumbnail: "/images/Ukrain campaign/Rebuild+Ukriane+Screen+Grab_2.165.1.T.jpg"
+  },
+  {
+    id: 7,
+    title: "La Roca Skate Ministry",
+    client: "La Roca - Barcelona",
+    description: "A high-energy overview that lets the ministry feel raw, local, and believable instead of cleaned up into generic nonprofit language.",
+    deliverables: ["Film & Video Production", "Brand Messaging & Clarity"],
+    immersiveMeta: [
+      { label: "Problem", value: "Make the ministry feel local, credible, and alive." },
+      { label: "Audience", value: "Donors, supporters, and potential partners." },
+      { label: "Role", value: "Creative direction, filming, and edit." }
+    ],
+    immersiveNote: "This one works because it resists polish in the right places and lets the texture of the community do the talking.",
+    provider: "vimeo",
+    embedUrl: "https://player.vimeo.com/video/769944006?h=33a96adff7",
+    thumbnail: "https://i.vimeocdn.com/video/1545335985-590ddf98704408fa1f228b1fb044e4aed0edf45af8f6ae9575a1a089879e5841-d_640"
+  },
+  {
+    id: 8,
+    title: "Peak Design Commercial",
     client: "Peak Design (Spec)",
     description: "A spec commercial focused on rhythm, utility, and tactile product storytelling rather than just flashy transitions.",
     deliverables: ["Film & Video Production"],
@@ -162,19 +130,19 @@ export const portfolioData = [
     thumbnail: "https://i.ytimg.com/vi/MUCYcWgHd8E/maxresdefault.jpg"
   },
   {
-    id: 11,
-    title: "Helping Turn an End Into a Legacy",
-    client: "Lincoln Christian University",
-    description: "A legacy film built to help Lincoln Christian University communicate a hard ending with honesty, dignity, and care for the people affected by it.",
-    deliverables: ["Film & Video Production", "Brand Messaging & Clarity"],
+    id: 9,
+    title: "2022 Cinematic Reel",
+    client: "Verdant Oak Creative",
+    description: "A reel that pulls together documentary, nonprofit, and commercial work without turning into a random collage of pretty shots.",
+    deliverables: [],
     immersiveMeta: [
-      { label: "Problem", value: "Communicate a difficult ending with dignity." },
-      { label: "Audience", value: "Alumni, supporters, and the wider community." },
-      { label: "Role", value: "Story shaping, interviews, and edit." }
+      { label: "Purpose", value: "Show range without losing a point of view." },
+      { label: "Focus", value: "Documentary instinct, texture, and rhythm." },
+      { label: "Role", value: "Cinematography, edit, and curation." }
     ],
-    immersiveNote: "Some projects are not about promotion at all. They are about helping people tell the truth in a way others can actually receive.",
+    immersiveNote: "The reel is less about volume and more about what kind of eye and restraint I tend to bring into real projects.",
     provider: "youtube",
-    embedUrl: "https://www.youtube.com/embed/161qxPLQRec",
-    thumbnail: "https://i.ytimg.com/vi/161qxPLQRec/maxresdefault.jpg"
+    embedUrl: "https://www.youtube.com/embed/h4GIqqWMUBI",
+    thumbnail: "/images/misc photos/IMG_8400.png"
   }
 ];

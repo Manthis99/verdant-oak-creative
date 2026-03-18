@@ -7,6 +7,8 @@ import { portfolioData } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const FINAL_STEP_ID = portfolioData.length + 1;
+
 export default function WorkPageImmersive() {
   const containerRef = useRef(null);
   const [activeId, setActiveId] = useState(portfolioData[0]?.id ?? null);
@@ -86,8 +88,8 @@ export default function WorkPageImmersive() {
         trigger: '.immersive-cta-section',
         start: 'top center',
         end: 'bottom bottom',
-        onEnter: () => setActiveId(12),
-        onEnterBack: () => setActiveId(12),
+        onEnter: () => setActiveId(FINAL_STEP_ID),
+        onEnterBack: () => setActiveId(FINAL_STEP_ID),
       });
     },
     { scope: containerRef }
@@ -110,25 +112,22 @@ export default function WorkPageImmersive() {
         <div className="relative mx-auto flex min-h-[calc(100svh-8rem)] max-w-[1500px] flex-col justify-between">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr] lg:items-start">
             <div className="max-w-5xl">
+              <div className="mb-8 ml-8 inline-flex -rotate-[7deg] flex-col border-2 border-gold/70 bg-[#141414]/78 px-5 py-3 shadow-[0_18px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm md:ml-16 lg:ml-24">
+                <span className="text-[0.6rem] font-medium uppercase tracking-[0.45em] text-gold/70">Under Construction</span>
+                <span className="mt-2 text-lg font-semibold uppercase tracking-[0.3em] text-gold">Draft Portfolio</span>
+              </div>
               <p className="mb-8 text-xs uppercase tracking-[0.35em] text-gold/70">Selected Work</p>
               <h1 className="font-serif text-[4rem] leading-[0.92] tracking-[-0.04em] text-parchment md:text-[6.6rem] xl:text-[8.8rem]">
-                Work that
+                Work made
                 <br />
-                had to
+                to solve
                 <br />
-                matter.
+                real problems.
               </h1>
             </div>
 
             <div className="justify-self-start lg:justify-self-end lg:pt-10">
-              <div className="max-w-md border-l border-white/10 pl-6">
-                <p className="mb-5 text-lg font-light leading-relaxed text-parchment/68">
-                  A more immersive archive of films, campaigns, and brand work built to solve real communication problems, not just look impressive.
-                </p>
-                <p className="text-base font-light leading-relaxed text-parchment/48">
-                  The throughline is not style for its own sake. It is clearer thinking, stronger trust, and creative work that actually fits the situation.
-                </p>
-              </div>
+              <div className="max-w-xl lg:pt-24" />
             </div>
           </div>
 
@@ -151,7 +150,7 @@ export default function WorkPageImmersive() {
 
       <div className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 xl:block">
         <div className="rounded-[2rem] border border-white/10 bg-black/30 px-4 py-5 backdrop-blur-xl">
-          <div className="mb-4 text-[10px] uppercase tracking-[0.3em] text-parchment/35">Archive</div>
+          <div className="mb-4 text-[10px] uppercase tracking-[0.3em] text-parchment/35">Portfolio</div>
           <div className="flex flex-col gap-3">
             {portfolioData.map((project, index) => {
               const isActive = activeId === project.id;
@@ -170,10 +169,10 @@ export default function WorkPageImmersive() {
             <button
               type="button"
               onClick={() => scrollToSection('final-step')}
-              className={`group mt-2 flex items-center gap-3 text-left transition-colors ${activeId === 12 ? 'text-gold' : 'text-parchment/35 hover:text-parchment/70'}`}
+              className={`group mt-2 flex items-center gap-3 text-left transition-colors ${activeId === FINAL_STEP_ID ? 'text-gold' : 'text-parchment/35 hover:text-parchment/70'}`}
             >
-              <span className={`block h-px transition-all ${activeId === 12 ? 'w-8 bg-gold' : 'w-4 bg-white/20 group-hover:w-6 group-hover:bg-white/40'}`} />
-              <span className="text-[10px] uppercase tracking-[0.22em]">12 · Next</span>
+              <span className={`block h-px transition-all ${activeId === FINAL_STEP_ID ? 'w-8 bg-gold' : 'w-4 bg-white/20 group-hover:w-6 group-hover:bg-white/40'}`} />
+              <span className="text-[10px] uppercase tracking-[0.22em]">{String(FINAL_STEP_ID).padStart(2, '0')} · Next</span>
             </button>
           </div>
         </div>
