@@ -75,14 +75,19 @@ export default function Capabilities() {
                     {services.map((svc) => (
                         <div
                             key={svc.title}
-                            className="cap-card group relative overflow-hidden bg-[#222] p-8 md:p-12 transition-colors duration-500 hover:bg-[#2A2A2A] border border-parchment/5 hover:border-parchment/20 flex flex-col justify-between min-h-[260px]"
+                            className="cap-card group relative overflow-hidden bg-[#222] p-8 md:p-12 transition-colors duration-500 hover:bg-[#2A2A2A] border border-parchment/5 hover:border-parchment/15 flex flex-col justify-between min-h-[260px]"
                         >
-                            <span className="font-sans text-xs uppercase tracking-widest text-parchment/40 group-hover:text-gold transition-colors duration-300">
+                            <div 
+                                className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-0 group-hover:opacity-30 transition-opacity duration-700" 
+                                style={{ backgroundImage: 'url("/images/noise-texture.png")', backgroundSize: '150px 150px' }}
+                            ></div>
+
+                            <span className="relative z-10 font-sans text-xs uppercase tracking-widest text-parchment/40 group-hover:text-gold transition-colors duration-300">
                                 /{svc.num}
                             </span>
 
-                            <div className="mt-10">
-                                <h3 className="mb-4 font-serif text-2xl lg:text-3xl text-parchment/90">
+                            <div className="mt-10 relative z-10 transform origin-left transition-transform duration-500 group-hover:scale-[1.02]">
+                                <h3 className="mb-4 font-serif text-2xl lg:text-3xl text-parchment/90 group-hover:text-parchment transition-colors duration-300">
                                     {svc.title}
                                 </h3>
                                 <p className="font-sans text-base lg:text-lg font-light leading-relaxed text-parchment/65 group-hover:text-parchment/85 transition-colors duration-500">

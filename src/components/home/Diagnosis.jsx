@@ -6,6 +6,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Diagnosis() {
   const containerRef = useRef(null);
+
+  const handleScrollDown = () => {
+    const nextSection = document.getElementById('frustration-section');
+    nextSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -52,26 +57,26 @@ export default function Diagnosis() {
       );
       tl.to(lines[1],
         { y: -30, opacity: 0, filter: 'blur(10px)', scale: 0.95, duration: 1.2 },
-        3.5
+        4.1
       );
 
       // 3. Line 3
       tl.fromTo(lines[2],
         { opacity: 0, scale: 1.05, filter: 'blur(15px)', y: 30 },
         { opacity: 1, scale: 1, filter: 'blur(0px)', y: 0, duration: 1.2, ease: 'power2.out' },
-        4.2
+        4.9
       );
 
       tl.to(lines[2],
         { y: -30, opacity: 0, filter: 'blur(10px)', scale: 0.95, duration: 1.2 },
-        5.8
+        6.8
       );
 
       // 4. Line 4
       tl.fromTo(lines[3],
         { opacity: 0, scale: 1.05, filter: 'blur(15px)', y: 30 },
         { opacity: 1, scale: 1, filter: 'blur(0px)', y: 0, duration: 1.2, ease: 'power2.out' },
-        6.4
+        7.4
       );
       
       // Shorter hold so the next section arrives sooner
@@ -96,29 +101,41 @@ export default function Diagnosis() {
         <div className="diagnosis-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-parchment/5 blur-[120px] pointer-events-none opacity-40"></div>
 
         {/* CSS GRID STACKING */}
-        <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 grid-rows-1 place-items-center text-center px-4">
+        <div className="relative z-10 w-full max-w-4xl grid grid-cols-1 grid-rows-1 place-items-center text-center px-4">
           
           {/* Line 1 — large, authoritative serif */}
-          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-[0.03em]">
+          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-[0.03em] short:text-4xl xshort:text-3xl md:short:text-5xl lg:short:text-6xl">
             You don&apos;t have a creative problem.
           </h1>
           
           {/* Line 2 — same scale, serif, slightly lower contrast */}
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight">
+          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             You have a clarity Problem.
           </p>
           
           {/* Line 3 — serif, gold tone for resolution */}
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight">
+          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             Most teams are solving symptoms,<br className="hidden md:block" />
             {' '}not root problems.
           </p>
 
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#D4C3A3] md:text-6xl lg:text-[5rem] tracking-tight">
+          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#D4C3A3] md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             I help you solve the root problem.
           </p>
 
         </div>
+
+        <button
+          type="button"
+          onClick={handleScrollDown}
+          className="group absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3 text-parchment/72 transition-colors duration-300 hover:text-parchment md:bottom-14 short:bottom-4 xshort:-bottom-2"
+          aria-label="Scroll down to the next section"
+        >
+          <span className="text-[11px] uppercase tracking-[0.34em]">Scroll Down</span>
+          <span className="relative flex h-12 w-7 items-start justify-center rounded-full border border-parchment/25 pt-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#D4C3A3] animate-[scrollPrompt_1.6s_ease-in-out_infinite]"></span>
+          </span>
+        </button>
       </div>
     </section>
   );

@@ -65,15 +65,17 @@ export default function ProcessSteps() {
                     </h2>
                 </div>
 
-                <div className="process-steps-list flex flex-col">
+                <div className="process-steps-list flex flex-col relative md:pl-10">
+                    <div className="hidden md:block absolute left-0 top-[10%] bottom-[10%] w-[1.5px] bg-charcoal/15 z-0"></div>
                     {steps.map((step, index) => (
                         <div
                             key={step.num}
-                            className="process-step group flex flex-col md:flex-row md:items-start gap-6 md:gap-16 py-12 md:py-16 border-t border-charcoal/10 first:border-t-0"
+                            className="process-step group flex flex-col md:flex-row md:items-start gap-6 md:gap-14 py-12 md:py-16 border-t border-charcoal/10 first:border-t-0 relative z-10"
                         >
-                            {/* Number */}
-                            <div className="shrink-0 md:w-24 flex items-start">
-                                <span className="font-sans text-xs tracking-[0.2em] text-charcoal/30 uppercase pt-1">
+                            {/* Number & Dot */}
+                            <div className="shrink-0 md:w-24 flex items-start relative">
+                                <div className="hidden md:block absolute -left-10 top-2.5 w-1.5 h-1.5 rounded-full bg-charcoal/40 -translate-x-1/2"></div>
+                                <span className="font-sans text-xs tracking-[0.2em] text-charcoal/40 uppercase pt-1">
                                     {step.num}
                                 </span>
                             </div>

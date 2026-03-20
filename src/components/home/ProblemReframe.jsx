@@ -5,10 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const symptoms = [
-  { num: '01', text: "The video actually means we're not clear with our product." },
-  { num: '02', text: 'Our messaging is confusing.' },
-  { num: '03', text: 'We are struggling to build trust with our audience.' },
-  { num: '04', text: "The pain is carrying problems it's not actually responsible for." }
+  { num: '01', text: "We lack clarity on our core product." },
+  { num: '02', text: "Our messaging is confusing our audience." },
+  { num: '03', text: "We are struggling to build genuine trust." },
+  { num: '04', text: "We're trying to solve a strategic issue with a creative asset." }
 ];
 
 export default function ProblemReframe() {
@@ -96,37 +96,37 @@ export default function ProblemReframe() {
 
   return (
     <section ref={containerRef} className="h-[500vh] w-full bg-[#EBE9E1]">
-      <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-start px-6 pt-28 md:pt-36 overflow-hidden">
+      <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-start px-6 pt-28 md:pt-36 short:pt-16 xshort:pt-10 overflow-hidden">
         
         {/* The Headline starts centered via JS animation */}
         <h2 className="reframe-headline z-20 text-center font-serif text-4xl leading-tight text-charcoal md:text-[3.5rem] lg:text-[4rem] max-w-4xl tracking-tight">
           The request is not always the real problem.
         </h2>
 
-        <div className="reframe-intro mt-6 mb-8 z-20 px-6 py-2 border-[1.5px] border-moss/30 rounded-full bg-[#EBE9E1] text-moss text-xs md:text-sm uppercase tracking-widest font-medium shadow-sm">
-            Sometimes the ask is pointing somewhere deeper:
+        <div className="reframe-intro mt-4 z-20 px-6 py-2 border-[1.5px] border-moss/30 rounded-full bg-[#EBE9E1] text-moss text-xs md:text-sm uppercase tracking-widest font-medium shadow-sm">
+            Sometimes "We need a video" actually means:
         </div>
 
         {/* Central Architectural Area */}
-        <div className="relative w-full max-w-5xl flex-1 flex items-center justify-center pt-8 md:pt-10 pb-44 md:pb-56">
+        <div className="relative w-full max-w-5xl flex-1 flex items-center justify-center pt-10 md:pt-12 short:pt-6 pb-36 md:pb-48 short:pb-20 xshort:pb-12">
             
             {/* The Spine */}
-            <div className="reframe-spine absolute top-0 bottom-28 md:bottom-36 w-[1.5px] bg-charcoal/30 z-0"></div>
+            <div className="reframe-spine absolute top-0 bottom-24 md:bottom-32 short:bottom-12 w-[1.5px] bg-charcoal/30 z-0"></div>
 
             {/* Cards Grid */}
-            <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-2 md:items-center gap-y-6 md:gap-y-0">
+            <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-2 md:items-center gap-y-6 md:gap-y-0 short:gap-y-2 xshort:gap-y-1">
                 {symptoms.map((item, i) => (
                     <div 
                       key={i} 
-                      className={`reframe-card relative flex flex-col justify-center p-8 lg:p-10 bg-[#FAF9F5]/80 shadow-sm border border-charcoal/10 backdrop-blur-md rounded-sm ${i % 2 === 0 ? 'md:mr-12 lg:mr-20 md:text-right' : 'md:ml-12 lg:ml-20 md:mt-32'}`}
+                      className={`reframe-card relative flex flex-col justify-center p-8 lg:p-10 short:p-4 xshort:p-3 bg-[#FAF9F5]/80 shadow-sm border border-charcoal/10 backdrop-blur-md rounded-sm ${i % 2 === 0 ? 'md:mr-12 lg:mr-20 md:text-right' : 'md:ml-12 lg:ml-20 md:mt-24 lg:mt-32 short:md:mt-6 xshort:md:mt-0'}`}
                     >
                         {/* Connecting line to spine (desktop only) */}
                         <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-12 lg:w-20 h-[1.5px] bg-charcoal/30 ${i % 2 === 0 ? '-right-12 lg:-right-20' : '-left-12 lg:-left-20'}`}></div>
                         {/* Node dot (desktop only) */}
                         <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-[6px] h-[6px] rounded-full bg-charcoal ${i % 2 === 0 ? '-right-[51px] lg:-right-[83px]' : '-left-[51px] lg:-left-[83px]'}`}></div>
                         
-                        <span className={`font-serif text-moss/20 text-5xl lg:text-6xl absolute top-4 ${i % 2 === 0 ? 'md:right-8' : 'md:left-8'} select-none pointer-events-none md:-top-4`}>{item.num}</span>
-                        <p className="font-sans text-xl lg:text-2xl font-light text-charcoal leading-relaxed relative z-10 pt-4 md:pt-6">
+                        <span className={`font-serif text-moss/20 text-5xl lg:text-6xl short:text-4xl absolute top-4 ${i % 2 === 0 ? 'md:right-8' : 'md:left-8'} select-none pointer-events-none md:-top-4`}>{item.num}</span>
+                        <p className="font-sans text-xl lg:text-2xl short:text-lg font-light text-charcoal leading-relaxed relative z-10 pt-4 md:pt-6 short:pt-2">
                             {item.text}
                         </p>
                     </div>
@@ -134,9 +134,9 @@ export default function ProblemReframe() {
             </div>
 
             {/* Core Insight */}
-            <div className="reframe-insight absolute bottom-14 md:bottom-16 left-1/2 -translate-x-1/2 w-full max-w-4xl text-center px-4 z-20 bg-[#EBE9E1]/80 backdrop-blur-md py-6 rounded-lg overflow-hidden">
+            <div className="reframe-insight absolute bottom-6 md:bottom-10 short:bottom-2 xshort:bottom-1 left-1/2 -translate-x-1/2 w-full max-w-4xl text-center px-4 z-20 bg-[#EBE9E1]/80 backdrop-blur-md py-6 short:py-4 rounded-lg overflow-hidden">
                 <div className="reframe-insight-sheen pointer-events-none absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0"></div>
-                <p className="font-serif text-3xl leading-relaxed text-charcoal md:text-4xl lg:text-[2.5rem] lg:leading-[1.3]">
+                <p className="font-serif text-3xl leading-relaxed text-charcoal md:text-4xl lg:text-[2.5rem] lg:leading-[1.3] short:text-2xl xshort:text-xl">
                     Creative is often where the pain shows up.<br/>
                     <span className="reframe-insight-accent italic text-clay relative z-10">not where it starts.</span>
                 </p>

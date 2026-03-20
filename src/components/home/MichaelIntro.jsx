@@ -81,7 +81,7 @@ export default function MichaelIntro() {
             {/* Blend transition from previous section into this blur-heavy intro */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 md:h-48 bg-gradient-to-b from-[#EBE9E1] via-[#EBE9E1]/85 to-transparent"></div>
             <div className="sticky top-0 z-20 flex h-screen w-full items-center justify-center px-6 overflow-hidden">
-                <div className="mx-auto grid max-w-7xl w-full gap-12 lg:gap-24 md:grid-cols-2 md:items-center h-full py-20">
+                <div className="mx-auto grid max-w-7xl w-full gap-12 lg:gap-24 md:grid-cols-2 md:items-center h-full py-20 short:py-10 xshort:py-4">
                     
                     {/* Text Column */}
                     <div className="relative h-full w-full flex flex-col justify-center order-2 md:order-1">
@@ -90,31 +90,30 @@ export default function MichaelIntro() {
                             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-moss/55 font-sans font-medium">
                                 Michael Proctor
                             </p>
-                            <h2 className="max-w-[10ch] font-serif text-4xl leading-[0.98] text-charcoal md:text-5xl lg:text-[4.6rem] tracking-tight">
-                                I&apos;ve helped solve marketing and strategy problems
+                            <h2 className="w-full max-w-3xl font-serif text-4xl leading-[1.05] text-charcoal md:text-5xl lg:text-[4.2rem] tracking-tight short:text-4xl md:short:text-5xl lg:short:text-[3.5rem] xshort:text-3xl">
+                                I help organizations find the real problem before we build the solution.
                             </h2>
-                            <p className="mt-5 max-w-xl font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
-                                for nonprofits and small businesses for over eight years.
-                            </p>
-                            <p className="mt-10 max-w-xl font-sans text-lg lg:text-[1.35rem] font-light leading-relaxed text-charcoal/68">
-                                What I&apos;ve learned is to start by asking the uncomfortable questions first.
+                            <p className="mt-8 max-w-2xl font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80 short:text-lg short:mt-4">
+                                Over the last eight years, I've partnered with nonprofits and small businesses to untangle their strategy, messaging, and design.
+                                <br className="hidden md:block mb-4" />
+                                What I've learned is that the only way to build something that actually works is to start by asking the uncomfortable questions first.
                             </p>
                         </div>
 
                         <div className="text-block-2 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pl-6 md:pl-10 border-l border-moss/30 pr-4">
-                            <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
+                            <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4 short:text-3xl lg:short:text-4xl short:mb-2">
                                 The questions that usually don&apos;t get asked until you&apos;ve spent time and money on the thing.
                             </h3>
-                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
+                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80 short:text-base">
                                 Because most creative problems are clarity problems in disguise.
                             </p>
                         </div>
 
                         <div className="text-block-3 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pr-4">
-                            <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
+                            <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4 short:text-3xl lg:short:text-4xl short:mb-2">
                                 Once we&apos;re clear, I build what fits.
                             </h3>
-                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
+                            <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80 short:text-base">
                                 Film, campaign, web copy, or systems. Whatever actually solves the underlying problem.
                             </p>
                         </div>

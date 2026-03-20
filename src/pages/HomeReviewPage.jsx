@@ -15,10 +15,10 @@ const frustrationLines = [
 ];
 
 const reframeItems = [
-  "The video actually means we're not clear with our product.",
-  'Our messaging is confusing.',
-  'We are struggling to build trust with our audience.',
-  "The pain is carrying problems it's not actually responsible for.",
+  "We lack clarity on our core product.",
+  "Our messaging is confusing our audience.",
+  "We are struggling to build genuine trust.",
+  "We're trying to solve a strategic issue with a creative asset.",
   'Creative is often where the pain shows up, not where it starts.',
 ];
 
@@ -166,7 +166,7 @@ export default function HomeReviewPage() {
 
           <ReviewSection title="Problem Reframe" subtitle='The "we need a video" diagnosis section'>
             <p>The request is not always the real problem.</p>
-            <p>Sometimes the ask is pointing somewhere deeper:</p>
+            <p>Sometimes "we need a video" actually means:</p>
             <ul className="list-disc space-y-2 pl-6">
               {reframeItems.map((item) => (
                 <li key={item}>{item}</li>

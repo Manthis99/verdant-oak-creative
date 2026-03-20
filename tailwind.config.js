@@ -30,6 +30,10 @@ export default {
       },
       boxShadow: {
         soft: '0 20px 45px rgba(26, 26, 26, 0.08)',
+      },
+      screens: {
+        'short': { 'raw': '(max-height: 850px)' },
+        'xshort': { 'raw': '(max-height: 700px)' },
       }
     }
   },
