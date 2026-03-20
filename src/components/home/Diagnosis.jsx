@@ -61,6 +61,18 @@ export default function Diagnosis() {
         { opacity: 1, scale: 1, filter: 'blur(0px)', y: 0, duration: 1.2, ease: 'power2.out' },
         4.2
       );
+
+      tl.to(lines[2],
+        { y: -30, opacity: 0, filter: 'blur(10px)', scale: 0.95, duration: 1.2 },
+        5.8
+      );
+
+      // 4. Line 4
+      tl.fromTo(lines[3],
+        { opacity: 0, scale: 1.05, filter: 'blur(15px)', y: 30 },
+        { opacity: 1, scale: 1, filter: 'blur(0px)', y: 0, duration: 1.2, ease: 'power2.out' },
+        6.4
+      );
       
       // Shorter hold so the next section arrives sooner
       tl.to({}, { duration: 1.2 }); 
@@ -88,18 +100,22 @@ export default function Diagnosis() {
           
           {/* Line 1 — large, authoritative serif */}
           <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-[0.03em]">
-            You probably do not need more creative.
+            You don&apos;t have a creative problem.
           </h1>
           
           {/* Line 2 — same scale, serif, slightly lower contrast */}
           <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight">
-            You probably need clearer strategy and language.
+            You have a clarity Problem.
           </p>
           
           {/* Line 3 — serif, gold tone for resolution */}
+          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight">
+            Most teams are solving symptoms,<br className="hidden md:block" />
+            {' '}not root problems.
+          </p>
+
           <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#D4C3A3] md:text-6xl lg:text-[5rem] tracking-tight">
-            Because a beautiful answer to the wrong problem<br className="hidden md:block" />
-            {' '}is still the wrong answer.
+            I help you solve the root problem.
           </p>
 
         </div>

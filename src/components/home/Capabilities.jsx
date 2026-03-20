@@ -7,28 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
     {
         num: "01",
-        title: "Film & Video Production",
-        description: "End-to-end production of brand films, documentary shorts, fundraising campaigns, and launch videos. From concept and script through shoot, edit, and delivery."
+        title: "Sometimes it's a film.",
+        description: "A story-led piece built to clarify the message, earn trust, and move people toward action."
     },
     {
         num: "02",
-        title: "Campaign Strategy & Creative Direction",
-        description: "Full campaign architecture — message sequencing, audience mapping, channel strategy, and the creative system to hold it together across every touchpoint."
+        title: "Sometimes it's a campaign.",
+        description: "A bigger creative system designed to connect strategy, story, and execution across multiple touchpoints."
     },
     {
         num: "03",
-        title: "Brand Messaging & Clarity",
-        description: "Positioning, voice, language, and the core story that makes everything else perform. Ideal when you have a strong offer but the language around it isn't landing."
+        title: "Sometimes it's fixing your overall messaging.",
+        description: "Clarifying what you do, how you say it, and why people should trust it before more creative gets layered on top."
     },
     {
         num: "04",
-        title: "Website Design & Copywriting",
-        description: "Strategy-led web design paired with copy that earns attention and converts it. Built for organizations that want a site that works, not just one that looks good."
-    },
-    {
-        num: "05",
-        title: "Embedded Creative Partnership",
-        description: "Ongoing creative leadership for organizations that need a trusted collaborator — not a vendor. Available for retainer or project-based engagements."
+        title: "Sometimes it's realizing you don't need any of it.",
+        description: "Sometimes the most useful outcome is identifying the real issue before more time and money go into the wrong solution."
     }
 ];
 
@@ -68,10 +63,10 @@ export default function Capabilities() {
 
                 <div className="cap-header mb-16 md:mb-24 max-w-3xl">
                     <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gold/80 font-medium font-sans">
-                        Services Offered
+                        In Practice
                     </p>
                     <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-parchment/90 leading-tight tracking-tight">
-                        Services Offered.
+                        What this looks like in practice.
                     </h2>
                 </div>
 

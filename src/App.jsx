@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -48,6 +49,7 @@ export default function App() {
         </Routes>
       </main>
       {!hideFooter && <Footer />}
+      <Analytics />
     </div>
   );
 }

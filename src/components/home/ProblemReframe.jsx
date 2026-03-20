@@ -5,10 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const symptoms = [
-  { num: '01', text: 'We are not clear on what matters.' },
-  { num: '02', text: 'Our message is muddy.' },
-  { num: '03', text: 'We do not understand our audience well enough to speak to them clearly.' },
-  { num: '04', text: 'Leadership is asking marketing to carry the weight of deeper confusion.' }
+  { num: '01', text: "The video actually means we're not clear with our product." },
+  { num: '02', text: 'Our messaging is confusing.' },
+  { num: '03', text: 'We are struggling to build trust with our audience.' },
+  { num: '04', text: "The pain is carrying problems it's not actually responsible for." }
 ];
 
 export default function ProblemReframe() {
@@ -100,11 +100,11 @@ export default function ProblemReframe() {
         
         {/* The Headline starts centered via JS animation */}
         <h2 className="reframe-headline z-20 text-center font-serif text-4xl leading-tight text-charcoal md:text-[3.5rem] lg:text-[4rem] max-w-4xl tracking-tight">
-          The request is not always the problem.
+          The request is not always the real problem.
         </h2>
 
         <div className="reframe-intro mt-6 mb-8 z-20 px-6 py-2 border-[1.5px] border-moss/30 rounded-full bg-[#EBE9E1] text-moss text-xs md:text-sm uppercase tracking-widest font-medium shadow-sm">
-            Sometimes "we need a video" actually means:
+            Sometimes the ask is pointing somewhere deeper:
         </div>
 
         {/* Central Architectural Area */}
@@ -138,7 +138,7 @@ export default function ProblemReframe() {
                 <div className="reframe-insight-sheen pointer-events-none absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0"></div>
                 <p className="font-serif text-3xl leading-relaxed text-charcoal md:text-4xl lg:text-[2.5rem] lg:leading-[1.3]">
                     Creative is often where the pain shows up.<br/>
-                    <span className="reframe-insight-accent italic text-clay relative z-10">Not where it starts.</span>
+                    <span className="reframe-insight-accent italic text-clay relative z-10">not where it starts.</span>
                 </p>
             </div>
         </div>

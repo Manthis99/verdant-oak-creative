@@ -2,7 +2,7 @@
 
 ## 2026-03-18
 
-- Inspected the site structure and found the live booking route at `/book`.
-- Reviewed the current Calendly embed implementation and animation setup.
-- Implemented a two-option booking experience for remote and in-person meetings.
-- Verified the site builds successfully with `npm run build`.
+- Inspected the homepage structure and identified the components tied to each requested copy block.
+- Updated the hero, frustration, problem reframe, Michael intro, process, and practice/services copy.
+- Added a new homepage section for "Who is this for?" and wired it into `HomePage.jsx`.
+- Verified the site builds successfully with the revised homepage content.

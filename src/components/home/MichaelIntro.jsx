@@ -87,32 +87,35 @@ export default function MichaelIntro() {
                     <div className="relative h-full w-full flex flex-col justify-center order-2 md:order-1">
                         
                         <div className="text-block-1 absolute w-full top-1/2 -translate-y-1/2 pr-4">
-                            <h2 className="font-serif text-5xl text-charcoal md:text-6xl lg:text-[5rem] mb-6 tracking-tight">
-                                I'm Michael.
+                            <p className="mb-5 text-xs uppercase tracking-[0.28em] text-moss/55 font-sans font-medium">
+                                Michael Proctor
+                            </p>
+                            <h2 className="max-w-[10ch] font-serif text-4xl leading-[0.98] text-charcoal md:text-5xl lg:text-[4.6rem] tracking-tight">
+                                I&apos;ve helped solve marketing and strategy problems
                             </h2>
-                            <p className="font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
-                                I make films, campaigns, and brand work. <br/>
-                                <span className="opacity-60 italic">But most of my work starts earlier than that.</span>
+                            <p className="mt-5 max-w-xl font-sans text-xl lg:text-2xl font-light leading-relaxed text-charcoal/80">
+                                for nonprofits and small businesses for over eight years.
+                            </p>
+                            <p className="mt-10 max-w-xl font-sans text-lg lg:text-[1.35rem] font-light leading-relaxed text-charcoal/68">
+                                What I&apos;ve learned is to start by asking the uncomfortable questions first.
                             </p>
                         </div>
 
                         <div className="text-block-2 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pl-6 md:pl-10 border-l border-moss/30 pr-4">
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
-                                I ask the uncomfortable question first.
+                                The questions that usually don&apos;t get asked until you&apos;ve spent time and money on the thing.
                             </h3>
                             <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
-                                Not "what do you want made?" but "what is actually going on?"<br/><br/>
-                                Most creative problems are clarity problems in disguise.
+                                Because most creative problems are clarity problems in disguise.
                             </p>
                         </div>
 
                         <div className="text-block-3 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pr-4">
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">
-                                I build what matters.
+                                Once we&apos;re clear, I build what fits.
                             </h3>
                             <p className="font-sans text-lg lg:text-xl font-light leading-relaxed text-charcoal/80">
-                                I like complex problems where story, systems, and human reality collide.<br/><br/>
-                                Beauty matters — but not as decoration. I care more whether the work is true, aligned, and built to do what it is supposed to do.
+                                Film, campaign, web copy, or systems. Whatever actually solves the underlying problem.
                             </p>
                         </div>
 

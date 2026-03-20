@@ -7,18 +7,18 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
     {
         num: "01",
-        title: "You reach out.",
-        body: "Usually with a brief, a problem, or a half-formed question. We talk. I ask questions that may feel uncomfortable — less about deliverables, more about what's actually going on beneath the ask."
+        title: "You come with a direction.",
+        body: "Whether it's a project, a goal, or something that you've been trying to solve, that's enough to start."
     },
     {
         num: "02",
-        title: "We get honest.",
-        body: "Before anything gets made, we define the real problem together. Sometimes this takes one conversation. Sometimes several. Occasionally, it changes the brief entirely. That's not a detour — that's the work."
+        title: "We dig into the problem.",
+        body: "We follow the tension underneath the ask, even when it leads into messaging, trust, product, or decision-making issues. That's not a detour, it's the work."
     },
     {
         num: "03",
-        title: "Then we build.",
-        body: "Once we know what we're actually solving, I make the thing designed for that specific reality. A film. A campaign. A messaging system. A clearer path forward. Something that fits."
+        title: "We build the thing.",
+        body: "Once the real problem is clear, we build what fits it best, with the right level of craft, strategy, and restraint."
     }
 ];
 
@@ -61,7 +61,7 @@ export default function ProcessSteps() {
                         What it actually looks like
                     </p>
                     <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] text-charcoal leading-tight tracking-tight">
-                        Working together.
+                        The process.
                     </h2>
                 </div>
 

@@ -1,6 +1,6 @@
 # Findings
 
-- The booking page lives at `src/pages/BookingPage.jsx`.
-- The current page embeds a single Calendly inline widget for `https://calendly.com/proctom/45`.
-- The page already loads Calendly's external widget script and has a graceful fallback state if the iframe does not appear.
-- Keeping one page and swapping the active embed is the simplest user experience and avoids route sprawl or popup friction.
+- The homepage is assembled in `src/pages/HomePage.jsx` from section components in `src/components/home/`.
+- The requested copy maps directly to `Diagnosis`, `Frustration`, `ProblemReframe`, `MichaelIntro`, `ProcessSteps`, and `Capabilities`.
+- There was no existing section for "Who is this for?", so the cleanest fit was a new component inserted before the final CTA.
+- The user asked to keep the copy mostly verbatim, so edits should stay limited to tiny grammar and punctuation cleanup only.

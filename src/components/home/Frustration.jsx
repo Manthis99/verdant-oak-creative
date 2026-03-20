@@ -6,8 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const frustrations = [
   "You hired someone to make the thing.",
-  "The thing looked good.",
-  "But it never quite solved what you hoped it would."
+  "A video, a campaign, a new site.",
+  "The thing looked good, but it never quite had the results you hoped for."
 ];
 
 export default function Frustration() {
@@ -61,7 +61,7 @@ export default function Frustration() {
         <div className="relative z-10 mx-auto max-w-4xl w-full">
 
           <p className="frustration-intro mb-10 text-sm uppercase tracking-[0.25em] frustration-text-secondary text-[#D4C3A3] font-medium">
-            Maybe you have felt this before.
+            You've probably felt this before:
           </p>
 
           <div className="flex flex-col gap-14 border-l-[1.5px] border-smoke/20 pl-8 md:pl-16 lg:pl-20 py-4">

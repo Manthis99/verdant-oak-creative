@@ -1,47 +1,49 @@
 const diagnosisLines = [
-  'You probably do not need more creative.',
-  'You probably need clearer strategy and language.',
-  'Because a beautiful answer to the wrong problem is still the wrong answer.',
+  "You don't have a creative problem.",
+  'You have a clarity Problem.',
+  'Most teams are solving symptoms, not root problems.',
+  'I help you solve the root problem.',
 ];
 
 const frustrationLines = [
-  'Maybe you have felt this before.',
+  "You've probably felt this before:",
   'You hired someone to make the thing.',
-  'The thing looked good.',
-  'But it never quite solved what you hoped it would.',
+  'A video, a campaign, a new site.',
+  'The thing looked good, but it never quite had the results you hoped for.',
   'The brief was clear.',
   'The underlying problem was not.',
 ];
 
 const reframeItems = [
-  'We are not clear on what matters.',
-  'Our message is muddy.',
-  'We do not understand our audience well enough to speak to them clearly.',
-  'Leadership is asking marketing to carry the weight of deeper confusion.',
-  'Creative is often where the pain shows up. Not where it starts.',
+  "The video actually means we're not clear with our product.",
+  'Our messaging is confusing.',
+  'We are struggling to build trust with our audience.',
+  "The pain is carrying problems it's not actually responsible for.",
+  'Creative is often where the pain shows up, not where it starts.',
 ];
 
 const michaelIntro = [
-  "I'm Michael.",
-  'I make films, campaigns, and brand work. But most of my work starts earlier than that.',
-  'I ask the uncomfortable question first.',
-  `Not "what do you want made?" but "what is actually going on?" Most creative problems are clarity problems in disguise.`,
-  'I build what matters.',
-  'I like complex problems where story, systems, and human reality collide. Beauty matters, but not as decoration. I care more whether the work is true, aligned, and built to do what it is supposed to do.',
+  "I've helped solve marketing and strategy problems",
+  'for nonprofits and small businesses for over eight years.',
+  "What I've learned is to start by asking the uncomfortable questions first.",
+  "The questions that usually don't get asked until you've spent time and money on the thing.",
+  'Because most creative problems are clarity problems in disguise.',
+  "Once we're clear, I build what fits.",
+  'Film, campaign, web copy, or systems. Whatever actually solves the underlying problem.',
 ];
 
 const processSteps = [
   {
-    title: 'You reach out.',
-    body: "Usually with a brief, a problem, or a half-formed question. We talk. I ask questions that may feel uncomfortable — less about deliverables, more about what's actually going on beneath the ask.",
+    title: 'You come with a direction.',
+    body: "Whether it's a project, a goal, or something that you've been trying to solve, that's enough to start.",
   },
   {
-    title: 'We get honest.',
-    body: "Before anything gets made, we define the real problem together. Sometimes this takes one conversation. Sometimes several. Occasionally, it changes the brief entirely. That's not a detour — that's the work.",
+    title: 'We dig into the problem.',
+    body: "We follow the tension underneath the ask, even when it leads into messaging, trust, product, or decision-making issues. That's not a detour, it's the work.",
   },
   {
-    title: 'Then we build.',
-    body: 'Once we know what we are actually solving, I make the thing designed for that specific reality. A film. A campaign. A messaging system. A clearer path forward. Something that fits.',
+    title: 'We build the thing.',
+    body: 'Once the real problem is clear, we build what fits it best, with the right level of craft, strategy, and restraint.',
   },
 ];
 
@@ -74,20 +76,18 @@ const selectedWork = [
   },
 ];
 
-const services = [
-  'Film & Video Production: End-to-end production of brand films, documentary shorts, fundraising campaigns, and launch videos. From concept and script through shoot, edit, and delivery.',
-  'Campaign Strategy & Creative Direction: Full campaign architecture — message sequencing, audience mapping, channel strategy, and the creative system to hold it together across every touchpoint.',
-  "Brand Messaging & Clarity: Positioning, voice, language, and the core story that makes everything else perform. Ideal when you have a strong offer but the language around it isn't landing.",
-  'Website Design & Copywriting: Strategy-led web design paired with copy that earns attention and converts it. Built for organizations that want a site that works, not just one that looks good.',
-  'Embedded Creative Partnership: Ongoing creative leadership for organizations that need a trusted collaborator — not a vendor. Available for retainer or project-based engagements.',
+const inPractice = [
+  "Sometimes it's a film: A story-led piece built to clarify the message, earn trust, and move people toward action.",
+  "Sometimes it's a campaign: A bigger creative system designed to connect strategy, story, and execution across multiple touchpoints.",
+  "Sometimes it's fixing your overall messaging: Clarifying what you do, how you say it, and why people should trust it before more creative gets layered on top.",
+  "Sometimes it's realizing you don't need any of it: Sometimes the most useful outcome is identifying the real issue before more time and money go into the wrong solution.",
 ];
 
-const philosophy = [
-  'Good work requires good partnership.',
-  'I like collaborating with leaders who value clarity over noise, ask hard questions, and want to build work that is actually useful.',
-  'Clarity & Honesty: I care about work that is clear, honest, and useful. Beauty matters, but not as decoration.',
-  'Structure & Action: I am drawn to the intersection of story, structure, faith, art, and action. Better questions usually lead to better decisions.',
-  'Truth & Utility: I am not interested in a beautiful answer to the wrong problem. I want to help you get closer to what is true, then build something your audience can actually use.',
+const idealFit = [
+  'You have tried a few things, but nothing really is clicking.',
+  'You want a second perspective, not just an executor.',
+  "You care more about what's true than what looks impressive.",
+  'You are willing to dig layer after layer for what the actual problem is.',
 ];
 
 const finalCtas = [
@@ -165,8 +165,8 @@ export default function HomeReviewPage() {
           </ReviewSection>
 
           <ReviewSection title="Problem Reframe" subtitle='The "we need a video" diagnosis section'>
-            <p>The request is not always the problem.</p>
-            <p>Sometimes "we need a video" actually means:</p>
+            <p>The request is not always the real problem.</p>
+            <p>Sometimes the ask is pointing somewhere deeper:</p>
             <ul className="list-disc space-y-2 pl-6">
               {reframeItems.map((item) => (
                 <li key={item}>{item}</li>
@@ -180,7 +180,7 @@ export default function HomeReviewPage() {
             ))}
           </ReviewSection>
 
-          <ReviewSection title="Working Together" subtitle="Process section">
+          <ReviewSection title="The Process" subtitle="Process section">
             <ol className="space-y-6">
               {processSteps.map((step, index) => (
                 <li key={step.title}>
@@ -210,16 +210,16 @@ export default function HomeReviewPage() {
             </div>
           </ReviewSection>
 
-          <ReviewSection title="Services Offered" subtitle="Capabilities section">
+          <ReviewSection title="What This Looks Like In Practice" subtitle="Capabilities section">
             <ul className="list-disc space-y-3 pl-6">
-              {services.map((service) => (
-                <li key={service}>{service}</li>
+              {inPractice.map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </ReviewSection>
 
-          <ReviewSection title="Philosophy / Grounding" subtitle="Values and partnership section">
-            {philosophy.map((line) => (
+          <ReviewSection title="Who Is This For?" subtitle="Ideal-fit section">
+            {idealFit.map((line) => (
               <p key={line}>{line}</p>
             ))}
           </ReviewSection>
