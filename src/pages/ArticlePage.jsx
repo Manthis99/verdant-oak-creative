@@ -16,9 +16,6 @@ export default function ArticlePage() {
 
   // Find the current article
   const article = writingData.find(post => post.slug === slug);
-  
-  // Find related/next article (just grab another random one for the footer)
-  const relatedArticle = writingData.find(post => post.slug !== slug) || writingData[0];
 
   // Scroll to top on mount (important for routing)
   useEffect(() => {
@@ -46,8 +43,8 @@ export default function ArticlePage() {
     return (
       <div className="min-h-screen bg-parchment pt-48 pb-32 px-4 flex flex-col items-center justify-center text-charcoal">
         <h1 className="font-serif text-5xl mb-8">Notes not found.</h1>
-        <Link to="/writing" className="text-sm uppercase tracking-[0.2em] font-medium text-moss hover:text-gold transition-colors">
-          Return to Archive
+        <Link to="/" className="text-sm uppercase tracking-[0.2em] font-medium text-moss hover:text-gold transition-colors">
+          Return Home
         </Link>
       </div>
     );
@@ -72,8 +69,6 @@ export default function ArticlePage() {
         
         <div className="relative z-10 max-w-[800px] mx-auto w-full reveal-header">
           <div className="flex items-center gap-4 text-xs font-medium uppercase tracking-[0.2em] text-white/70 mb-6 md:mb-8">
-            <Link to="/writing" className="hover:text-gold transition-colors">Writing</Link>
-            <span className="w-1 h-1 rounded-full bg-white/30"></span>
             <span>{article.category}</span>
           </div>
 
@@ -105,37 +100,6 @@ export default function ArticlePage() {
         className="reveal-body max-w-[650px] mx-auto px-4 sm:px-0 text-[1.1rem] md:text-lg leading-[1.8] md:leading-[1.9] font-light text-[#222] article-content"
         dangerouslySetInnerHTML={createMarkup(article.content)}
       />
-
-      {/* Article Footer & Next Navigation */}
-      <footer className="max-w-[800px] mx-auto mt-32 md:mt-48 pt-16 md:pt-24 border-t border-charcoal/10 px-4 sm:px-0">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-          
-          <div className="flex-1">
-            <p className="text-xs uppercase tracking-[0.25em] text-charcoal/40 font-medium mb-4">
-              More Writing
-            </p>
-            <Link to={`/writing/${relatedArticle.slug}`} className="group block">
-              <h4 className="font-serif text-2xl md:text-3xl tracking-tight mb-3 group-hover:text-gold transition-colors duration-300">
-                {relatedArticle.title}
-              </h4>
-              <span className="text-sm font-light italic text-charcoal/60 group-hover:text-charcoal/80 transition-colors">
-                {relatedArticle.deck || relatedArticle.excerpt}
-              </span>
-            </Link>
-          </div>
-
-          <Link 
-            to="/writing" 
-            className="shrink-0 group relative overflow-hidden rounded-full border border-charcoal/20 px-8 py-3 text-xs tracking-[0.2em] text-charcoal uppercase transition-all duration-500 hover:border-moss"
-          >
-            <span className="relative z-10 transition-colors duration-500 group-hover:text-parchment">
-              Back to Archive
-            </span>
-            <div className="absolute inset-0 h-full w-full translate-y-[101%] bg-moss transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
-          </Link>
-
-        </div>
-      </footer>
 
       {/* Custom Styles for injected HTML content (headings, blockquotes, drop caps) */}
       <style>{`

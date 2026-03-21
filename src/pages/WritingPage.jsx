@@ -7,7 +7,6 @@ import { writingData } from '../data/writingData';
 export default function WritingPage() {
   const containerRef = useRef(null);
   const featuredPost = writingData.find(post => post.featured);
-  const archivePosts = writingData.filter(post => !post.featured);
 
   useGSAP(() => {
     // Reveal text in hero
@@ -22,26 +21,6 @@ export default function WritingPage() {
       { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.4 }
     );
 
-    // Stagger in archive posts
-    gsap.fromTo('.archive-item',
-      { y: 40, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: 0.8, 
-        stagger: 0.1, 
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.archive-container',
-          start: 'top 80%'
-        }
-      }
-    );
-     // Reveal Divider
-    gsap.fromTo('.reveal-divider',
-      { scaleX: 0 },
-      { scaleX: 1, duration: 1.5, ease: 'power3.inOut', delay: 0.3 }
-    );
   }, { scope: containerRef });
 
   return (
@@ -120,49 +99,6 @@ export default function WritingPage() {
             </Link>
           </section>
         )}
-
-        {/* Divider */}
-        <div className="reveal-divider w-full h-[1px] bg-charcoal/10 mb-20 lg:mb-24 origin-left"></div>
-
-        {/* Archive Section - Staggered Editorial Layout */}
-        <section className="archive-container max-w-5xl mx-auto">
-          <div className="flex items-center justify-between mb-16">
-            <h3 className="font-serif text-3xl md:text-4xl italic text-charcoal">Archive</h3>
-            <span className="text-xs uppercase tracking-[0.2em] text-charcoal/40 font-medium">All Writing ({archivePosts.length})</span>
-          </div>
-
-          <div className="flex flex-col gap-0 border-t border-charcoal/10">
-            {archivePosts.map((post) => (
-              <Link 
-                key={post.id} 
-                to={`/writing/${post.slug}`} 
-                className="archive-item group flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 py-10 md:py-12 border-b border-charcoal/10 hover:bg-black/[0.02] transition-colors duration-300 px-4 -mx-4 rounded-xl"
-              >
-                
-                {/* Meta data (Left column on desktop) */}
-                <div className="w-full md:w-48 shrink-0 flex flex-row md:flex-col justify-between md:justify-start gap-4 text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40 mt-1 md:mt-2">
-                  <span className="group-hover:text-moss transition-colors duration-300">{post.date}</span>
-                  <span className="hidden md:block">{post.category}</span>
-                  <span className="md:hidden opacity-50">{post.readTime}</span>
-                </div>
-
-                {/* Title & Excerpt (Right column) */}
-                <div className="flex flex-col flex-grow">
-                  <h4 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight leading-[1.2] mb-4 group-hover:text-gold transition-colors duration-500 max-w-2xl">
-                    {post.title}
-                  </h4>
-                  <p className="text-base md:text-lg font-light text-charcoal/60 leading-relaxed max-w-2xl mb-6">
-                    {post.deck || post.excerpt}
-                  </p>
-                  <span className="hidden md:block text-xs uppercase tracking-[0.2em] text-charcoal/30 group-hover:text-charcoal/60 transition-colors duration-300 font-medium">
-                    {post.readTime}
-                  </span>
-                </div>
-
-              </Link>
-            ))}
-          </div>
-        </section>
 
       </div>
     </div>
