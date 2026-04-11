@@ -1,7 +1,12 @@
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/journey", "dest": "/journey/index.html" },
-    { "src": "/(.*)", "dest": "/" }
+  "rewrites": [
+    {
+      "source": "/journey",
+      "destination": "/journey/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
