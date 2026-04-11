@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journey Auto Repair — Photo + Video Proposal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:     #cea12b;
+      --rust:     #ad5826;
+      --brick:    #8c391e;
+      --linen:    #ebe3c4;
+      --linen-lt: #f3eed8;
+      --moss:     #58614c;
+      --midnight: #2b3321;
+      --white:    #faf8f2;
+      --cream:    #f5f0e1;
+      --charcoal: #2a2a22;
+      --body:     #6b6a5f;
+      --body-lt:  rgba(250,248,242,0.65);
+      --muted:    #a09d92;
+      --rule:     rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* noise */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── TYPOGRAPHY ────────────────────── */
+    .serif { font-family: 'Fraunces', Georgia, serif; }
+    .mono  { font-family: 'DM Mono', monospace; }
+
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.15;
+    }
+
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    /* ── LAYOUT ────────────────────────── */
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    @media (max-width: 600px) { .wrap { padding: 0 24px; } }
+
+    .wide-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+    @media (max-width: 600px) { section { padding: 80px 0; } }
+
+    .rule {
+      height: 1px;
+      background: var(--rule);
+      margin: 56px 0;
+    }
+
+    /* ── SCROLL ────────────────────────── */
+    .r {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .r.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.06s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.18s; }
+    .d4 { transition-delay: 0.24s; }
+    .d5 { transition-delay: 0.30s; }
+
+    /* ═══════════════════════════════════
+       COVER
+    ═══════════════════════════════════ */
+    #cover {
+      background: var(--linen);
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+    }
+    .cover-bar span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: lowercase;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 860px) {
+      .cover-body { grid-template-columns: 1fr; }
+      .cover-img { max-height: 45vh; order: -1; }
+    }
+
+    .cover-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px 56px 72px;
+    }
+
+    .cover-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 40px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .cover-label::before {
+      content: ''; width: 24px; height: 1px; background: var(--rust);
+    }
+
+    .cover-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(3.2rem, 7vw, 5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .cover-title em { font-style: italic; color: var(--rust); }
+
+    .cover-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--body);
+      max-width: 380px;
+      line-height: 1.75;
+      margin-bottom: 56px;
+    }
+
+    .cover-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .cover-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-img::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--gold);
+      z-index: 2;
+    }
+
+    /* ═══════════════════════════════════
+       INTRO
+    ═══════════════════════════════════ */
+    #intro {
+      background: var(--cream);
+      padding: 140px 0;
+    }
+
+    .intro-text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .intro-text + .intro-text {
+      margin-top: 24px;
+    }
+
+    .intro-accent {
+      color: var(--rust);
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════
+       TRUST
+    ═══════════════════════════════════ */
+    #trust {
+      background: var(--white);
+      padding: 120px 0;
+    }
+
+    .trust-header {
+      margin-bottom: 64px;
+    }
+    .trust-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--charcoal);
+    }
+    .trust-header p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--body);
+      margin-top: 14px;
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    .trust-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 700px) {
+      .trust-cols { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .trust-col-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .trust-col-label--avg { color: var(--muted); }
+    .trust-col-label--best { color: var(--moss); }
+
+    .trust-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .trust-list li {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.75;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .trust-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 10px; height: 1px;
+      margin-top: 12px;
+    }
+    .trust-list--avg li::before { background: var(--muted); }
+    .trust-list--best li::before { background: var(--moss); }
+
+    .trust-bridge {
+      border-top: 1px solid var(--rule);
+      padding-top: 48px;
+    }
+
+    .trust-bridge-text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    .trust-bridge-text em {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .trust-bridge-note {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.8;
+      margin-top: 16px;
+      max-width: 580px;
+    }
+
+    /* ═══════════════════════════════════
+       SHOT LIST
+    ═══════════════════════════════════ */
+    #shots {
+      background: var(--linen-lt);
+      padding: 120px 0;
+    }
+
+    .shots-header {
+      margin-bottom: 64px;
+    }
+    .shots-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--charcoal);
+    }
+    .shots-header p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--body);
+      margin-top: 12px;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .shot-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+      padding: 40px 0;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .shot-row:last-child { border-bottom: 1px solid var(--rule); }
+    @media (max-width: 700px) {
+      .shot-row { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    .shot-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    .shot-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.8;
+    }
+
+    /* Photo strip */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 72px;
+    }
+    @media (max-width: 600px) { .photo-strip { grid-template-columns: 1fr; } }
+    .photo-strip > div {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    /* ═══════════════════════════════════
+       DELIVERABLES
+    ═══════════════════════════════════ */
+    #deliverables {
+      background: var(--cream);
+      padding: 120px 0;
+    }
+
+    .del-header {
+      margin-bottom: 64px;
+    }
+    .del-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--charcoal);
+    }
+
+    .del-section {
+      padding: 40px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .del-section-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .del-section-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .del-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .del-list li {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.7;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .del-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 12px; height: 1px;
+      background: var(--rust);
+      margin-top: 12px;
+    }
+
+    /* ═══════════════════════════════════
+       TIMELINE
+    ═══════════════════════════════════ */
+    #timeline {
+      background: var(--midnight);
+      padding: 120px 0;
+    }
+
+    .tl-header {
+      margin-bottom: 64px;
+    }
+    .tl-header .label { color: var(--gold); }
+    .tl-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--white);
+    }
+
+    .tl-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 36px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      align-items: start;
+    }
+
+    .tl-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .tl-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .tl-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--body-lt);
+      line-height: 1.8;
+    }
+
+    .tl-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: rgba(250,248,242,0.25);
+      margin-top: 48px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════════
+       ADD-ONS
+    ═══════════════════════════════════ */
+    #addons {
+      background: var(--linen-lt);
+      padding: 120px 0;
+    }
+
+    .addon-header {
+      margin-bottom: 56px;
+    }
+    .addon-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--charcoal);
+    }
+    .addon-header p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--body);
+      margin-top: 12px;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .addon-card {
+      padding: 36px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .addon-card-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .addon-card-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    /* ═══════════════════════════════════
+       PRICING
+    ═══════════════════════════════════ */
+    #pricing {
+      background: var(--cream);
+      padding: 120px 0;
+    }
+
+    .pricing-header {
+      margin-bottom: 56px;
+    }
+    .pricing-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--charcoal);
+    }
+
+    .price-box {
+      border-top: 3px solid var(--gold);
+      padding-top: 40px;
+      margin-bottom: 56px;
+    }
+
+    .price-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .price-amount {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(4rem, 10vw, 6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .price-note {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .price-includes {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 32px;
+    }
+    .price-includes li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--body);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .price-includes li::before {
+      content: '';
+      width: 10px; height: 1px;
+      background: var(--gold);
+    }
+
+    .price-divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 56px 0;
+    }
+
+    .price-closing {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    .price-closing strong {
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════
+       CTA
+    ═══════════════════════════════════ */
+    .cta {
+      background: var(--gold);
+      padding: 52px 40px;
+      text-align: center;
+    }
+    .cta p {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 300;
+      color: var(--midnight);
+    }
+    .cta em { font-weight: 500; }
+
+    /* ── FOOTER ────────────────────────── */
+    footer {
+      background: var(--midnight);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      color: rgba(250,248,242,0.2);
+      letter-spacing: 0.1em;
+    }
+    .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(206,161,43,0.5);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.35; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ COVER ══════════════════════════════ -->
+  <section id="cover">
+    <div class="cover-bar">
+      <span>journey auto repair</span>
+      <span>april 2026</span>
+    </div>
+    <div class="cover-body">
+      <div class="cover-text">
+        <div class="cover-label">Proposal</div>
+        <h1 class="cover-title serif">Photo<br>+ <em>Video</em></h1>
+        <p class="cover-sub">A proposal to help communicate trust and a down-to-earthness to your clients before they enter the door.</p>
+        <span class="cover-meta">prepared for jess and kyle &nbsp;&middot;&nbsp; journey auto repair &nbsp;&middot;&nbsp; south elgin, il</span>
+      </div>
+      <div class="cover-img">
+        <img src="img/cover.jpg" alt="Workshop" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ══════════════════════════════ -->
+  <section id="intro">
+    <div class="wrap">
+      <p class="intro-text r">Alright guys &mdash; here&rsquo;s what I&rsquo;m thinking.</p>
+      <p class="intro-text r d1">You&rsquo;ve got the shop, the team, and the standard of work. But online, <span class="intro-accent">none of that comes through yet.</span> The site has a stock image that doesn&rsquo;t really contribute anything. It doesn&rsquo;t feel like Journey &mdash; it doesn&rsquo;t feel like you.</p>
+      <p class="intro-text r d2">This shoot is the first step in <span class="intro-accent">building the Journey brand.</span> Real photos, a real video, and a visual identity that people recognize and trust &mdash; so when they hear the name, they already know what to expect.</p>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST ═════════════════════════════ -->
+  <section id="trust">
+    <div class="wrap">
+      <div class="trust-header">
+        <span class="label r">Why this matters</span>
+        <h2 class="r d1">What builds trust online.</h2>
+        <p class="r d2">I looked at dozens of auto repair sites &mdash; the shops that win on Google, the ones people actually call. There&rsquo;s a clear pattern.</p>
+      </div>
+
+      <div class="trust-cols r d2">
+        <div>
+          <span class="trust-col-label trust-col-label--avg">Most shops</span>
+          <ul class="trust-list trust-list--avg">
+            <li>Stock photos or no photos at all</li>
+            <li>Generic &ldquo;about us&rdquo; text &mdash; could be any shop in any city</li>
+            <li>No faces, no team, no sense of who you&rsquo;re trusting your car with</li>
+            <li>One blurry exterior shot from 2017</li>
+            <li>Website feels like a template</li>
+          </ul>
+        </div>
+        <div>
+          <span class="trust-col-label trust-col-label--best">The shops people choose</span>
+          <ul class="trust-list trust-list--best">
+            <li>Real team photos &mdash; faces, names, approachability</li>
+            <li>Clean, professional environment shots that say &ldquo;we take care of things&rdquo;</li>
+            <li>Friendly moments &mdash; the kind where it feels like you&rsquo;re talking to a neighbor, not a salesperson. Down to earth, approachable, people you&rsquo;d actually trust</li>
+            <li>Video that shows the experience a client will have, not just the building</li>
+            <li>Visual quality that matches the quality of auto repair you do</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trust-bridge r d3">
+        <p class="trust-bridge-text">Journey already <em>sounds</em> trustworthy. Your reviews say it, your customers feel it, Kyle lives it. This project helps Journey <em>look</em> trustworthy at first glance.</p>
+        <p class="trust-bridge-note">Right now there&rsquo;s a gap between what people experience when they walk in and what they see before they ever do. That&rsquo;s the gap we close.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SHOT LIST ══════════════════════════ -->
+  <section id="shots">
+    <div class="wrap">
+      <div class="shots-header">
+        <span class="label r">Scope of Work</span>
+        <h2 class="r d1">An online presence for your shop that looks trustworthy and professional.</h2>
+        <p class="r d2">Filming + photography. Half-day on-site (~4 hours). I&rsquo;ll direct and guide everyone through the whole shoot.</p>
+      </div>
+
+      <div class="shot-row r">
+        <div class="shot-name serif">Pre-production</div>
+        <div class="shot-desc">Planning session before we shoot: who&rsquo;s going to be there, what we&rsquo;re capturing, when we&rsquo;re shooting, and what the day looks like start to finish.</div>
+      </div>
+      <div class="shot-row r d1">
+        <div class="shot-name serif">Interactions between techs + customers</div>
+        <div class="shot-desc">Capturing the educational process and the friendliness and down-to-earthness of the shop environment. A tech explaining what&rsquo;s happening, a real conversation, the moments that make people feel comfortable.</div>
+      </div>
+      <div class="shot-row r d2">
+        <div class="shot-name serif">The shop environment</div>
+        <div class="shot-desc">A well-organized, beautiful shop with a waiting room somebody actually wants to be in. When people get there, they already know what the place looks like.</div>
+      </div>
+      <div class="shot-row r d3">
+        <div class="shot-name serif">Detail shots of work being done</div>
+        <div class="shot-desc">Close-up shots that show you know what you&rsquo;re doing &mdash; hands on engines, diagnostic tools, the craft. These double as on-brand general imagery you can use to fill other spaces across your site and social.</div>
+      </div>
+      <div class="shot-row r d4">
+        <div class="shot-name serif">Staff + team</div>
+        <div class="shot-desc">Individual headshots for the site and a full team photo. Faces build trust &mdash; people want to know who&rsquo;s working on their car.</div>
+      </div>
+    </div>
+
+    <div class="wide-wrap">
+      <div class="photo-strip">
+        <div class="r d2"><img src="img/car-lift.jpeg" alt="Car on lift" /></div>
+        <div class="r d3"><img src="img/hands-work.jpg" alt="Working on engine" /></div>
+        <div class="r d4"><img src="img/mechanic-tablet.jpg" alt="Mechanic with tablet" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DELIVERABLES ═══════════════════════ -->
+  <section id="deliverables">
+    <div class="wrap">
+      <div class="del-header">
+        <span class="label r">Deliverables</span>
+        <h2 class="r d1">What you walk away with.</h2>
+      </div>
+
+      <div class="del-section r">
+        <div class="del-section-title serif">Photography</div>
+        <span class="del-section-sub">25 &ndash; 40 edited images</span>
+        <ul class="del-list">
+          <li>Mix of wide shots, close details, and real human moments</li>
+          <li>Color graded to feel warm and cohesive across everything</li>
+          <li>Light retouching on key images &mdash; real, not airbrushed</li>
+          <li>Individual headshots + full team photo</li>
+          <li>Sized and ready for website, Google Business, and social</li>
+        </ul>
+      </div>
+
+      <div class="del-section r d1">
+        <div class="del-section-title serif">Website Banner Video</div>
+        <span class="del-section-sub">30 &ndash; 60 seconds, loopable</span>
+        <ul class="del-list">
+          <li>On brand and down to earth</li>
+          <li>Designed to sit behind your site header</li>
+          <li>Music can be added if needed to use in other spaces</li>
+          <li>An Instagram Reel version will also be delivered</li>
+        </ul>
+      </div>
+
+      <div class="del-section r d2">
+        <div class="del-section-title serif">Individual Clips</div>
+        <span class="del-section-sub">For your marketing agency</span>
+        <ul class="del-list">
+          <li>Separate clips from the shoot day for your marketing agency to use across other channels</li>
+        </ul>
+      </div>
+
+      <div class="del-section r d3">
+        <div class="del-section-title serif">Editing + Polish</div>
+        <span class="del-section-sub">Post-production</span>
+        <ul class="del-list">
+          <li>Color grade across all photos and video</li>
+          <li>Music and pacing if needed</li>
+          <li>Photo retouching on key images</li>
+          <li>Revisions will be accepted</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE ═══════════════════════════ -->
+  <section id="timeline">
+    <div class="wrap">
+      <div class="tl-header">
+        <span class="label r">Timeline</span>
+        <h2 class="r d1">How this plays out.</h2>
+      </div>
+
+      <div class="tl-step r">
+        <div class="tl-num serif">01</div>
+        <div>
+          <div class="tl-title">Pre-production</div>
+          <div class="tl-desc">Planning session: who&rsquo;s on camera, what we&rsquo;re shooting, scheduling the day. I&rsquo;ll handle the shot list and logistics.</div>
+        </div>
+      </div>
+
+      <div class="tl-step r d1">
+        <div class="tl-num serif">02</div>
+        <div>
+          <div class="tl-title">On-location shoot</div>
+          <div class="tl-desc">Half day at the South Elgin shop. Photo and video. I&rsquo;ll direct and guide everyone through it.</div>
+        </div>
+      </div>
+
+      <div class="tl-step r d2">
+        <div class="tl-num serif">03</div>
+        <div>
+          <div class="tl-title">Edits + delivery</div>
+          <div class="tl-desc">~2 weeks after the shoot. Edited photos, finished banner video, Reel version, and raw clips &mdash; all delivered digitally, ready to use.</div>
+        </div>
+      </div>
+
+      <p class="tl-note r d3">// Two-week turnaround from shoot day.</p>
+    </div>
+  </section>
+
+  <!-- ═══ ADD-ONS ════════════════════════════ -->
+  <section id="addons">
+    <div class="wrap">
+      <div class="addon-header">
+        <span class="label r">Down the Road</span>
+        <h2 class="r d1">Future things we can do.</h2>
+      </div>
+
+      <div class="addon-card r">
+        <div class="addon-card-title serif">Martin Auto Photo Refresh</div>
+        <div class="addon-card-desc">Martin&rsquo;s current photos are aging. Once we&rsquo;re in production mode for Journey, I can add a half-day at Martin to refresh the team photos, update the B-roll, and keep the visual language consistent across both brands.</div>
+      </div>
+
+      <div class="addon-card r d1">
+        <div class="addon-card-title serif">Brand Anthem / Campaign</div>
+        <div class="addon-card-desc">A film built around your family story &mdash; the legacy in auto repair, why Journey exists, what it means to the people behind it. Separate project, whenever you&rsquo;re ready.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRICING ════════════════════════════ -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="pricing-header">
+        <span class="label r">Cost</span>
+        <h2 class="r d1">What this costs.</h2>
+      </div>
+
+      <div class="price-box r d1">
+        <div class="price-title serif">Photos + Website Banner Video</div>
+        <div class="price-amount serif">$2,500</div>
+        <p class="price-note">That covers everything below. No hidden fees, no surprise line items.</p>
+        <ul class="price-includes">
+          <li>Planning + shot list</li>
+          <li>Half-day on-location shoot</li>
+          <li>25 &ndash; 40 edited photos</li>
+          <li>Website banner video</li>
+          <li>Instagram Reel version</li>
+          <li>Color grading</li>
+          <li>Retouching</li>
+          <li>Revisions</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p class="serif">Let&rsquo;s help you <em>build trust with your audience.</em></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>journey auto repair &middot; photo + video proposal</span>
+    <div class="dot"></div>
+    <span>april 2026</span>
+  </footer>
+
+  <script>
+    const o = new IntersectionObserver(
+      (e) => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('in'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
+    );
+    document.querySelectorAll('.r').forEach(el => o.observe(el));
+  </script>
+</body>
+</html>
