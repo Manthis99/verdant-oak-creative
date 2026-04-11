@@ -5,7 +5,7 @@
       "destination": "/journey/index.html"
     },
     {
-      "source": "/((?!journey).*)",
+      "source": "/((?!journey/).*)",
       "destination": "/"
     }
   ]
