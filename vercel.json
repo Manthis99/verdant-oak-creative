@@ -1,9 +1,12 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/journey",
-      "destination": "/journey/index.html"
-    },
+      "destination": "/journey/",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/"
