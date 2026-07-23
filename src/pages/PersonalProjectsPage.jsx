@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { personalProjects } from '../data/personalProjects';
 
@@ -126,11 +126,11 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
         <span>Image {currentIndex + 1} of {images.length}</span>
       </div>
       {images.length > 1 && (
-        <div className="absolute inset-x-5 top-5 flex justify-end gap-2 opacity-0 transition-opacity group-hover:opacity-100 sm:inset-x-7 sm:top-7">
-          <button type="button" onClick={prevImage} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/35 bg-black/20 text-white backdrop-blur-md hover:bg-white hover:text-charcoal" aria-label="Previous image">
+        <div className="absolute inset-x-5 top-5 flex justify-end gap-2 opacity-100 transition-opacity sm:inset-x-7 sm:top-7 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+          <button type="button" onClick={prevImage} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/35 bg-black/35 text-white backdrop-blur-md hover:bg-white hover:text-charcoal focus-visible:bg-white focus-visible:text-charcoal focus-visible:outline-none" aria-label="Previous image">
             <ChevronLeft size={16} />
           </button>
-          <button type="button" onClick={nextImage} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/35 bg-black/20 text-white backdrop-blur-md hover:bg-white hover:text-charcoal" aria-label="Next image">
+          <button type="button" onClick={nextImage} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/35 bg-black/35 text-white backdrop-blur-md hover:bg-white hover:text-charcoal focus-visible:bg-white focus-visible:text-charcoal focus-visible:outline-none" aria-label="Next image">
             <ChevronRight size={16} />
           </button>
         </div>
@@ -173,7 +173,7 @@ function ProjectLink({ project, dark = false }) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`mt-6 inline-flex items-center gap-3 border-b pb-2 text-[10px] uppercase tracking-[0.22em] transition-colors hover:border-gold hover:text-gold ${dark ? 'border-white/25 text-parchment' : 'border-charcoal/25 text-charcoal'}`}
+      className={`mt-4 inline-flex min-h-11 items-center gap-3 border-b py-2 text-[10px] uppercase tracking-[0.22em] transition-colors hover:border-gold hover:text-gold ${dark ? 'border-white/25 text-parchment' : 'border-charcoal/25 text-charcoal'}`}
     >
       {project.link.includes('github.com') ? <Github size={14} /> : <ExternalLink size={14} />}
       <span>{project.link.includes('github.com') ? 'View repository' : 'View the live site'}</span>
@@ -186,6 +186,21 @@ export default function PersonalProjectsPage() {
   const liveProjects = personalProjects.filter((project) => !project.archived);
   const archivedProjects = personalProjects.filter((project) => project.archived);
 
+  useEffect(() => {
+    const scrollToProject = () => {
+      const targetId = decodeURIComponent(window.location.hash.slice(1));
+      if (targetId) document.getElementById(targetId)?.scrollIntoView();
+    };
+
+    const animationFrame = window.requestAnimationFrame(scrollToProject);
+    window.addEventListener('hashchange', scrollToProject);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener('hashchange', scrollToProject);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#e9e2d2] text-charcoal">
       <header className="flex min-h-screen flex-col bg-[#d8cfbd] pt-28 text-charcoal sm:pt-32">
@@ -196,8 +211,8 @@ export default function PersonalProjectsPage() {
             <span className="px-5 py-4 sm:px-7">Hardware / software / objects</span>
           </div>
 
-          <div className="grid flex-1 lg:grid-cols-[0.68fr_1.35fr_0.9fr]">
-            <div className="flex flex-col justify-between border-b border-charcoal/25 px-5 py-7 sm:px-7 lg:border-b-0 lg:border-r lg:py-10">
+          <div className="grid min-w-0 flex-1 lg:grid-cols-[0.68fr_1.35fr_0.9fr]">
+            <div className="flex min-w-0 flex-col justify-between border-b border-charcoal/25 px-5 py-7 sm:px-7 lg:border-b-0 lg:border-r lg:py-10">
               <p className="max-w-[17rem] text-sm leading-relaxed text-charcoal/70">
                 Projects I made to answer questions I could not answer by reading alone.
               </p>
@@ -206,21 +221,21 @@ export default function PersonalProjectsPage() {
               </p>
             </div>
 
-            <div className="flex items-center border-b border-charcoal/25 px-5 py-10 sm:px-8 sm:py-14 lg:border-b-0 lg:border-r lg:px-10">
-              <h1 className="font-serif text-[4.2rem] leading-[0.82] tracking-[-0.06em] sm:text-[6rem] lg:text-[6.5rem] xl:text-[7rem]">
+            <div className="flex min-w-0 items-center overflow-hidden border-b border-charcoal/25 px-5 py-10 sm:px-8 sm:py-14 lg:border-b-0 lg:border-r lg:px-10">
+              <h1 className="min-w-0 font-serif text-[clamp(3.5rem,17vw,4.2rem)] leading-[0.82] tracking-[-0.06em] sm:text-[6rem] lg:text-[6.5rem] xl:text-[7rem]">
                 <span className="block whitespace-nowrap">Built to</span>
                 <span className="block whitespace-nowrap italic">understand.</span>
               </h1>
             </div>
 
-            <div className="px-5 py-7 sm:px-7 lg:py-10">
+            <div className="min-w-0 px-5 py-7 sm:px-7 lg:py-10">
               <p className="mb-5 text-[9px] uppercase tracking-[0.22em] text-charcoal/55">On this page</p>
               <nav aria-label="Projects on this page" className="border-t border-charcoal/25">
                 {liveProjects.map((project, index) => (
                   <a
                     key={project.id}
                     href={`#project-${project.id}`}
-                    className="group grid grid-cols-[1.8rem_1fr_auto] items-center gap-2 border-b border-charcoal/20 py-2.5 text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-gold"
+                    className="group grid min-h-11 grid-cols-[1.8rem_minmax(0,1fr)_auto] items-center gap-2 border-b border-charcoal/20 py-2.5 text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-gold"
                   >
                     <span className="text-charcoal/35 transition-colors group-hover:text-gold">{String(index + 1).padStart(2, '0')}</span>
                     <span className="line-clamp-1">{project.title}</span>
@@ -302,9 +317,9 @@ export default function PersonalProjectsPage() {
                     </article>
                   )}
 
-                  <div className={`mt-14 flex items-center justify-between border-t pt-4 text-[9px] uppercase tracking-[0.24em] ${isDark ? 'border-white/15 text-parchment/35' : 'border-charcoal/15 text-charcoal/35'}`}>
+                  <div className={`mt-14 flex min-h-11 items-center justify-between gap-5 border-t pt-2 text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.24em] ${isDark ? 'border-white/15 text-parchment/35' : 'border-charcoal/15 text-charcoal/35'}`}>
                     <span>{String(idx + 1).padStart(2, '0')} / {String(liveProjects.length).padStart(2, '0')}</span>
-                    {nextProject ? <a href={`#project-${nextProject.id}`} className="transition-colors hover:text-gold">Next: {nextProject.title}</a> : null}
+                    {nextProject ? <a href={`#project-${nextProject.id}`} className="flex min-h-11 items-center text-right transition-colors hover:text-gold">Next: {nextProject.title}</a> : null}
                   </div>
                 </div>
               </section>

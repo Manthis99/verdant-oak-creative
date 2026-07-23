@@ -50,3 +50,6 @@
 - Promoted Lamina Minor from the archive into the second full project position.
 - Added an optimized three-photograph Lamina sequence and concise copy focused on light quality, fabrication, and integration.
 - Visually verified Lamina Minor as project 02 and confirmed the production build passes.
+- Audited the projects page at 320, 360, 390, and 430px and fixed the narrow-screen headline overflow.
+- Made gallery controls visible and touch-sized on mobile, enlarged key project links, and added reliable direct project-anchor scrolling.
+- Rechecked all headings and project imagery at mobile and desktop widths with no remaining horizontal overflow.
