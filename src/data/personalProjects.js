@@ -1,9 +1,9 @@
 export const personalProjects = [
   {
     id: "tpu-rc-car",
-    title: "A 3D-Printed RC Car, Built from Scratch",
+    title: "A 3D-Printed RC Car, Designed from Scratch",
     descriptor: "Mechanical design / physical prototyping",
-    whatItDoes: "A functional RC car built around a custom 3D-modeled and printed chassis, suspension, steering, and electronics mounts.",
+    whatItDoes: "A functional RC car designed and modeled from scratch, with its custom chassis, suspension, steering, and electronics mounts 3D-printed in TPU around a fully printed drivetrain.",
     learned: "Good engineering balances rigidity, weight, impact absorption, printability, and repairability instead of maximizing one property.",
     why: "I'd spent years 3D-printing other people's designs, but larger projects kept demanding custom parts. I wanted to learn 3D modeling without the pressure of getting everything right, so I returned to a childhood hobby and decided to build an RC car. Starting with a fully printed drivetrain let me focus on the chassis, mounts, wishbones, suspension, servos, and electronics—that meant dozens of hours in CAD, a lot of caliper work, and plenty of reprints after forgetting a measurement. It taught me a hard skill through a genuinely fun project, and the finished car became a nostalgic gift for my little brothers.",
     facts: ["Designed from scratch", "3D-modeled + printed", "Functional prototype"],
