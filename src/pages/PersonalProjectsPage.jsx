@@ -214,19 +214,16 @@ export default function PersonalProjectsPage() {
           </div>
 
           <div className="grid min-w-0 flex-1 lg:grid-cols-[0.68fr_1.35fr_0.9fr]">
-            <div className="flex min-w-0 flex-col justify-between border-b border-charcoal/25 px-5 py-7 sm:px-7 lg:border-b-0 lg:border-r lg:py-10">
+            <div className="flex min-w-0 items-center border-b border-charcoal/25 px-5 py-7 sm:px-7 lg:border-b-0 lg:border-r lg:py-10">
               <p className="max-w-[17rem] text-sm leading-relaxed text-charcoal/70">
                 Projects I made to answer questions I could not answer by reading alone.
-              </p>
-              <p className="mt-10 text-[9px] uppercase leading-relaxed tracking-[0.19em] text-charcoal/45 lg:mt-20">
-                Designed, built, tested,<br />and revised by Michael Proctor.
               </p>
             </div>
 
             <div className="flex min-w-0 items-center overflow-hidden border-b border-charcoal/25 px-5 py-10 sm:px-8 sm:py-14 lg:border-b-0 lg:border-r lg:px-10">
               <h1 className="min-w-0 font-serif text-[clamp(3.5rem,17vw,4.2rem)] leading-[0.82] tracking-[-0.06em] sm:text-[6rem] lg:text-[6.5rem] xl:text-[7rem]">
                 <span className="block whitespace-nowrap">Built to</span>
-                <span className="block whitespace-nowrap italic">understand.</span>
+                <span className="block whitespace-nowrap italic">learn.</span>
               </h1>
             </div>
 
