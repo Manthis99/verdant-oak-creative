@@ -19,7 +19,7 @@ export default function MichaelIntro() {
             });
 
             // --- IMAGE COLLAGE ANIMATIONS ---
-            
+
             // 1. Primary Portrait: starts massive, blurred, then resolves into position
             tl.fromTo('.collage-primary',
                 { scale: 2.5, x: '-30vw', y: '10vh', filter: 'blur(15px)', opacity: 0.3 },
@@ -48,8 +48,8 @@ export default function MichaelIntro() {
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1 },
                 0.4
-            ).to('.text-block-1', 
-                { opacity: 0, y: -50, duration: 0.8 }, 
+            ).to('.text-block-1',
+                { opacity: 0, y: -50, duration: 0.8 },
                 2.2
             );
 
@@ -58,8 +58,8 @@ export default function MichaelIntro() {
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1 },
                 2.2
-            ).to('.text-block-2', 
-                { opacity: 0, y: -50, duration: 0.8 }, 
+            ).to('.text-block-2',
+                { opacity: 0, y: -50, duration: 0.8 },
                 3.8
             );
 
@@ -71,7 +71,7 @@ export default function MichaelIntro() {
             );
 
             tl.to({}, { duration: 1.2 });
-            
+
         }, containerRef);
         return () => ctx.revert();
     }, []);
@@ -82,10 +82,10 @@ export default function MichaelIntro() {
             <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 md:h-48 bg-gradient-to-b from-[#EBE9E1] via-[#EBE9E1]/85 to-transparent"></div>
             <div className="sticky top-0 z-20 flex h-screen w-full items-center justify-center px-6 overflow-hidden">
                 <div className="mx-auto grid max-w-7xl w-full gap-12 lg:gap-24 md:grid-cols-2 md:items-center h-full py-20 short:py-10 xshort:py-4">
-                    
+
                     {/* Text Column */}
                     <div className="relative h-full w-full flex flex-col justify-center order-2 md:order-1">
-                        
+
                         <div className="text-block-1 absolute w-full top-1/2 -translate-y-1/2 pr-4">
                             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-moss/55 font-sans font-medium">
                                 Michael Proctor
@@ -119,33 +119,56 @@ export default function MichaelIntro() {
                         </div>
 
                     </div>
-                    
+
                     {/* Image Column */}
                     <div className="relative h-full w-full flex items-center justify-center order-1 md:order-2">
-                        
+
                         {/* Secondary Image — Nicaragua sunlit coffeeshop scene */}
-                        <img 
-                            src="/images/Nicaragua campaign/Nicaragua-laughing-sun-friend-coffeeshop-workign-2025--234.jpg" 
+                        <img
+                            src="/images/Nicaragua campaign/Nicaragua-laughing-sun-friend-coffeeshop-workign-2025--234.jpg"
                             alt="Working in Nicaragua"
                             className="collage-secondary absolute -right-4 top-[15%] w-3/5 aspect-square object-cover shadow-xl opacity-0 filter contrast-125"
                         />
 
                         {/* Tertiary Image — South Africa production still */}
-                        <img 
-                            src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG" 
+                        <img
+                            src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG"
                             alt="Field production"
                             className="collage-tertiary absolute -left-8 bottom-[15%] w-1/2 aspect-[4/5] object-cover shadow-xl opacity-0 filter contrast-[1.1]"
                         />
 
-                        {/* Primary: Portrait */}
-                        <img 
-                            src="/images/headshot_michael_casual.JPG" 
-                            alt="Michael portrait"
-                            className="collage-primary relative z-10 w-3/4 aspect-[3/4] rounded-sm object-cover grayscale-[20%] shadow-2xl transition-all duration-700 hover:grayscale-0"
-                        />
-                        
+                        {/* Primary: Portrait with Interactive Stats (2026 Trend) */}
+                        <div className="collage-primary relative z-10 w-3/4 aspect-[3/4] group/portrait cursor-crosshair">
+                            <img
+                                src="/images/headshot_michael_casual.JPG"
+                                alt="Michael portrait"
+                                className="w-full h-full rounded-sm object-cover grayscale-[20%] shadow-2xl transition-all duration-700 group-hover/portrait:grayscale-0 group-hover/portrait:scale-[1.02]"
+                            />
+
+                            {/* Interactive Impact Overlay */}
+                            <div className="absolute inset-0 bg-charcoal/60 backdrop-blur-[2px] opacity-0 group-hover/portrait:opacity-100 transition-all duration-500 flex flex-col justify-center px-8 md:px-12 pointer-events-none">
+                                <p className="text-[10px] uppercase tracking-[0.3em] text-gold/80 mb-6 font-sans">Verifiable Impact</p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <p className="font-serif text-3xl md:text-4xl text-parchment">8+ Years</p>
+                                        <p className="text-xs uppercase tracking-widest text-parchment/50 mt-1">Solving Messaging Tension</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-serif text-3xl md:text-4xl text-parchment">50+ Projects</p>
+                                        <p className="text-xs uppercase tracking-widest text-parchment/50 mt-1">Across 4 Continents</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-serif text-3xl md:text-4xl text-parchment">$500k+</p>
+                                        <p className="text-xs uppercase tracking-widest text-parchment/50 mt-1">Raised for Global Causes</p>
+                                    </div>
+                                </div>
+                                <p className="mt-10 text-[9px] uppercase tracking-[0.2em] text-gold/40 italic">Hover to reveal the narrative</p>
+                            </div>
+                        </div>
+
+
                     </div>
-                    
+
                 </div>
             </div>
         </section>

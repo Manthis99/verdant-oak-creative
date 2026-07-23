@@ -8,11 +8,17 @@ import HomeReviewPage from './pages/HomeReviewPage';
 import PricingPage from './pages/PricingPage';
 import WorkPage from './pages/WorkPage';
 import WorkPageImmersive from './pages/WorkPageImmersive';
+import WritingPage from './pages/WritingPage';
+import ArticlePage from './pages/ArticlePage';
 import ContactPage from './pages/ContactPage';
 import CaseStudyUkraine from './pages/CaseStudyUkraine';
 import CaseStudyNicaragua from './pages/CaseStudyNicaragua';
 import BookingPage from './pages/BookingPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+import PersonalProjectsPage from './pages/PersonalProjectsPage';
+import IndexPage from './pages/IndexPage';
+import RoommateListingPage from './pages/RoommateListingPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,15 +42,20 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/index" element={<IndexPage />} />
           <Route path="/home-review" element={<HomeReviewPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/work" element={<WorkPageImmersive />} />
           <Route path="/work-archive" element={<WorkPage />} />
           <Route path="/work-immersive" element={<WorkPageImmersive />} />
+          <Route path="/projects" element={<PersonalProjectsPage />} />
+          <Route path="/writing" element={<WritingPage />} />
+          <Route path="/writing/:slug" element={<ArticlePage />} />
           <Route path="/start" element={<ContactPage />} />
           <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
           <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
           <Route path="/book" element={<BookingPage />} />
+          <Route path="/roommate" element={<RoommateListingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

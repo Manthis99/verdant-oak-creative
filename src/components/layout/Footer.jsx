@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[500px] bg-parchment/5 rounded-full blur-[120px] pointer-events-none opacity-20"></div>
 
       <div className="mx-auto max-w-7xl relative z-10">
-        
+
         {/* Top Section: Simple closing message + email */}
         <div className="grid md:grid-cols-2 gap-16 mb-40">
           <div>
@@ -20,10 +20,10 @@ export default function Footer() {
               If something on this site felt true, start the diagnostic, schedule a call, or send a direct email. All of it is free.
             </p>
           </div>
-          
+
           <div className="flex flex-col md:items-end justify-center">
-            <a 
-              href="mailto:hello@michaelproctor.co" 
+            <a
+              href="mailto:hello@michaelproctor.co"
               className="group inline-flex items-center gap-3 text-xl md:text-2xl font-serif text-[#F0EFEB] hover:text-gold transition-colors duration-500 border-b border-white/10 hover:border-gold/30 pb-2"
             >
               hello@michaelproctor.co
@@ -47,6 +47,7 @@ export default function Footer() {
             <span className="text-gold uppercase tracking-widest text-xs font-medium mb-2">Navigation</span>
             <Link to="/" className="hover:text-parchment transition-colors">Home</Link>
             <Link to="/work" className="hover:text-parchment transition-colors">Work</Link>
+            <Link to="/projects" className="hover:text-parchment transition-colors">Personal Projects</Link>
             <Link to="/start" className="hover:text-parchment transition-colors">Start the Diagnostic</Link>
             <Link to="/book" className="hover:text-parchment transition-colors">Schedule a Call</Link>
           </div>
@@ -63,14 +64,14 @@ export default function Footer() {
               Wedding Portfolio
             </a>
           </div>
-          
+
           <div className="flex flex-col gap-4 col-span-2 md:col-span-1 md:items-end md:text-right">
             <p className="mt-8 md:mt-0 text-xs text-parchment/40">
               © {new Date().getFullYear()} Verdant Oak Creative.
             </p>
           </div>
         </div>
-        
+
       </div>
     </footer>
   );

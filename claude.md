@@ -28,3 +28,5 @@
 - `src/pages/BookingPage.jsx` owns the booking page UI and Calendly embed behavior.
 - Calendly's external widget script is loaded once and reused.
 - The active booking option must control both the inline widget URL and the fallback external link.
+- `src/components/layout/Navbar.jsx` owns the global studio index and primary route definitions.
+- The global menu must remain keyboard dismissible, lock background scrolling while open, and indicate the current route.

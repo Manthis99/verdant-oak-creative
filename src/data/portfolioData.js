@@ -13,7 +13,8 @@ export const portfolioData = [
     immersiveNote: "This piece had to make a complex vision feel concrete enough to believe, not just inspiring enough to admire.",
     provider: "vimeo",
     embedUrl: "https://player.vimeo.com/video/728960425",
-    thumbnail: "https://i.vimeocdn.com/video/1467336698-733ce4a3ca952f8b29c90da7ae8d3b351b1956437646db2f197386f2718d4531-d_640"
+    sourceUrl: "https://vimeo.com/onecollective/change-in-south-africa?share=copy&fl=cl&fe=ci",
+    thumbnail: "/images/South Africa Images/SA Overview Video Thubnails_3.1.2.jpg"
   },
   {
     id: 2,

@@ -1,0 +1,7 @@
+Contact: hello@michaelproctor.co
+Encryption: https://michaelproctor.co/pgp-key.txt
+Policy: https://michaelproctor.co/security-policy
+Hiring: https://michaelproctor.co/job-board
+Acknowledgments: Thank you for keeping Verdant Oak Creative secure.
+Preferred-Languages: en
+Expires: 2027-04-01T00:00:00.000Z

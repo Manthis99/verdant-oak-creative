@@ -1,0 +1,14 @@
+/* TEAM */
+  Founder: Michael Proctor
+  Site: michaelproctor.co
+  From: USA
+
+/* THANKS */
+  Design Inspiration: MKT1 Newsletter
+  Build Tool: Antigravity AI
+
+/* SITE */
+  Last update: 2026/04/02
+  Standards: HTML5, CSS3, ESNext
+  Components: React, Tailwind CSS, GSAP
+  Software: Vite

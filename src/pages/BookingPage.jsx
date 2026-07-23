@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import EmailDisplay from '../components/EmailDisplay';
 
 const BOOKING_OPTIONS = [
   {
@@ -125,12 +126,9 @@ export default function BookingPage() {
         <p className="book-reveal text-xl md:text-2xl font-light italic text-charcoal/60 leading-relaxed max-w-2xl mx-auto">
           Choose whether you want to meet remotely or in person. No pressure, no pitch. Just an honest look at your project and whether we're the right fit.
         </p>
-        <a
-          href="mailto:hello@michaelproctor.co"
-          className="book-reveal inline-block mt-8 border-b border-charcoal/20 pb-1 text-sm uppercase tracking-[0.2em] text-charcoal/50 transition-colors hover:border-charcoal/50 hover:text-charcoal"
-        >
-          Email Me Directly
-        </a>
+        <div className="book-reveal mt-8">
+          <EmailDisplay light={true} />
+        </div>
       </header>
 
       {/* Divider */}
@@ -211,9 +209,9 @@ export default function BookingPage() {
               {' '}
               <a
                 href="mailto:hello@michaelproctor.co"
-                className="border-b border-charcoal/20 text-charcoal transition-colors hover:border-charcoal/50 hover:text-charcoal/80"
+                className="border-b border-charcoal/20 text-charcoal transition-colors hover:border-charcoal/50 hover:text-charcoal/80 font-mono text-sm"
               >
-                email me directly
+                hello@michaelproctor.co
               </a>
               .
             </p>

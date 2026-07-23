@@ -11,14 +11,18 @@ const projects = [
         tension: "A story built to move people from awareness to action, helping raise over $500,000 for safe homes in Ukraine.",
         story: "What looked like a fundraising video was really a trust and clarity problem. The work needed to do more than inform. It needed to help people feel the stakes, understand the response, and believe their giving would matter.",
         image: "/images/misc photos/athens-acropolise_door-framed-2023-278.jpg",
-        link: "/work/ukraine"
+        link: "/work/ukraine",
+        proofLink: "https://www.google.com/search?q=Ukraine+Housing+Campaign+Michael+Proctor", // Replace with real link
+        proofType: "News/Fundraiser"
     },
     {
         name: "The Nicaragua Campaign",
         tension: "Connecting international audiences to local realities without the poverty porn.",
         story: "The nonprofit space is notoriously saturated with campaigns that lean heavily into guilt to drive donations. Our client wanted a holistic brand campaign that honored the dignity of the local Nicaraguan communities while still demonstrating urgent need.",
         image: "/images/misc photos/portrit_nicaragua_family_poverty_powerful.jpg",
-        link: "/work/nicaragua"
+        link: "/work/nicaragua",
+        proofLink: "https://www.linkedin.com/search/results/all/?keywords=Verdant%20Oak%20Creative%20Nicaragua", // Replace with real link
+        proofType: "LinkedIn Post"
     },
     {
         name: "Full Work Archive",
@@ -38,7 +42,7 @@ export default function SelectedWork() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            
+
             const textBlocks = gsap.utils.toArray('.project-text-block');
             const images = gsap.utils.toArray('.project-img');
 
@@ -82,7 +86,7 @@ export default function SelectedWork() {
 
     return (
         <section ref={containerRef} className="relative w-full bg-[#111] text-parchment">
-            
+
             {/* Massive Header */}
             <div className="absolute top-0 left-0 w-full z-20 px-6 py-36 md:py-52 pointer-events-none">
                 <h2 className="mx-auto max-w-7xl font-serif text-5xl md:text-7xl lg:text-[7rem] text-parchment/90 tracking-tighter">
@@ -91,14 +95,14 @@ export default function SelectedWork() {
             </div>
 
             <div className="relative w-full">
-                
+
                 {/* Background Image Container */}
                 <div className="absolute top-0 left-0 w-full md:w-[85%] h-full">
                     <div className="sticky top-0 w-full h-[60vh] md:h-screen overflow-hidden">
                         {projects.map((project, i) => (
                             <div key={i} className="absolute inset-0">
-                                <img 
-                                    src={project.image} 
+                                <img
+                                    src={project.image}
                                     alt={project.name}
                                     className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
                                 />
@@ -117,7 +121,7 @@ export default function SelectedWork() {
                         <div className="hidden md:block md:w-[45%] lg:w-[45%] shrink-0"></div>
                         <div className="w-full md:w-[55%] lg:w-[55%] shrink-0 py-[60vh] px-6 md:pl-0 md:pr-16 lg:pr-32">
                             {featuredProjects.map((project, i) => (
-                                <div key={i} className="project-text-block min-h-[70vh] flex flex-col justify-center pb-24 md:pb-56">
+                                <div key={i} className={`project-text-block min-h-[70vh] flex flex-col justify-center ${i === featuredProjects.length - 1 ? 'pb-12 md:pb-16' : 'pb-24 md:pb-56'}`}>
                                     <h3 className="mb-8 font-serif text-4xl lg:text-6xl text-parchment leading-tight">
                                         {project.name}
                                     </h3>
@@ -130,30 +134,50 @@ export default function SelectedWork() {
                                             {project.story}
                                         </p>
                                     )}
-                                    
-                                    <div className="flex flex-col items-start gap-4">
-                                        <p className="text-[11px] uppercase tracking-[0.28em] text-parchment/45 font-medium">
-                                            Open the full case study
-                                        </p>
-                                        <Link
-                                            to={project.link}
-                                            className="group relative self-start overflow-hidden rounded-full border border-gold/30 bg-black/20 pl-6 pr-4 py-4 text-xs tracking-[0.24em] text-parchment uppercase transition-all duration-500 hover:-translate-y-1 hover:border-gold/55 hover:bg-black/30 hover:shadow-[0_18px_50px_rgba(0,0,0,0.28)] cursor-pointer inline-flex items-center gap-4 backdrop-blur-md"
-                                        >
-                                            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[linear-gradient(90deg,rgba(212,175,55,0.08),transparent_45%)]"></div>
-                                            <span className="relative z-10">View Case Study</span>
-                                            <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gold/35 bg-gold/10 text-gold transition-all duration-500 group-hover:translate-x-1 group-hover:bg-gold group-hover:text-black">
-                                                →
-                                            </span>
-                                        </Link>
+
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                                        <div className="flex flex-col items-start gap-4">
+                                            <p className="text-[11px] uppercase tracking-[0.28em] text-parchment/45 font-medium">
+                                                Open the full case study
+                                            </p>
+                                            <Link
+                                                to={project.link}
+                                                className="group relative self-start overflow-hidden rounded-full border border-gold/30 bg-black/20 pl-6 pr-4 py-4 text-xs tracking-[0.24em] text-parchment uppercase transition-all duration-500 hover:-translate-y-1 hover:border-gold/55 hover:bg-black/30 hover:shadow-[0_18px_50px_rgba(0,0,0,0.28)] cursor-pointer inline-flex items-center gap-4 backdrop-blur-md"
+                                            >
+                                                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[linear-gradient(90deg,rgba(212,175,55,0.08),transparent_45%)]"></div>
+                                                <span className="relative z-10">View Case Study</span>
+                                                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gold/35 bg-gold/10 text-gold transition-all duration-500 group-hover:translate-x-1 group-hover:bg-gold group-hover:text-black">
+                                                    →
+                                                </span>
+                                            </Link>
+                                        </div>
+
+                                        {project.proofLink && (
+                                            <div className="flex flex-col items-start gap-4">
+                                                <p className="text-[11px] uppercase tracking-[0.28em] text-gold/60 font-medium">
+                                                    Verifiable external proof
+                                                </p>
+                                                <a
+                                                    href={project.proofLink}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group relative self-start overflow-hidden rounded-full border border-parchment/10 bg-black/10 pl-6 pr-5 py-4 text-[10px] tracking-[0.2em] text-parchment/60 uppercase transition-all duration-500 hover:border-gold/30 hover:text-parchment flex items-center gap-3 backdrop-blur-sm"
+                                                >
+                                                    <span className="h-2 w-2 rounded-full bg-gold/40 group-hover:bg-gold transition-colors"></span>
+                                                    Verify via {project.proofType}
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
+
                                 </div>
                             ))}
                         </div>
                     </div>
 
                     {/* Deep Archives block centered over image */}
-                    <div className="w-full px-6 md:px-16 lg:px-24 pb-24 md:pb-48">
-                        <div className="project-text-block min-h-[80vh] flex flex-col justify-center items-center text-center max-w-4xl mx-auto">
+                    <div className="w-full px-6 md:px-16 lg:px-24 pb-24 md:pb-36 -mt-10 md:-mt-24 relative z-20">
+                        <div className="project-text-block h-auto py-16 flex flex-col justify-center items-center text-center max-w-4xl mx-auto">
                             <div className="relative w-full max-w-4xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,15,15,0.34),rgba(15,15,15,0.56))] px-6 py-10 md:px-10 md:py-14 backdrop-blur-md shadow-[0_30px_100px_rgba(0,0,0,0.28)]">
                                 <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.08),transparent_42%)]"></div>
                             {archiveProject.eyebrow && (
@@ -168,7 +192,7 @@ export default function SelectedWork() {
                             <p className="relative mb-10 max-w-2xl mx-auto font-sans text-lg md:text-xl font-light leading-relaxed text-parchment/88">
                                 {archiveProject.tension}
                             </p>
-                            
+
                             <div className="flex flex-col items-center gap-4">
                                 <p className="relative text-[11px] uppercase tracking-[0.28em] text-parchment/58 font-medium">
                                     Browse the wider archive

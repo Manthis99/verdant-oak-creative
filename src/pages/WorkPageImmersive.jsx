@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { portfolioData } from '../data/portfolioData';
+import EmailDisplay from '../components/EmailDisplay';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,33 @@ export default function WorkPageImmersive() {
   const containerRef = useRef(null);
   const [activeId, setActiveId] = useState(portfolioData[0]?.id ?? null);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const getEmbedSrc = (project) => {
+    const separator = project.embedUrl.includes('?') ? '&' : '?';
+    const params = project.provider === 'vimeo'
+      ? 'autoplay=1&color=ffffff&title=0&byline=0&portrait=0'
+      : 'autoplay=1';
+
+    return `${project.embedUrl}${separator}${params}`;
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedProject) {
+        setSelectedProject(null);
+      }
+    };
+
+    if (selectedProject) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden'; // lock scroll
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
 
   const scrollToSection = (targetId) => {
     const element = document.getElementById(targetId);
@@ -283,10 +311,10 @@ export default function WorkPageImmersive() {
         </section>
       ))}
 
-      <section id="final-step" className="immersive-cta-section relative overflow-hidden px-6 pb-20 pt-10 md:px-10 lg:px-16">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.12),transparent_35%)]" />
-        <div className="relative mx-auto max-w-[1600px] rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.015))] p-8 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-xl md:p-12 lg:p-16">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <section id="final-step" className="immersive-cta-section relative px-3 pb-20 pt-10 md:px-6">
+        <div className="relative mx-auto h-[calc(100svh-7.5rem)] max-w-[1600px] flex items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_40px_120px_rgba(0,0,0,0.35)] md:rounded-[2.5rem] p-8 md:p-12 lg:p-16">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.12),transparent_35%)] pointer-events-none" />
+          <div className="relative z-10 w-full grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div className="max-w-4xl">
               <p className="mb-6 text-xs uppercase tracking-[0.35em] text-gold/70">If You Made It This Far</p>
               <h2 className="max-w-[12ch] font-serif text-[3.2rem] leading-[1.04] tracking-[-0.04em] text-parchment md:text-[4.8rem] md:leading-[1.01] xl:text-[6.2rem] xl:leading-[1.02]">
@@ -318,12 +346,9 @@ export default function WorkPageImmersive() {
                     <span>Schedule a Call</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
-                  <a
-                    href="mailto:hello@michaelproctor.co"
-                    className="mt-8 inline-flex border-b border-white/20 pb-2 text-xs uppercase tracking-[0.24em] text-parchment/56 transition-colors hover:border-white/40 hover:text-parchment"
-                  >
-                    Email Me Directly
-                  </a>
+                  <div className="pt-4 flex justify-start">
+                    <EmailDisplay />
+                  </div>
                 </div>
               </div>
             </div>
@@ -332,7 +357,10 @@ export default function WorkPageImmersive() {
       </section>
 
       {selectedProject && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/88 px-4 py-24 backdrop-blur-sm">
+        <div
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/88 px-4 py-24 backdrop-blur-sm"
+          onClick={() => setSelectedProject(null)}
+        >
           <button
             onClick={() => setSelectedProject(null)}
             className="absolute right-6 top-6 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.25em] text-parchment/70 transition-colors hover:text-parchment"
@@ -340,7 +368,10 @@ export default function WorkPageImmersive() {
             Close
           </button>
 
-          <div className="w-full max-w-6xl">
+          <div
+            className="w-full max-w-6xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="mb-2 text-xs uppercase tracking-[0.28em] text-gold/70">{selectedProject.client}</p>
@@ -359,7 +390,7 @@ export default function WorkPageImmersive() {
 
             <div className="relative aspect-video overflow-hidden rounded-[2rem] border border-white/10 bg-black shadow-[0_30px_120px_rgba(0,0,0,0.5)]">
               <iframe
-                src={`${selectedProject.embedUrl}${selectedProject.provider === 'vimeo' ? '&' : '?'}autoplay=1&color=ffffff&title=0&byline=0&portrait=0`}
+                src={getEmbedSrc(selectedProject)}
                 className="absolute inset-0 h-full w-full"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"

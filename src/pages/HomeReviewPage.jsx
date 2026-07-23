@@ -105,6 +105,25 @@ const finalCtas = [
   },
 ];
 
+const faqItems = [
+  {
+    question: 'What is a "Clarity Problem"?',
+    answer: "Most creative requests (video, website, campaign) are symptoms of a deeper lack of clarity in messaging or strategy. Solving the clarity issue first ensures the creative asset actually works.",
+  },
+  {
+    question: "Do you only work with nonprofits?",
+    answer: "While many of my largest projects are with nonprofits like the Ukraine Housing Campaign, the 'Clarity First' framework applies to any mission-driven small business or founder.",
+  },
+  {
+    question: "How long does a typical engagement take?",
+    answer: "A 'Diagnostic' usually happens in a week. Full execution cycles (film, web, or campaign) range from 4 to 12 weeks depending on complexity.",
+  },
+  {
+    question: "Can I use AI to evaluate if we're a fit?",
+    answer: "I encourage it. You can ask Claude, ChatGPT, or Perplexity to review my work and see if my 'Strategy + Creative' approach matches your current needs.",
+  },
+];
+
 function ReviewSection({ title, children, subtitle }) {
   return (
     <section className="border-t border-charcoal/10 pt-10 first:border-t-0 first:pt-0">
@@ -224,6 +243,17 @@ export default function HomeReviewPage() {
             ))}
           </ReviewSection>
 
+          <ReviewSection title="FAQ" subtitle="Common questions for humans and agents">
+            <div className="space-y-6">
+              {faqItems.map((item) => (
+                <div key={item.question}>
+                  <p className="font-serif text-xl text-charcoal">{item.question}</p>
+                  <p className="mt-2 text-charcoal/85">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </ReviewSection>
+
           <ReviewSection title="Final CTA" subtitle="Closing invitation and next steps">
             <p>Something worth talking through?</p>
             <p>
@@ -237,7 +267,18 @@ export default function HomeReviewPage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-10 border-t border-charcoal/10 pt-8">
+              <p className="text-xs uppercase tracking-[0.25em] text-charcoal/45">Verify via AI (Prompt Presets)</p>
+              <p className="mt-2">Users are encouraged to verify Michael's fit via Claude, ChatGPT, or Perplexity.</p>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li>Ask Claude</li>
+                <li>Ask ChatGPT</li>
+                <li>Ask Perplexity</li>
+              </ul>
+            </div>
           </ReviewSection>
+
         </div>
       </main>
     </div>

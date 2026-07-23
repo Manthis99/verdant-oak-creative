@@ -1,12 +1,23 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Copy, Check } from 'lucide-react';
+import EmailDisplay from '../EmailDisplay';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function FinalCTA() {
     const containerRef = useRef(null);
+    const [copied, setCopied] = useState(false);
+
+    const verificationPrompt = "Can you look up Michael Proctor from Verdant Oak Creative? His main website is https://michaelproctor.co. I'm specifically interested in his work on the Ukraine Housing Campaign, the Nicaragua Campaign, and some of the technical AI projects he's built like Open Clive. Based on what you find, give me your honest assessment of his expertise in creative strategy and development. Do you think he could handle a major, root-level strategic challenge for our business?";
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(verificationPrompt);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -30,7 +41,7 @@ export default function FinalCTA() {
 
     return (
         <section ref={containerRef} className="bg-[#111] px-6 py-40 md:py-64 text-parchment relative overflow-hidden flex flex-col justify-center min-h-[100vh]">
-            
+
             <div className="mx-auto max-w-7xl w-full relative z-10">
                 <div className="cta-fade text-center mb-24 md:mb-40">
                     <p className="mb-8 text-xs md:text-sm uppercase tracking-[0.3em] text-gold/80 font-medium font-sans">
@@ -47,7 +58,7 @@ export default function FinalCTA() {
 
                 {/* Primary and secondary CTA paths */}
                 <div className="cta-fade grid md:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
-                    
+
                     {/* Primary */}
                     <Link to="/start" className="group relative border border-gold/25 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-gold/40 flex flex-col items-center text-center overflow-hidden rounded-sm">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gold/8 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
@@ -82,15 +93,68 @@ export default function FinalCTA() {
 
                 </div>
 
-                <div className="cta-fade mt-10 text-center">
-                    <a
-                        href="mailto:hello@michaelproctor.co"
-                        className="text-sm tracking-[0.2em] uppercase text-parchment/45 border-b border-parchment/15 pb-1 transition-colors hover:text-parchment hover:border-parchment/35"
-                    >
-                        Email Me Directly
-                    </a>
+                {/* Prompt Presets: 2026 Trend */}
+                <div className="cta-fade mt-24 md:mt-32 max-w-4xl mx-auto border-t border-parchment/10 pt-16 text-center">
+                    <p className="text-xs uppercase tracking-[0.3em] text-parchment/40 mb-8 font-sans">
+                        Verify with AI
+                    </p>
+                    <p className="font-sans text-lg font-light text-parchment/60 mb-6 max-w-xl mx-auto">
+                        Not sure if we're a fit? Let your favorite AI evaluate my work for you.
+                    </p>
+
+                    <div className="max-w-2xl mx-auto mb-8 bg-[#1A1A1A]/80 border border-parchment/20 rounded-lg p-6 md:p-8 relative group text-left shadow-2xl backdrop-blur-md">
+                        <div className="absolute top-4 right-4 z-10">
+                            <button
+                                onClick={handleCopy}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all border ${copied ? 'bg-moss/20 border-moss/50 text-moss' : 'bg-white/5 hover:bg-white/10 text-parchment/60 border-parchment/10'}`}
+                                aria-label="Copy prompt"
+                            >
+                                {copied ? (
+                                    <>
+                                        <Check size={14} />
+                                        <span className="text-xs uppercase tracking-wider font-semibold">Copied!</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Copy size={14} />
+                                        <span className="text-xs uppercase tracking-wider font-semibold">Copy</span>
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-3 font-semibold">Copy this prompt</p>
+                        <p className="font-serif text-lg md:text-xl font-light text-parchment/90 leading-relaxed pr-10 md:pr-24">
+                            "{verificationPrompt}"
+                        </p>
+                    </div>
+
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-parchment/40 mb-6 font-sans font-medium">
+                        Then paste it into your preferred agent:
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {[
+                            { name: 'Ask Claude', url: 'https://claude.ai/new' },
+                            { name: 'Ask ChatGPT', url: 'https://chat.openai.com' },
+                            { name: 'Ask Perplexity', url: 'https://www.perplexity.ai/' },
+                        ].map((ai) => (
+                            <a
+                                key={ai.name}
+                                href={ai.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-6 py-3 border border-parchment/20 bg-[#1A1A1A]/50 text-xs uppercase tracking-widest text-parchment/70 hover:bg-parchment/10 hover:border-parchment/50 hover:text-parchment transition-all rounded-full shadow-lg"
+                            >
+                                {ai.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="cta-fade mt-20 text-center">
+                    <EmailDisplay />
                 </div>
             </div>
         </section>
+
     );
 }
