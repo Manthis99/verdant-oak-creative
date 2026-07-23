@@ -54,3 +54,4 @@
 - Made gallery controls visible and touch-sized on mobile, enlarged key project links, and added reliable direct project-anchor scrolling.
 - Rechecked all headings and project imagery at mobile and desktop widths with no remaining horizontal overflow.
 - Expanded Lamina Minor's learning note with the aluminum deflection, polishing, reflector-radius, diffusion, and LED-quality decisions behind the finished light.
+- Removed the RC car's `MADE TO MOVE` photo overlay and rewrote its origin story in a more personal first-person voice.

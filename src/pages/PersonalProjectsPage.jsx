@@ -51,8 +51,10 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_52%,rgba(0,0,0,0.72))]" />
           <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 text-parchment sm:inset-x-7 sm:bottom-7">
             <div>
-              <div className="font-serif text-5xl leading-none tracking-[-0.05em] sm:text-7xl">{visual?.stat || '50 MPH'}</div>
-              <div className="mt-2 text-[9px] uppercase tracking-[0.22em] text-parchment/60">Finished car</div>
+              {visual?.stat && (
+                <div className="font-serif text-5xl leading-none tracking-[-0.05em] sm:text-7xl">{visual.stat}</div>
+              )}
+              <div className={`text-[9px] uppercase tracking-[0.22em] text-parchment/60 ${visual?.stat ? 'mt-2' : ''}`}>Finished car</div>
             </div>
           </div>
         </div>
