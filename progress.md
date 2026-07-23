@@ -56,3 +56,4 @@
 - Expanded Lamina Minor's learning note with the aluminum deflection, polishing, reflector-radius, diffusion, and LED-quality decisions behind the finished light.
 - Removed the RC car's `MADE TO MOVE` photo overlay and rewrote its origin story in a more personal first-person voice.
 - Retitled the RC car to emphasize that it was designed from scratch and clarified the custom 3D modeling and TPU-printed construction.
+- Expanded the RC car's learning note into a concise first-person reflection on engineering tradeoffs, failure, and iteration.
