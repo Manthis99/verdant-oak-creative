@@ -53,3 +53,4 @@
 - Audited the projects page at 320, 360, 390, and 430px and fixed the narrow-screen headline overflow.
 - Made gallery controls visible and touch-sized on mobile, enlarged key project links, and added reliable direct project-anchor scrolling.
 - Rechecked all headings and project imagery at mobile and desktop widths with no remaining horizontal overflow.
+- Expanded Lamina Minor's learning note with the aluminum deflection, polishing, reflector-radius, diffusion, and LED-quality decisions behind the finished light.

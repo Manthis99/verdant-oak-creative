@@ -24,7 +24,7 @@ export const personalProjects = [
     title: "Lamina Minor",
     descriptor: "Lighting design / metal fabrication",
     whatItDoes: "A hand-built pendant light combining a curved aluminum reflector, warm linear LED source, and smart-home controls to cast soft light over a dining table.",
-    learned: "How LED density, reflector distance, diffusion, structural balance, and hand-finished aluminum work together in a usable fixture.",
+    learned: "I learned how aluminum deflects, how to polish it, and how reflector radius and distance affect diffusion and soften the light. Choosing the source taught me to evaluate LED strips by CRI, CCT, density, usable output after diffusion, and smart-home compatibility—not marketing claims—so the finished light feels natural and architectural.",
     why: "To make the dining table feel warmer and more inviting while learning how geometry and material shape the quality of light.",
     facts: ["Hand-formed aluminum", "Custom LED fixture", "Smart-home integrated"],
     images: [
