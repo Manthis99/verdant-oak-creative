@@ -145,11 +145,7 @@ export default function WorkPage() {
                       <>
                         <img
                           src={project.thumbnail}
-                          srcSet={project.thumbnailSrcSet}
-                          sizes="(min-width: 1024px) 50vw, 100vw"
                           alt={project.title}
-                          loading="lazy"
-                          decoding="async"
                           className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/video:scale-105 group-hover/card:opacity-100 transition-all duration-[1.5s] ease-out"
                         />
                         {/* Play Button Overlay */}

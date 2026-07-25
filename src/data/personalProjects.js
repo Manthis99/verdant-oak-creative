@@ -41,8 +41,8 @@ export const personalProjects = [
     why: "To explore an AI that carries context forward and feels like a calm teammate instead of another chat window.",
     facts: ["Voice interface", "Persistent project memory", "Custom hardware"],
     images: [
-      "/images/optimized/project-workshop-wide.webp",
-      "/images/optimized/project-phone-tall.webp"
+      "/images/projects/IMG_6417.jpg",
+      "/images/projects/IMG_7193.PNG"
     ]
   },
   {
@@ -59,8 +59,8 @@ export const personalProjects = [
     images: [
       "/images/projects/phoem manual.jpg",
       "/images/projects/phoem design.jpg",
-      "/images/optimized/project-phoem-build.webp",
-      "/images/optimized/project-phoem-detail.webp"
+      "/images/projects/phoem_dev_2408.jpg",
+      "/images/projects/phoem_dev_2409.jpg"
     ]
   },
   {
@@ -73,9 +73,9 @@ export const personalProjects = [
     why: "A fun excuse to join an ambitious open-source community and build a fictional machine in the real world.",
     facts: ["Community-built", "Mobile + conversational", "Smart-home control"],
     images: [
-      "/images/optimized/project-phone-tall.webp",
-      "/images/optimized/project-phone-branded.webp",
-      "/images/optimized/project-workshop-wide.webp"
+      "/images/projects/IMG_7193.PNG",
+      "/images/projects/01JF3J7AVDGDET9ZJH0FD5DXG6-hi-res-branded-.jpg",
+      "/images/projects/IMG_6417.jpg"
     ]
   },
   {
@@ -89,7 +89,7 @@ export const personalProjects = [
     facts: ["Strategy + copy", "Custom CMS", "Video-led storytelling"],
     imageFit: "contain",
     imageBackground: "#171717",
-    images: ["/images/optimized/project-one-collective.webp", "https://images.unsplash.com/photo-1555529902-5261145633bf?w=800&q=80"]
+    images: ["/images/projects/one_collective.webp", "https://images.unsplash.com/photo-1555529902-5261145633bf?w=800&q=80"]
   },
   {
     id: "outerworlds-website",
@@ -103,8 +103,8 @@ export const personalProjects = [
     imageFit: "contain",
     imageBackground: "#11110f",
     images: [
-      "/images/optimized/project-outerworlds-1.webp",
-      "/images/optimized/project-outerworlds-2.webp"
+      "/images/projects/outerworlds-1.jpg",
+      "/images/projects/outerworlds-2.jpg"
     ]
   },
   {

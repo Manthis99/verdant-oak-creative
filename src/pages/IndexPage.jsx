@@ -96,13 +96,9 @@ export default function IndexPage() {
       <div className="max-w-6xl mx-auto px-6 mb-32">
         <div className="w-full aspect-[16/9] md:aspect-[21/9] bg-white rounded-3xl overflow-hidden shadow-2xl shadow-charcoal/5 border border-charcoal/5 relative">
           <img
-            src="/images/optimized/clarity-hero-1280.webp"
-            srcSet="/images/optimized/clarity-hero-640.webp 640w, /images/optimized/clarity-hero-1280.webp 1280w, /images/optimized/clarity-hero-1920.webp 1920w"
-            sizes="(min-width: 768px) 1152px, 100vw"
+            src="/images/misc photos/athens-acropolise_door-framed-2023-278.jpg"
             className="w-full h-full object-cover saturate-0 opacity-90 hover:saturate-100 hover:opacity-100 transition-all duration-1000"
             alt="Hero visualization"
-            loading="lazy"
-            decoding="async"
           />
         </div>
       </div>
@@ -235,8 +231,6 @@ export default function IndexPage() {
                         <img
                           src={work.image}
                           alt={work.title}
-                          loading="lazy"
-                          decoding="async"
                           className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>

@@ -14,8 +14,7 @@ export const portfolioData = [
     provider: "vimeo",
     embedUrl: "https://player.vimeo.com/video/728960425",
     sourceUrl: "https://vimeo.com/onecollective/change-in-south-africa?share=copy&fl=cl&fe=ci",
-    thumbnail: "/images/optimized/work-south-africa-800.webp",
-    thumbnailSrcSet: "/images/optimized/work-south-africa-800.webp 800w, /images/optimized/work-south-africa-1600.webp 1600w"
+    thumbnail: "/images/South Africa Images/SA Overview Video Thubnails_3.1.2.jpg"
   },
   {
     id: 2,
@@ -32,8 +31,7 @@ export const portfolioData = [
     immersiveNote: "Recruitment work gets better when it names the opportunity honestly enough to attract fit and repel mismatch at the same time.",
     provider: "vimeo",
     embedUrl: "https://player.vimeo.com/video/1081966602?h=9d06aee52d",
-    thumbnail: "/images/optimized/work-nicaragua-800.webp",
-    thumbnailSrcSet: "/images/optimized/work-nicaragua-800.webp 800w, /images/optimized/work-nicaragua-1600.webp 1600w"
+    thumbnail: "/images/Nicaragua campaign/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg"
   },
   {
     id: 3,
@@ -81,8 +79,7 @@ export const portfolioData = [
     immersiveNote: "The challenge here was to communicate complexity without flattening the people or the work into nonprofit shorthand.",
     provider: "vimeo",
     embedUrl: "https://player.vimeo.com/video/994214656?h=a112fc347a",
-    thumbnail: "/images/optimized/work-athens-800.webp",
-    thumbnailSrcSet: "/images/optimized/work-athens-800.webp 800w, /images/optimized/work-athens-1600.webp 1600w"
+    thumbnail: "/images/misc photos/athens-2023-25.jpg"
   },
   {
     id: 6,
@@ -99,8 +96,7 @@ export const portfolioData = [
     immersiveNote: "This was not one asset. It was a full communication system built to help people understand the crisis, trust the response, and act.",
     provider: "vimeo",
     embedUrl: "https://player.vimeo.com/video/743459806?h=bf755618c3",
-    thumbnail: "/images/optimized/work-ukraine-800.webp",
-    thumbnailSrcSet: "/images/optimized/work-ukraine-800.webp 800w, /images/optimized/work-ukraine-1600.webp 1600w"
+    thumbnail: "/images/Ukrain campaign/Rebuild+Ukriane+Screen+Grab_2.165.1.T.jpg"
   },
   {
     id: 7,
@@ -148,7 +144,6 @@ export const portfolioData = [
     immersiveNote: "The reel is less about volume and more about what kind of eye and restraint I tend to bring into real projects.",
     provider: "youtube",
     embedUrl: "https://www.youtube.com/embed/h4GIqqWMUBI",
-    thumbnail: "/images/optimized/work-reel-800.webp",
-    thumbnailSrcSet: "/images/optimized/work-reel-800.webp 800w, /images/optimized/work-reel-1600.webp 1600w"
+    thumbnail: "/images/misc photos/IMG_8400.png"
   }
 ];

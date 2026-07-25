@@ -1,24 +1,24 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
+import HomeReviewPage from './pages/HomeReviewPage';
+import PricingPage from './pages/PricingPage';
+import WorkPage from './pages/WorkPage';
+import WorkPageImmersive from './pages/WorkPageImmersive';
+import WritingPage from './pages/WritingPage';
+import ArticlePage from './pages/ArticlePage';
+import ContactPage from './pages/ContactPage';
+import CaseStudyUkraine from './pages/CaseStudyUkraine';
+import CaseStudyNicaragua from './pages/CaseStudyNicaragua';
+import BookingPage from './pages/BookingPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-const HomeReviewPage = lazy(() => import('./pages/HomeReviewPage'));
-const PricingPage = lazy(() => import('./pages/PricingPage'));
-const WorkPage = lazy(() => import('./pages/WorkPage'));
-const WorkPageImmersive = lazy(() => import('./pages/WorkPageImmersive'));
-const WritingPage = lazy(() => import('./pages/WritingPage'));
-const ArticlePage = lazy(() => import('./pages/ArticlePage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const CaseStudyUkraine = lazy(() => import('./pages/CaseStudyUkraine'));
-const CaseStudyNicaragua = lazy(() => import('./pages/CaseStudyNicaragua'));
-const BookingPage = lazy(() => import('./pages/BookingPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
-const PersonalProjectsPage = lazy(() => import('./pages/PersonalProjectsPage'));
-const IndexPage = lazy(() => import('./pages/IndexPage'));
-const RoommateListingPage = lazy(() => import('./pages/RoommateListingPage'));
-const Analytics = lazy(() => import('@vercel/analytics/react').then((module) => ({ default: module.Analytics })));
+import PersonalProjectsPage from './pages/PersonalProjectsPage';
+import IndexPage from './pages/IndexPage';
+import RoommateListingPage from './pages/RoommateListingPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,26 +28,6 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
-}
-
-function DeferredAnalytics() {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    if ('requestIdleCallback' in window) {
-      const idleId = window.requestIdleCallback(() => setReady(true), { timeout: 3000 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timeoutId = window.setTimeout(() => setReady(true), 1500);
-    return () => window.clearTimeout(timeoutId);
-  }, []);
-
-  return ready ? (
-    <Suspense fallback={null}>
-      <Analytics />
-    </Suspense>
-  ) : null;
 }
 
 export default function App() {
@@ -60,29 +40,27 @@ export default function App() {
       <ScrollToTop />
       {!isReviewPage && <Navbar />}
       <main>
-        <Suspense fallback={<div className="min-h-[60svh] bg-parchment" aria-label="Loading page" />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/index" element={<IndexPage />} />
-            <Route path="/home-review" element={<HomeReviewPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/work" element={<WorkPageImmersive />} />
-            <Route path="/work-archive" element={<WorkPage />} />
-            <Route path="/work-immersive" element={<WorkPageImmersive />} />
-            <Route path="/projects" element={<PersonalProjectsPage />} />
-            <Route path="/writing" element={<WritingPage />} />
-            <Route path="/writing/:slug" element={<ArticlePage />} />
-            <Route path="/start" element={<ContactPage />} />
-            <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
-            <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
-            <Route path="/book" element={<BookingPage />} />
-            <Route path="/roommate" element={<RoommateListingPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/index" element={<IndexPage />} />
+          <Route path="/home-review" element={<HomeReviewPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/work" element={<WorkPageImmersive />} />
+          <Route path="/work-archive" element={<WorkPage />} />
+          <Route path="/work-immersive" element={<WorkPageImmersive />} />
+          <Route path="/projects" element={<PersonalProjectsPage />} />
+          <Route path="/writing" element={<WritingPage />} />
+          <Route path="/writing/:slug" element={<ArticlePage />} />
+          <Route path="/start" element={<ContactPage />} />
+          <Route path="/work/ukraine" element={<CaseStudyUkraine />} />
+          <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
+          <Route path="/book" element={<BookingPage />} />
+          <Route path="/roommate" element={<RoommateListingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
       {!hideFooter && <Footer />}
-      <DeferredAnalytics />
+      <Analytics />
     </div>
   );
 }
