@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,7 +10,8 @@ const projects = [
         name: "Ukraine Housing Campaign",
         tension: "A story built to move people from awareness to action, helping raise over $500,000 for safe homes in Ukraine.",
         story: "What looked like a fundraising video was really a trust and clarity problem. The work needed to do more than inform. It needed to help people feel the stakes, understand the response, and believe their giving would matter.",
-        image: "/images/misc photos/athens-acropolise_door-framed-2023-278.jpg",
+        image: "/images/optimized/clarity-hero-1280.webp",
+        imageSrcSet: "/images/optimized/clarity-hero-640.webp 640w, /images/optimized/clarity-hero-1280.webp 1280w, /images/optimized/clarity-hero-1920.webp 1920w",
         link: "/work/ukraine",
         proofLink: "https://www.google.com/search?q=Ukraine+Housing+Campaign+Michael+Proctor", // Replace with real link
         proofType: "News/Fundraiser"
@@ -19,7 +20,8 @@ const projects = [
         name: "The Nicaragua Campaign",
         tension: "Connecting international audiences to local realities without the poverty porn.",
         story: "The nonprofit space is notoriously saturated with campaigns that lean heavily into guilt to drive donations. Our client wanted a holistic brand campaign that honored the dignity of the local Nicaraguan communities while still demonstrating urgent need.",
-        image: "/images/misc photos/portrit_nicaragua_family_poverty_powerful.jpg",
+        image: "/images/optimized/selected-nicaragua-800.webp",
+        imageSrcSet: "/images/optimized/selected-nicaragua-800.webp 800w, /images/optimized/selected-nicaragua-1600.webp 1600w",
         link: "/work/nicaragua",
         proofLink: "https://www.linkedin.com/search/results/all/?keywords=Verdant%20Oak%20Creative%20Nicaragua", // Replace with real link
         proofType: "LinkedIn Post"
@@ -29,7 +31,8 @@ const projects = [
         eyebrow: "Beyond These Two",
         tension: "These two are the sharpest examples. Beyond them is a broader archive of commercial work, documentary shorts, brand campaigns, and full creative systems built over years.",
         story: null,
-        image: "/images/South Africa Images/South Africa Reclyclingjpg_2.11.1_1.4.1.jpg_compressed.JPEG",
+        image: "/images/optimized/selected-archive-800.webp",
+        imageSrcSet: "/images/optimized/selected-archive-800.webp 800w, /images/optimized/selected-archive-1600.webp 1600w",
         link: "/work",
         buttonText: "Explore The Full Work Archive"
     }
@@ -37,6 +40,7 @@ const projects = [
 
 export default function SelectedWork() {
     const containerRef = useRef(null);
+    const [loadedImageCount, setLoadedImageCount] = useState(1);
     const featuredProjects = projects.slice(0, 2);
     const archiveProject = projects[2];
 
@@ -59,6 +63,7 @@ export default function SelectedWork() {
                     start: 'top 60%',
                     end: 'bottom 40%',
                     onEnter: () => {
+                        setLoadedImageCount((count) => Math.max(count, Math.min(images.length, i + 2)));
                         // Fade in correct image
                         gsap.to(images, { opacity: 0, duration: 0.8 });
                         gsap.to(images[i], { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 1.2, ease: 'power2.out' });
@@ -66,6 +71,7 @@ export default function SelectedWork() {
                         gsap.to(block, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
                     },
                     onEnterBack: () => {
+                        setLoadedImageCount((count) => Math.max(count, Math.min(images.length, i + 2)));
                         // Same logic when scrolling backwards
                         gsap.to(images, { opacity: 0, duration: 0.8 });
                         gsap.to(images[i], { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 1.2, ease: 'power2.out' });
@@ -102,8 +108,12 @@ export default function SelectedWork() {
                         {projects.map((project, i) => (
                             <div key={i} className="absolute inset-0">
                                 <img
-                                    src={project.image}
+                                    src={i < loadedImageCount ? project.image : undefined}
+                                    srcSet={i < loadedImageCount ? project.imageSrcSet : undefined}
+                                    sizes="(min-width: 768px) 85vw, 100vw"
                                     alt={project.name}
+                                    loading="lazy"
+                                    decoding="async"
                                     className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
                                 />
                                 {/* Smooth gradient blend that extends image beautifully beneath text */}

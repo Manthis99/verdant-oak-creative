@@ -132,23 +132,41 @@ export default function MichaelIntro() {
 
                         {/* Secondary Image — Nicaragua sunlit coffeeshop scene */}
                         <img
-                            src="/images/Nicaragua campaign/Nicaragua-laughing-sun-friend-coffeeshop-workign-2025--234.jpg"
+                            src="/images/optimized/nicaragua-coffee-640.webp"
+                            srcSet="/images/optimized/nicaragua-coffee-640.webp 640w, /images/optimized/nicaragua-coffee-1200.webp 1200w"
+                            sizes="(min-width: 768px) 30vw, 1px"
                             alt="Working in Nicaragua"
+                            loading="lazy"
+                            decoding="async"
+                            width="1200"
+                            height="800"
                             className="collage-secondary absolute -right-4 top-[15%] hidden w-3/5 aspect-square object-cover opacity-0 shadow-xl filter contrast-125 md:block"
                         />
 
                         {/* Tertiary Image — South Africa production still */}
                         <img
-                            src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG"
+                            src="/images/optimized/south-africa-field-640.webp"
+                            srcSet="/images/optimized/south-africa-field-640.webp 640w, /images/optimized/south-africa-field-1200.webp 1200w"
+                            sizes="(min-width: 768px) 25vw, 1px"
                             alt="Field production"
+                            loading="lazy"
+                            decoding="async"
+                            width="1200"
+                            height="800"
                             className="collage-tertiary absolute -left-8 bottom-[15%] hidden w-1/2 aspect-[4/5] object-cover opacity-0 shadow-xl filter contrast-[1.1] md:block"
                         />
 
                         {/* Primary: Portrait with Interactive Stats (2026 Trend) */}
                         <div className="collage-primary group/portrait relative z-10 aspect-[3/4] w-full max-w-[19rem] md:w-3/4 md:max-w-none md:cursor-crosshair">
                             <img
-                                src="/images/headshot_michael_casual.JPG"
+                                src="/images/optimized/michael-headshot-640.webp"
+                                srcSet="/images/optimized/michael-headshot-640.webp 640w, /images/optimized/michael-headshot-1200.webp 1200w"
+                                sizes="(min-width: 768px) 38vw, 304px"
                                 alt="Michael portrait"
+                                loading="lazy"
+                                decoding="async"
+                                width="1200"
+                                height="1600"
                                 className="w-full h-full rounded-sm object-cover grayscale-[20%] shadow-2xl transition-all duration-700 group-hover/portrait:grayscale-0 group-hover/portrait:scale-[1.02]"
                             />
 

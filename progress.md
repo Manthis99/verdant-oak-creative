@@ -58,3 +58,15 @@
 - Retitled the RC car to emphasize that it was designed from scratch and clarified the custom 3D modeling and TPU-printed construction.
 - Expanded the RC car's learning note into a concise first-person reflection on engineering tradeoffs, failure, and iteration.
 - Reframed the projects hero around `Built to learn.` and removed the decorative authorship line that was not adding useful context.
+
+## 2026-07-25
+
+- Traced the landing-page image failure to a missing `/images/clarity-hero.png` file rather than a slow request.
+- Generated 37 optimized WebP assets for the homepage, portfolio, projects, writing, contact, and case-study routes.
+- Added responsive sources, eager loading only for primary hero media, and lazy asynchronous decoding for below-the-fold images.
+- Changed the selected-work sequence so it no longer requests all three full-viewport backgrounds at initial load.
+- Split non-home routes into separate JavaScript chunks and deferred analytics until the browser is idle.
+- Reduced the initial JavaScript bundle from 564.06 KB to 408.43 KB minified and from 175.63 KB to 135.14 KB gzip.
+- Added immutable cache headers for optimized images and fingerprinted build assets.
+- Replaced seven 1–11.6 MB personal-project images with visually equivalent 5–259 KB delivery assets.
+- Verified a clean production build, resolved optimized-image references, and successful responses for representative routes and assets.

@@ -30,8 +30,12 @@ export default function WritingPage() {
       <header className="group relative mb-20 flex min-h-[40rem] w-full flex-col justify-end overflow-hidden px-4 pb-16 pt-32 md:mb-24 md:h-[85vh] md:min-h-[600px] md:px-8 md:pb-24 md:pt-0 lg:mb-32 lg:px-16">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/misc photos/acropolis_far_athens-2023-221.jpg" 
+            src="/images/optimized/writing-hero-800.webp"
+            srcSet="/images/optimized/writing-hero-800.webp 800w, /images/optimized/writing-hero-1600.webp 1600w"
+            sizes="100vw"
             alt="Editorial Field Notes" 
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover grayscale-[15%] scale-105 transform origin-center transition-transform duration-[3s] group-hover:scale-100"
           />
           {/* Dark gradient for text legibility */}
@@ -63,7 +67,11 @@ export default function WritingPage() {
               <div className="w-full lg:w-[55%] aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden bg-smoke/20">
                 <img 
                   src={featuredPost.image} 
+                  srcSet={featuredPost.imageSrcSet}
+                  sizes="(min-width: 1024px) 55vw, 100vw"
                   alt={featuredPost.title} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover origin-center grayscale-[15%] transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                 />
               </div>

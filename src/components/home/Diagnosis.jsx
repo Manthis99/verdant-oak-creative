@@ -99,11 +99,22 @@ export default function Diagnosis() {
 
         {/* Cinematic Background Image (2026 Trend) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-            <img
-                src="/images/clarity-hero.png"
-                alt=""
-                className="diagnosis-bg absolute inset-0 h-full w-full scale-105 object-cover opacity-40 md:scale-110"
-            />
+            <picture className="absolute inset-0 block h-full w-full">
+              <source
+                type="image/webp"
+                srcSet="/images/optimized/clarity-hero-640.webp 640w, /images/optimized/clarity-hero-1280.webp 1280w, /images/optimized/clarity-hero-1920.webp 1920w"
+                sizes="100vw"
+              />
+              <img
+                  src="/images/optimized/clarity-hero-1280.webp"
+                  alt=""
+                  width="1280"
+                  height="1921"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="diagnosis-bg absolute inset-0 h-full w-full scale-105 object-cover opacity-40 md:scale-110"
+              />
+            </picture>
             {/* Overlay gradients for better text legibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]"></div>
             <div className="absolute inset-0 bg-black/40"></div>
@@ -112,7 +123,7 @@ export default function Diagnosis() {
         {/* Cinematic grain texture */}
         <div
           className="scene-1-noise pointer-events-none absolute -inset-[100%] z-1 opacity-20 mix-blend-overlay"
-          style={{ backgroundImage: 'url("/images/noise-texture.png")', backgroundSize: '200px 200px' }}
+          style={{ backgroundImage: 'url("/images/optimized/noise.webp")', backgroundSize: '128px 128px' }}
         ></div>
 
 

@@ -46,6 +46,8 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
           <img
             src={images[0]}
             alt={`${title} finished prototype`}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_52%,rgba(0,0,0,0.72))]" />
@@ -59,11 +61,11 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
           </div>
         </div>
         <div className="relative overflow-hidden">
-          <img src={images[1]} alt={`${title} chassis from above`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" />
+          <img src={images[1]} alt={`${title} chassis from above`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
           <span className="absolute bottom-3 left-3 bg-charcoal/80 px-2 py-1 text-[8px] uppercase tracking-[0.18em] text-parchment/70 backdrop-blur-sm">Top view</span>
         </div>
         <div className="relative overflow-hidden">
-          <img src={images[2]} alt={`${title} printed components`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" />
+          <img src={images[2]} alt={`${title} printed components`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
           <span className="absolute bottom-3 left-3 bg-charcoal/80 px-2 py-1 text-[8px] uppercase tracking-[0.18em] text-parchment/70 backdrop-blur-sm">Printed parts</span>
         </div>
       </div>
@@ -79,7 +81,8 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
               src={image}
               alt={`${title} ${['installed view', 'room view', 'reflector detail'][index]}`}
               className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
-              loading={index === 0 ? undefined : 'lazy'}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}
@@ -97,7 +100,7 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
             <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#9fbe7a] shadow-[0_0_12px_#9fbe7a]" /> Voice input</span>
           </div>
           <div className="relative mx-auto w-full max-w-[19rem] overflow-hidden border border-white/15 bg-black/35 shadow-2xl">
-            <img src={images[0]} alt={`${title} hardware prototype`} className="aspect-[4/3] w-full object-cover opacity-85" loading="lazy" />
+            <img src={images[0]} alt={`${title} hardware prototype`} className="aspect-[4/3] w-full object-cover opacity-85" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(0,0,0,0.65))]" />
             <div className="absolute bottom-3 left-3 text-[9px] uppercase tracking-[0.22em] text-gold/80">Long-term project memory</div>
           </div>
@@ -119,6 +122,7 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
         alt={`${title} snapshot ${currentIndex + 1}`}
         className={`h-full w-full transition duration-700 ${imageFit === 'contain' ? 'object-contain p-4 sm:p-7' : 'object-cover group-hover:scale-[1.035]'}`}
         loading="lazy"
+        decoding="async"
         onError={(event) => {
           event.currentTarget.src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop';
         }}

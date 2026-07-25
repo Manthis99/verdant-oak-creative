@@ -61,6 +61,8 @@ export default function CaseStudyLayout({
         <img 
           src={heroImage} 
           alt={title} 
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center scale-105" 
         />
       </div>

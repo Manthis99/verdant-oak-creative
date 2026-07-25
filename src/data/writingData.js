@@ -9,7 +9,8 @@ export const writingData = [
     category: "Essays",
     readTime: "8 min read",
     featured: true,
-    image: "/images/misc photos/sunset_ocean_athens-2023-211.jpg",
+    image: "/images/optimized/writing-rest-800.webp",
+    imageSrcSet: "/images/optimized/writing-rest-800.webp 800w, /images/optimized/writing-rest-1600.webp 1600w",
     content: `
       <p class="mb-8 drop-cap">For a while, I’ve noticed how ambitious people talk about work and rest. There’s a pattern that keeps coming up:</p>
 
@@ -25,7 +26,7 @@ export const writingData = [
       <p class="mb-12">I know this dynamic well because I live inside it.</p>
 
       <div class="my-16 md:my-24 overflow-hidden rounded-sm aspect-[16/9] md:aspect-[21/9]">
-        <img src="/images/misc photos/sunset_ocean_athens-2023-211.jpg" alt="A quiet shoreline at sunset" class="w-full h-full object-cover grayscale-[15%]" />
+        <img src="/images/optimized/writing-rest-1600.webp" alt="A quiet shoreline at sunset" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale-[15%]" />
       </div>
 
       <p class="mb-8">A few weeks ago, I took some PTO, wrapped a couple projects, deleted my social media apps, deleted my email apps, and flew a few states over to stay with a friend for the week. The plan was simple: rest.</p>

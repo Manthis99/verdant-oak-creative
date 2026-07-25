@@ -98,6 +98,7 @@ function Lightbox({ index, onClose, onPrev, onNext }) {
       <img
         src={photos[index]}
         alt={`1102 Morton Ave, photo ${index + 1} of ${photos.length}`}
+        decoding="async"
         className="max-h-[85vh] max-w-[92vw] object-contain rounded-lg shadow-2xl"
       />
 
@@ -128,6 +129,8 @@ function PhotoGridHero({ onOpen }) {
           <img
             src={photos[0]}
             alt="1102 Morton Ave, Elgin, IL"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-parchment/90 backdrop-blur-sm text-charcoal text-[11px] font-medium uppercase tracking-widest shadow-lg">
@@ -142,7 +145,7 @@ function PhotoGridHero({ onOpen }) {
           onClick={() => onOpen(0)}
           className="relative col-span-2 row-span-2 rounded-2xl overflow-hidden bg-charcoal/5 group"
         >
-          <img src={photos[0]} alt="Front of the home" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+          <img src={photos[0]} alt="Front of the home" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
         </button>
         {[1, 2, 3, 4].map((i) => (
           <button
@@ -150,7 +153,7 @@ function PhotoGridHero({ onOpen }) {
             onClick={() => onOpen(i)}
             className="relative rounded-2xl overflow-hidden bg-charcoal/5 group"
           >
-            <img src={photos[i]} alt={`Photo ${i + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+            <img src={photos[i]} alt={`Photo ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
             {i === 4 && (
               <div className="absolute inset-0 bg-charcoal/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <span className="text-parchment text-xs uppercase tracking-widest">View all {photos.length}</span>
@@ -320,6 +323,7 @@ function FullGallery({ onOpen }) {
               src={src}
               alt={`1102 Morton, photo ${i + 1}`}
               loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
             />
           </button>

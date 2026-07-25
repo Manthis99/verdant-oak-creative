@@ -59,7 +59,11 @@ export default function ArticlePage() {
           <div className="absolute inset-0 z-0">
             <img 
               src={article.image} 
+              srcSet={article.imageSrcSet}
+              sizes="100vw"
               alt={article.title} 
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover grayscale-[15%]"
             />
             {/* Gradient Overlay for text readability */}
