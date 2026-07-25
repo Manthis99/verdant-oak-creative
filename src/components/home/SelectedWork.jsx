@@ -10,7 +10,8 @@ const projects = [
         name: "Ukraine Housing Campaign",
         tension: "A story built to move people from awareness to action, helping raise over $500,000 for safe homes in Ukraine.",
         story: "What looked like a fundraising video was really a trust and clarity problem. The work needed to do more than inform. It needed to help people feel the stakes, understand the response, and believe their giving would matter.",
-        image: "/images/misc photos/athens-acropolise_door-framed-2023-278.jpg",
+        image: "/images/optimized/clarity-hero-1280.webp",
+        imageSrcSet: "/images/optimized/clarity-hero-640.webp 640w, /images/optimized/clarity-hero-1280.webp 1280w, /images/optimized/clarity-hero-1920.webp 1920w",
         link: "/work/ukraine",
         proofLink: "https://www.google.com/search?q=Ukraine+Housing+Campaign+Michael+Proctor", // Replace with real link
         proofType: "News/Fundraiser"
@@ -19,7 +20,8 @@ const projects = [
         name: "The Nicaragua Campaign",
         tension: "Connecting international audiences to local realities without the poverty porn.",
         story: "The nonprofit space is notoriously saturated with campaigns that lean heavily into guilt to drive donations. Our client wanted a holistic brand campaign that honored the dignity of the local Nicaraguan communities while still demonstrating urgent need.",
-        image: "/images/misc photos/portrit_nicaragua_family_poverty_powerful.jpg",
+        image: "/images/optimized/selected-nicaragua-800.webp",
+        imageSrcSet: "/images/optimized/selected-nicaragua-800.webp 800w, /images/optimized/selected-nicaragua-1600.webp 1600w",
         link: "/work/nicaragua",
         proofLink: "https://www.linkedin.com/search/results/all/?keywords=Verdant%20Oak%20Creative%20Nicaragua", // Replace with real link
         proofType: "LinkedIn Post"
@@ -29,7 +31,8 @@ const projects = [
         eyebrow: "Beyond These Two",
         tension: "These two are the sharpest examples. Beyond them is a broader archive of commercial work, documentary shorts, brand campaigns, and full creative systems built over years.",
         story: null,
-        image: "/images/South Africa Images/South Africa Reclyclingjpg_2.11.1_1.4.1.jpg_compressed.JPEG",
+        image: "/images/optimized/selected-archive-800.webp",
+        imageSrcSet: "/images/optimized/selected-archive-800.webp 800w, /images/optimized/selected-archive-1600.webp 1600w",
         link: "/work",
         buttonText: "Explore The Full Work Archive"
     }
@@ -103,7 +106,11 @@ export default function SelectedWork() {
                             <div key={i} className="absolute inset-0">
                                 <img
                                     src={project.image}
+                                    srcSet={project.imageSrcSet}
+                                    sizes="(min-width: 768px) 85vw, 100vw"
                                     alt={project.name}
+                                    loading="eager"
+                                    decoding="async"
                                     className={`project-img absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-0 origin-center`}
                                 />
                                 {/* Smooth gradient blend that extends image beautifully beneath text */}

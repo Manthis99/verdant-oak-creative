@@ -46,6 +46,8 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
           <img
             src={images[0]}
             alt={`${title} finished prototype`}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_52%,rgba(0,0,0,0.72))]" />
@@ -59,11 +61,11 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
           </div>
         </div>
         <div className="relative overflow-hidden">
-          <img src={images[1]} alt={`${title} chassis from above`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" />
+          <img src={images[1]} alt={`${title} chassis from above`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
           <span className="absolute bottom-3 left-3 bg-charcoal/80 px-2 py-1 text-[8px] uppercase tracking-[0.18em] text-parchment/70 backdrop-blur-sm">Top view</span>
         </div>
         <div className="relative overflow-hidden">
-          <img src={images[2]} alt={`${title} printed components`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" />
+          <img src={images[2]} alt={`${title} printed components`} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
           <span className="absolute bottom-3 left-3 bg-charcoal/80 px-2 py-1 text-[8px] uppercase tracking-[0.18em] text-parchment/70 backdrop-blur-sm">Printed parts</span>
         </div>
       </div>
@@ -79,7 +81,8 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
               src={image}
               alt={`${title} ${['installed view', 'room view', 'reflector detail'][index]}`}
               className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
-              loading={index === 0 ? undefined : 'lazy'}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}
@@ -97,7 +100,7 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
             <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#9fbe7a] shadow-[0_0_12px_#9fbe7a]" /> Voice input</span>
           </div>
           <div className="relative mx-auto w-full max-w-[19rem] overflow-hidden border border-white/15 bg-black/35 shadow-2xl">
-            <img src={images[0]} alt={`${title} hardware prototype`} className="aspect-[4/3] w-full object-cover opacity-85" loading="lazy" />
+            <img src={images[0]} alt={`${title} hardware prototype`} className="aspect-[4/3] w-full object-cover opacity-85" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(0,0,0,0.65))]" />
             <div className="absolute bottom-3 left-3 text-[9px] uppercase tracking-[0.22em] text-gold/80">Long-term project memory</div>
           </div>
@@ -119,6 +122,7 @@ function ProjectVisual({ images, title, descriptor, visual, variant = 'photo', i
         alt={`${title} snapshot ${currentIndex + 1}`}
         className={`h-full w-full transition duration-700 ${imageFit === 'contain' ? 'object-contain p-4 sm:p-7' : 'object-cover group-hover:scale-[1.035]'}`}
         loading="lazy"
+        decoding="async"
         onError={(event) => {
           event.currentTarget.src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop';
         }}
@@ -184,22 +188,70 @@ function ProjectLink({ project, dark = false }) {
   );
 }
 
+let activeProjectScrollFrame;
+
+function scrollToProject(targetId, animate = true, onComplete) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const startY = window.scrollY;
+  const targetY = startY + target.getBoundingClientRect().top;
+
+  if (!animate) {
+    window.scrollTo(0, targetY);
+    onComplete?.();
+    return;
+  }
+
+  window.cancelAnimationFrame(activeProjectScrollFrame);
+
+  const distance = targetY - startY;
+  const duration = Math.min(1400, Math.max(750, Math.abs(distance) * 0.18));
+  const startTime = window.performance.now();
+  const easeInOutCubic = (progress) => (
+    progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2
+  );
+
+  const step = (currentTime) => {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+    if (progress < 1) {
+      activeProjectScrollFrame = window.requestAnimationFrame(step);
+    } else {
+      onComplete?.();
+    }
+  };
+
+  activeProjectScrollFrame = window.requestAnimationFrame(step);
+}
+
 export default function PersonalProjectsPage() {
   const liveProjects = personalProjects.filter((project) => !project.archived);
   const archivedProjects = personalProjects.filter((project) => project.archived);
 
+  const handleProjectNavigation = (event, targetId) => {
+    event.preventDefault();
+    scrollToProject(targetId, true, () => {
+      window.history.pushState(null, '', `#${targetId}`);
+    });
+  };
+
   useEffect(() => {
-    const scrollToProject = () => {
+    const scrollToHash = (animate = false) => {
       const targetId = decodeURIComponent(window.location.hash.slice(1));
-      if (targetId) document.getElementById(targetId)?.scrollIntoView();
+      if (targetId) scrollToProject(targetId, animate);
     };
 
-    const animationFrame = window.requestAnimationFrame(scrollToProject);
-    window.addEventListener('hashchange', scrollToProject);
+    const handleHashChange = () => scrollToHash(true);
+    const animationFrame = window.requestAnimationFrame(() => scrollToHash());
+    window.addEventListener('hashchange', handleHashChange);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener('hashchange', scrollToProject);
+      window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
@@ -234,6 +286,7 @@ export default function PersonalProjectsPage() {
                   <a
                     key={project.id}
                     href={`#project-${project.id}`}
+                    onClick={(event) => handleProjectNavigation(event, `project-${project.id}`)}
                     className="group grid min-h-11 grid-cols-[1.8rem_minmax(0,1fr)_auto] items-center gap-2 border-b border-charcoal/20 py-2.5 text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-gold"
                   >
                     <span className="text-charcoal/35 transition-colors group-hover:text-gold">{String(index + 1).padStart(2, '0')}</span>
@@ -247,7 +300,11 @@ export default function PersonalProjectsPage() {
 
           <div className="flex flex-col gap-4 border-t border-charcoal/25 px-5 py-5 text-[9px] uppercase tracking-[0.18em] text-charcoal/50 sm:flex-row sm:items-center sm:justify-between sm:px-7">
             <span>Working explorations, not client case studies.</span>
-            <a href={`#project-${liveProjects[0]?.id}`} className="w-fit border-b border-charcoal/40 pb-1 text-charcoal transition-colors hover:border-gold hover:text-gold">
+            <a
+              href={`#project-${liveProjects[0]?.id}`}
+              onClick={(event) => handleProjectNavigation(event, `project-${liveProjects[0]?.id}`)}
+              className="w-fit border-b border-charcoal/40 pb-1 text-charcoal transition-colors hover:border-gold hover:text-gold"
+            >
               Begin with project 01
             </a>
           </div>
@@ -318,7 +375,15 @@ export default function PersonalProjectsPage() {
 
                   <div className={`mt-14 flex min-h-11 items-center justify-between gap-5 border-t pt-2 text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.24em] ${isDark ? 'border-white/15 text-parchment/35' : 'border-charcoal/15 text-charcoal/35'}`}>
                     <span>{String(idx + 1).padStart(2, '0')} / {String(liveProjects.length).padStart(2, '0')}</span>
-                    {nextProject ? <a href={`#project-${nextProject.id}`} className="flex min-h-11 items-center text-right transition-colors hover:text-gold">Next: {nextProject.title}</a> : null}
+                    {nextProject ? (
+                      <a
+                        href={`#project-${nextProject.id}`}
+                        onClick={(event) => handleProjectNavigation(event, `project-${nextProject.id}`)}
+                        className="flex min-h-11 items-center text-right transition-colors hover:text-gold"
+                      >
+                        Next: {nextProject.title}
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </section>

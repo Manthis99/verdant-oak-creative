@@ -30,3 +30,6 @@
 - The active booking option must control both the inline widget URL and the fallback external link.
 - `src/components/layout/Navbar.jsx` owns the global studio index and primary route definitions.
 - The global menu must remain keyboard dismissible, lock background scrolling while open, and indicate the current route.
+- Public routes must remain independently loadable through React route-level code splitting.
+- The homepage hero image must be a local responsive asset with an eager, high-priority mobile source.
+- Below-the-fold photographs must use lazy loading and asynchronous decoding unless they are actively visible.

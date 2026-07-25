@@ -79,7 +79,7 @@ export default function Capabilities() {
                         >
                             <div 
                                 className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-0 group-hover:opacity-30 transition-opacity duration-700" 
-                                style={{ backgroundImage: 'url("/images/noise-texture.png")', backgroundSize: '150px 150px' }}
+                                style={{ backgroundImage: 'url("/images/optimized/noise.webp")', backgroundSize: '128px 128px' }}
                             ></div>
 
                             <span className="relative z-10 font-sans text-xs uppercase tracking-widest text-parchment/40 group-hover:text-gold transition-colors duration-300">

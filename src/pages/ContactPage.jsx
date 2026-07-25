@@ -32,8 +32,10 @@ export default function ContactPage() {
         {/* Stunning Full Screen Background Image, Overlays & Grain */}
         <div className="absolute inset-0 z-0 bg-[#F0EFEB]">
           <img
-            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=76&w=1400&auto=format&fit=crop"
             alt="Architectural structure"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-20 hover:opacity-30 transition-all duration-1000 mix-blend-hard-light saturate-50"
           />
           {/* Grit / Grain Texture */}
@@ -98,24 +100,30 @@ export default function ContactPage() {
             {/* Background Ambient Photos for Visual Interest */}
             <div className="absolute -top-6 -left-8 w-36 lg:w-48 h-48 lg:h-64 z-0 hidden sm:block group-hover:-translate-y-6 group-hover:-translate-x-4 group-hover:rotate-[-12deg] transition-all duration-1000 pointer-events-none origin-bottom-right">
               <img
-                src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG"
+                src="/images/optimized/south-africa-field-640.webp"
                 alt="Creative process"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[-6deg]"
               />
             </div>
 
             <div className="absolute -bottom-8 -left-4 w-40 lg:w-56 h-32 lg:h-40 z-0 hidden sm:block group-hover:translate-y-6 group-hover:-translate-x-2 group-hover:rotate-[8deg] transition-all duration-1000 pointer-events-none origin-top-right">
               <img
-                src="/images/misc photos/Nicaragua-laughing-friend-mentoring-workign-coffeeshop-2025-232.jpg"
+                src="/images/optimized/work-nicaragua-800.webp"
                 alt="Collaboration"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[4deg]"
               />
             </div>
 
             <div className="absolute top-1/2 -translate-y-1/2 -right-12 w-32 lg:w-40 h-44 lg:h-56 z-0 hidden xl:block group-hover:translate-x-8 group-hover:rotate-[15deg] transition-all duration-1000 pointer-events-none origin-left">
               <img
-                src="/images/misc photos/Oxford-20203-guardening_shed_working-40.jpg"
+                src="/images/optimized/contact-craft-640.webp"
                 alt="Craft"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover rounded-sm shadow-xl border-[6px] lg:border-[8px] border-white transform rotate-[8deg]"
               />
             </div>

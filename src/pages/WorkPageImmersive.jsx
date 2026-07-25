@@ -128,8 +128,14 @@ export default function WorkPageImmersive() {
       <section className="relative min-h-[100svh] overflow-hidden px-6 pb-12 pt-32 md:px-10 lg:px-16">
         <div className="absolute inset-0">
           <img
-            src="/images/misc photos/athens-acropolise_door-framed-2023-278.jpg"
+            src="/images/optimized/clarity-hero-1280.webp"
+            srcSet="/images/optimized/clarity-hero-640.webp 640w, /images/optimized/clarity-hero-1280.webp 1280w, /images/optimized/clarity-hero-1920.webp 1920w"
+            sizes="100vw"
             alt="Selected work background"
+            fetchPriority="high"
+            decoding="async"
+            width="1280"
+            height="1921"
             className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.88)_0%,rgba(8,8,8,0.56)_40%,rgba(8,8,8,0.8)_100%)]" />
@@ -217,7 +223,11 @@ export default function WorkPageImmersive() {
             <div className="absolute inset-0 overflow-hidden">
               <img
                 src={project.thumbnail}
+                srcSet={project.thumbnailSrcSet}
+                sizes="(min-width: 768px) calc(100vw - 3rem), calc(100vw - 1.5rem)"
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
                 className="immersive-image h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,7,7,0.88)_0%,rgba(7,7,7,0.54)_45%,rgba(7,7,7,0.68)_100%)]" />

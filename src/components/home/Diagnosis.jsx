@@ -28,15 +28,6 @@ export default function Diagnosis() {
         }
       });
 
-      // Animate noise texture
-      gsap.to('.scene-1-noise', {
-          y: '10%',
-          x: '-5%',
-          duration: 10,
-          repeat: -1,
-          yoyo: true,
-          ease: 'none'
-      });
       gsap.to('.diagnosis-glow', {
           opacity: 0.7,
           scale: 1.1,
@@ -94,27 +85,11 @@ export default function Diagnosis() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#1A1A1A] md:h-[200vh]">
+    <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#0D0D0D] md:h-[200vh]">
       <div className="relative z-10 flex min-h-[100svh] w-full items-center justify-center overflow-hidden px-5 py-28 text-parchment md:sticky md:top-0 md:h-screen md:min-h-0 md:px-6 md:py-0">
 
-        {/* Cinematic Background Image (2026 Trend) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-            <img
-                src="/images/clarity-hero.png"
-                alt=""
-                className="diagnosis-bg absolute inset-0 h-full w-full scale-105 object-cover opacity-40 md:scale-110"
-            />
-            {/* Overlay gradients for better text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]"></div>
-            <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-
-        {/* Cinematic grain texture */}
-        <div
-          className="scene-1-noise pointer-events-none absolute -inset-[100%] z-1 opacity-20 mix-blend-overlay"
-          style={{ backgroundImage: 'url("/images/noise-texture.png")', backgroundSize: '200px 200px' }}
-        ></div>
-
+        {/* Barely-there center light keeps the black field from feeling flat. */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(240,239,235,0.075)_0%,rgba(240,239,235,0.032)_34%,transparent_70%)]"></div>
 
         {/* Slow pulsing center glow */}
         <div className="diagnosis-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-parchment/5 blur-[120px] pointer-events-none opacity-40"></div>

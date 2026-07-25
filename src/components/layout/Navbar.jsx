@@ -94,28 +94,28 @@ export default function Navbar() {
   return (
     <>
       <Link
-        to="/"
+        to="/start"
         className={`fixed left-[max(0.75rem,env(safe-area-inset-left))] top-[max(0.75rem,env(safe-area-inset-top))] z-[90] flex min-h-11 items-center border border-charcoal/30 bg-[#e9e2d2] px-3 py-2.5 font-serif text-base leading-none tracking-[-0.025em] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.13)] transition-transform duration-300 hover:-translate-y-0.5 sm:left-7 sm:top-7 sm:px-5 sm:py-3 sm:text-lg ${navHidden ? '-translate-y-[calc(100%+3rem)] sm:translate-y-0' : 'translate-y-0'}`}
-        aria-label="Verdant Oak home"
+        aria-label="Let's talk about your project"
       >
-        Verdant Oak
+        Let&apos;s Talk
       </Link>
 
       <button
         type="button"
         onClick={() => setOpen(true)}
         className={`fixed right-[max(0.75rem,env(safe-area-inset-right))] top-[max(0.75rem,env(safe-area-inset-top))] z-[90] flex h-11 items-stretch border border-charcoal bg-[#e9e2d2] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.16)] transition-[opacity,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_rgba(23,23,23,0.18)] sm:right-7 sm:top-7 sm:h-[46px] ${open ? 'pointer-events-none opacity-0' : 'opacity-100'} ${navHidden ? '-translate-y-[calc(100%+3rem)] sm:translate-y-0' : 'translate-y-0'}`}
-        aria-label="Open site index"
+        aria-label="Open site menu"
         aria-expanded={open}
-        aria-controls="studio-index"
+        aria-controls="studio-menu"
       >
-        <span className="flex items-center px-4 text-[10px] font-semibold uppercase tracking-[0.24em] sm:px-5">Index</span>
+        <span className="flex items-center px-4 text-[10px] font-semibold uppercase tracking-[0.24em] sm:px-5">Menu</span>
         <span className="flex w-10 items-center justify-center border-l border-charcoal bg-charcoal text-lg font-light text-parchment">+</span>
       </button>
 
       <section
-        id="studio-index"
-        aria-label="Site index"
+        id="studio-menu"
+        aria-label="Site menu"
         aria-modal="true"
         aria-hidden={!open}
         role="dialog"
@@ -123,7 +123,7 @@ export default function Navbar() {
       >
         <header className="flex items-center justify-between border-b border-parchment/25 px-5 py-5 sm:px-9 sm:py-7 lg:px-14">
           <Link to="/" className="font-serif text-xl tracking-[-0.025em] sm:text-2xl">
-            Verdant Oak
+            Michael Proctor
           </Link>
           <button
             ref={closeButtonRef}
@@ -138,7 +138,7 @@ export default function Navbar() {
 
         <div className="grid flex-1 lg:grid-cols-[0.34fr_1fr]">
           <div className="flex justify-between border-b border-parchment/20 px-5 py-6 lg:flex-col lg:border-b-0 lg:border-r lg:px-10 lg:py-10 xl:px-14">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">Site Index</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">Menu</p>
             <a
               href="mailto:hello@michaelproctor.co"
               className="border-b border-parchment/45 pb-1 text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors hover:border-gold hover:text-gold"
