@@ -8,7 +8,10 @@ export default function MichaelIntro() {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
+        const media = gsap.matchMedia();
+
+        media.add('(min-width: 768px)', () => {
+          const ctx = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -72,21 +75,25 @@ export default function MichaelIntro() {
 
             tl.to({}, { duration: 1.2 });
 
-        }, containerRef);
-        return () => ctx.revert();
+          }, containerRef);
+
+          return () => ctx.revert();
+        });
+
+        return () => media.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="relative h-[340vh] w-full bg-parchment">
+        <section ref={containerRef} className="relative w-full bg-parchment py-24 md:h-[340vh] md:py-0">
             {/* Blend transition from previous section into this blur-heavy intro */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 md:h-48 bg-gradient-to-b from-[#EBE9E1] via-[#EBE9E1]/85 to-transparent"></div>
-            <div className="sticky top-0 z-20 flex h-screen w-full items-center justify-center px-6 overflow-hidden">
-                <div className="mx-auto grid max-w-7xl w-full gap-12 lg:gap-24 md:grid-cols-2 md:items-center h-full py-20 short:py-10 xshort:py-4">
+            <div className="relative z-20 flex w-full items-center justify-center px-5 md:sticky md:top-0 md:h-screen md:overflow-hidden md:px-6">
+                <div className="mx-auto grid h-auto w-full max-w-7xl gap-12 md:h-full md:grid-cols-2 md:items-center md:py-20 lg:gap-24 short:py-10 xshort:py-4">
 
                     {/* Text Column */}
-                    <div className="relative h-full w-full flex flex-col justify-center order-2 md:order-1">
+                    <div className="relative order-1 flex h-auto w-full flex-col justify-center md:h-full">
 
-                        <div className="text-block-1 absolute w-full top-1/2 -translate-y-1/2 pr-4">
+                        <div className="text-block-1 relative w-full pr-0 md:absolute md:top-1/2 md:-translate-y-1/2 md:pr-4">
                             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-moss/55 font-sans font-medium">
                                 Michael Proctor
                             </p>
@@ -100,7 +107,7 @@ export default function MichaelIntro() {
                             </p>
                         </div>
 
-                        <div className="text-block-2 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pl-6 md:pl-10 border-l border-moss/30 pr-4">
+                        <div className="text-block-2 relative mt-12 w-full border-l border-moss/30 pl-5 pr-0 opacity-100 md:absolute md:top-1/2 md:mt-0 md:-translate-y-1/2 md:pl-10 md:pr-4 md:opacity-0">
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4 short:text-3xl lg:short:text-4xl short:mb-2">
                                 The questions that usually don&apos;t get asked until you&apos;ve spent time and money on the thing.
                             </h3>
@@ -109,7 +116,7 @@ export default function MichaelIntro() {
                             </p>
                         </div>
 
-                        <div className="text-block-3 absolute w-full top-1/2 -translate-y-1/2 opacity-0 pr-4">
+                        <div className="text-block-3 relative mt-12 w-full pr-0 opacity-100 md:absolute md:top-1/2 md:mt-0 md:-translate-y-1/2 md:pr-4 md:opacity-0">
                             <h3 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4 short:text-3xl lg:short:text-4xl short:mb-2">
                                 Once we&apos;re clear, I build what fits.
                             </h3>
@@ -121,24 +128,24 @@ export default function MichaelIntro() {
                     </div>
 
                     {/* Image Column */}
-                    <div className="relative h-full w-full flex items-center justify-center order-1 md:order-2">
+                    <div className="relative order-2 flex min-h-[28rem] w-full items-center justify-center md:h-full">
 
                         {/* Secondary Image — Nicaragua sunlit coffeeshop scene */}
                         <img
                             src="/images/Nicaragua campaign/Nicaragua-laughing-sun-friend-coffeeshop-workign-2025--234.jpg"
                             alt="Working in Nicaragua"
-                            className="collage-secondary absolute -right-4 top-[15%] w-3/5 aspect-square object-cover shadow-xl opacity-0 filter contrast-125"
+                            className="collage-secondary absolute -right-4 top-[15%] hidden w-3/5 aspect-square object-cover opacity-0 shadow-xl filter contrast-125 md:block"
                         />
 
                         {/* Tertiary Image — South Africa production still */}
                         <img
                             src="/images/South Africa Images/SA-By_Michael_Proctor-3.jpg_compressed.JPEG"
                             alt="Field production"
-                            className="collage-tertiary absolute -left-8 bottom-[15%] w-1/2 aspect-[4/5] object-cover shadow-xl opacity-0 filter contrast-[1.1]"
+                            className="collage-tertiary absolute -left-8 bottom-[15%] hidden w-1/2 aspect-[4/5] object-cover opacity-0 shadow-xl filter contrast-[1.1] md:block"
                         />
 
                         {/* Primary: Portrait with Interactive Stats (2026 Trend) */}
-                        <div className="collage-primary relative z-10 w-3/4 aspect-[3/4] group/portrait cursor-crosshair">
+                        <div className="collage-primary group/portrait relative z-10 aspect-[3/4] w-full max-w-[19rem] md:w-3/4 md:max-w-none md:cursor-crosshair">
                             <img
                                 src="/images/headshot_michael_casual.JPG"
                                 alt="Michael portrait"
@@ -146,7 +153,7 @@ export default function MichaelIntro() {
                             />
 
                             {/* Interactive Impact Overlay */}
-                            <div className="absolute inset-0 bg-charcoal/60 backdrop-blur-[2px] opacity-0 group-hover/portrait:opacity-100 transition-all duration-500 flex flex-col justify-center px-8 md:px-12 pointer-events-none">
+                            <div className="pointer-events-none absolute inset-0 hidden flex-col justify-center bg-charcoal/60 px-8 opacity-0 backdrop-blur-[2px] transition-opacity duration-500 group-hover/portrait:opacity-100 md:flex md:px-12">
                                 <p className="text-[10px] uppercase tracking-[0.3em] text-gold/80 mb-6 font-sans">Verifiable Impact</p>
                                 <div className="space-y-8">
                                     <div>

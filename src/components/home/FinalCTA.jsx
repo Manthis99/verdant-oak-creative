@@ -40,18 +40,18 @@ export default function FinalCTA() {
     }, []);
 
     return (
-        <section ref={containerRef} className="bg-[#111] px-6 py-40 md:py-64 text-parchment relative overflow-hidden flex flex-col justify-center min-h-[100vh]">
+        <section ref={containerRef} className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-[#111] px-5 py-24 text-parchment md:px-6 md:py-64">
 
             <div className="mx-auto max-w-7xl w-full relative z-10">
-                <div className="cta-fade text-center mb-24 md:mb-40">
-                    <p className="mb-8 text-xs md:text-sm uppercase tracking-[0.3em] text-gold/80 font-medium font-sans">
+                <div className="cta-fade mb-16 text-center md:mb-40">
+                    <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-gold/80 md:mb-8 md:text-sm">
                         Next Steps
                     </p>
-                    <h2 className="font-serif text-5xl md:text-7xl lg:text-[8rem] leading-[1.05] tracking-tighter text-parchment mb-12">
+                    <h2 className="mb-8 font-serif text-[2.75rem] leading-[1.02] tracking-tighter text-parchment sm:text-5xl md:mb-12 md:text-7xl lg:text-[8rem]">
                         Something worth<br />
                         <span className="italic text-[#D4C3A3] opacity-90">talking through?</span>
                     </h2>
-                    <p className="max-w-2xl mx-auto font-sans text-xl lg:text-2xl font-light text-parchment/70 leading-relaxed">
+                    <p className="mx-auto max-w-2xl font-sans text-lg font-light leading-relaxed text-parchment/70 lg:text-2xl">
                         No pitch. No package pushed at you. Just a conversation about what you're trying to do and whether I'm the right person to help with it.
                     </p>
                 </div>
@@ -60,7 +60,7 @@ export default function FinalCTA() {
                 <div className="cta-fade grid md:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
 
                     {/* Primary */}
-                    <Link to="/start" className="group relative border border-gold/25 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-gold/40 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                    <Link to="/start" className="group relative flex min-h-11 flex-col items-center overflow-hidden rounded-sm border border-gold/25 bg-[#1A1A1A] p-7 text-center transition-colors duration-700 hover:border-gold/40 sm:p-10 lg:p-16">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gold/8 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
                         <div className="relative z-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6 group-hover:text-gold transition-colors duration-500">
@@ -76,7 +76,7 @@ export default function FinalCTA() {
                     </Link>
 
                     {/* Secondary */}
-                    <Link to="/book" className="group relative border border-parchment/10 bg-[#1A1A1A] p-12 lg:p-16 transition-all duration-700 hover:border-parchment/30 flex flex-col items-center text-center overflow-hidden rounded-sm">
+                    <Link to="/book" className="group relative flex min-h-11 flex-col items-center overflow-hidden rounded-sm border border-parchment/10 bg-[#1A1A1A] p-7 text-center transition-colors duration-700 hover:border-parchment/30 sm:p-10 lg:p-16">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-parchment/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out"></div>
                         <div className="relative z-10">
                             <h3 className="font-serif text-3xl lg:text-4xl text-parchment mb-6">
@@ -94,7 +94,7 @@ export default function FinalCTA() {
                 </div>
 
                 {/* Prompt Presets: 2026 Trend */}
-                <div className="cta-fade mt-24 md:mt-32 max-w-4xl mx-auto border-t border-parchment/10 pt-16 text-center">
+                <div className="cta-fade mx-auto mt-16 max-w-4xl border-t border-parchment/10 pt-12 text-center md:mt-32 md:pt-16">
                     <p className="text-xs uppercase tracking-[0.3em] text-parchment/40 mb-8 font-sans">
                         Verify with AI
                     </p>
@@ -102,8 +102,8 @@ export default function FinalCTA() {
                         Not sure if we're a fit? Let your favorite AI evaluate my work for you.
                     </p>
 
-                    <div className="max-w-2xl mx-auto mb-8 bg-[#1A1A1A]/80 border border-parchment/20 rounded-lg p-6 md:p-8 relative group text-left shadow-2xl backdrop-blur-md">
-                        <div className="absolute top-4 right-4 z-10">
+                    <div className="group relative mx-auto mb-8 max-w-2xl rounded-lg border border-parchment/20 bg-[#1A1A1A]/80 p-5 pt-16 text-left shadow-2xl backdrop-blur-md md:p-8">
+                        <div className="absolute right-4 top-4 z-10">
                             <button
                                 onClick={handleCopy}
                                 className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all border ${copied ? 'bg-moss/20 border-moss/50 text-moss' : 'bg-white/5 hover:bg-white/10 text-parchment/60 border-parchment/10'}`}

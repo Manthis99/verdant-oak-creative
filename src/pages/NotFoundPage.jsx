@@ -17,10 +17,10 @@ export default function NotFoundPage() {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-[#0A0A0A] text-parchment flex flex-col items-center justify-center px-6 relative overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] px-5 py-28 text-parchment sm:px-6"
     >
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[min(600px,150vw)] w-[min(600px,150vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-[120px]" />
 
       {/* Grain overlay */}
       <div
@@ -45,7 +45,7 @@ export default function NotFoundPage() {
         <h1 className="err-text font-serif text-4xl md:text-5xl tracking-tight text-[#F0EFEB] mb-6 leading-[1.1]">
           This page doesn't exist<span className="text-gold italic">.</span>
         </h1>
-        <p className="err-text text-lg md:text-xl font-light text-[#D4C3A3] leading-relaxed mb-16 max-w-md mx-auto">
+        <p className="err-text mx-auto mb-10 max-w-md text-base font-light leading-relaxed text-[#D4C3A3] sm:mb-16 sm:text-lg md:text-xl">
           You may have followed an old link, or something got moved. Either way — you're not lost, just slightly off-trail.
         </p>
 

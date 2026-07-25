@@ -211,9 +211,9 @@ export default function WorkPageImmersive() {
           key={project.id}
           id={`project-${project.id}`}
           data-project-id={project.id}
-          className="immersive-project relative min-h-[145svh] px-3 pb-10 pt-10 md:px-6"
+          className="immersive-project relative px-3 py-8 md:min-h-[145svh] md:px-6 md:pb-10 md:pt-10"
         >
-          <div className="sticky top-[6.5rem] mx-auto h-[calc(100svh-7.5rem)] max-w-[1600px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_40px_120px_rgba(0,0,0,0.45)] md:rounded-[2.5rem]">
+          <div className="relative mx-auto h-auto max-w-[1600px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_40px_120px_rgba(0,0,0,0.45)] md:sticky md:top-[6.5rem] md:h-[calc(100svh-7.5rem)] md:rounded-[2.5rem]">
             <div className="absolute inset-0 overflow-hidden">
               <img
                 src={project.thumbnail}
@@ -224,13 +224,13 @@ export default function WorkPageImmersive() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(212,175,55,0.12),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(212,175,55,0.08),transparent_30%)]" />
             </div>
 
-            <div className="relative flex h-full flex-col justify-between p-6 md:p-10 lg:p-14">
+            <div className="relative flex min-h-[48rem] flex-col justify-between gap-12 p-6 md:h-full md:min-h-0 md:gap-0 md:p-10 lg:p-14">
               <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">
                 <div className="max-w-5xl">
                   <p className="immersive-eyebrow mb-5 text-xs uppercase tracking-[0.35em] text-gold/75">
                     {project.client}
                   </p>
-                  <h2 className="immersive-title max-w-5xl font-serif text-[2.8rem] leading-[0.95] tracking-[-0.04em] text-parchment md:text-[4.4rem] xl:text-[6.2rem]">
+                  <h2 className="immersive-title max-w-full break-words font-serif text-[clamp(2.35rem,11.5vw,3.15rem)] leading-[0.95] tracking-[-0.04em] text-parchment md:max-w-5xl md:text-[4.4rem] xl:text-[6.2rem]">
                     {project.title}
                   </h2>
                 </div>
@@ -277,8 +277,9 @@ export default function WorkPageImmersive() {
 
                   <div className="immersive-actions flex flex-wrap items-center gap-4">
                     <button
+                      type="button"
                       onClick={() => setSelectedProject(project)}
-                      className="group inline-flex items-center gap-3 rounded-full border border-gold/40 bg-gold/10 px-6 py-3 text-xs uppercase tracking-[0.28em] text-gold transition-all duration-300 hover:border-gold hover:bg-gold hover:text-charcoal"
+                      className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-gold/40 bg-gold/10 px-6 py-3 text-xs uppercase tracking-[0.24em] text-gold transition-colors duration-300 hover:border-gold hover:bg-gold hover:text-charcoal sm:tracking-[0.28em]"
                     >
                       Play Film
                       <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -287,7 +288,7 @@ export default function WorkPageImmersive() {
                     {project.caseStudyLink && (
                       <Link
                         to={project.caseStudyLink}
-                        className="inline-flex items-center gap-3 border-b border-white/20 pb-2 text-xs uppercase tracking-[0.28em] text-parchment/72 transition-colors hover:border-white/50 hover:text-parchment"
+                        className="inline-flex min-h-11 items-center gap-3 border-b border-white/20 py-2 text-xs uppercase tracking-[0.24em] text-parchment/72 transition-colors hover:border-white/50 hover:text-parchment sm:tracking-[0.28em]"
                       >
                         View Full Case Study
                       </Link>
@@ -312,12 +313,12 @@ export default function WorkPageImmersive() {
       ))}
 
       <section id="final-step" className="immersive-cta-section relative px-3 pb-20 pt-10 md:px-6">
-        <div className="relative mx-auto h-[calc(100svh-7.5rem)] max-w-[1600px] flex items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_40px_120px_rgba(0,0,0,0.35)] md:rounded-[2.5rem] p-8 md:p-12 lg:p-16">
+        <div className="relative mx-auto flex h-auto min-h-[calc(100svh-6rem)] max-w-[1600px] items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_40px_120px_rgba(0,0,0,0.35)] sm:p-8 md:h-[calc(100svh-7.5rem)] md:rounded-[2.5rem] md:p-12 lg:p-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.12),transparent_35%)] pointer-events-none" />
-          <div className="relative z-10 w-full grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <div className="max-w-4xl">
+          <div className="relative z-10 grid min-w-0 w-full gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div className="min-w-0 max-w-4xl">
               <p className="mb-6 text-xs uppercase tracking-[0.35em] text-gold/70">If You Made It This Far</p>
-              <h2 className="max-w-[12ch] font-serif text-[3.2rem] leading-[1.04] tracking-[-0.04em] text-parchment md:text-[4.8rem] md:leading-[1.01] xl:text-[6.2rem] xl:leading-[1.02]">
+              <h2 className="max-w-full break-words font-serif text-[2.65rem] leading-[1.02] tracking-[-0.04em] text-parchment sm:max-w-[12ch] sm:text-[3.2rem] md:text-[4.8rem] md:leading-[1.01] xl:text-[6.2rem] xl:leading-[1.02]">
                 You probably are not looking for more content.
               </h2>
               <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-parchment/72 md:text-[1.3rem]">
@@ -325,8 +326,8 @@ export default function WorkPageImmersive() {
               </p>
             </div>
 
-            <div className="justify-self-start lg:justify-self-end">
-              <div className="rounded-[1.75rem] border border-white/10 bg-black/28 p-6 backdrop-blur-md">
+            <div className="min-w-0 w-full justify-self-start lg:justify-self-end">
+              <div className="min-w-0 w-full rounded-[1.75rem] border border-white/10 bg-black/28 p-5 backdrop-blur-md sm:p-6">
                 <div className="mb-5 text-[10px] uppercase tracking-[0.32em] text-parchment/35">Best Next Step</div>
                 <p className="mb-6 text-base font-light leading-relaxed text-parchment/66">
                   Start with the diagnostic if you want to name the real problem first. If you already know you want to talk, schedule a call. If email is simpler, use that.
@@ -334,16 +335,16 @@ export default function WorkPageImmersive() {
                 <div className="space-y-4">
                   <Link
                     to="/start"
-                    className="group flex items-center justify-between rounded-full border border-gold/40 bg-gold/10 px-5 py-4 text-xs uppercase tracking-[0.28em] text-gold transition-all duration-300 hover:border-gold hover:bg-gold hover:text-charcoal"
+                    className="group flex min-h-12 min-w-0 items-center justify-between gap-3 rounded-full border border-gold/40 bg-gold/10 px-4 py-3 text-[0.68rem] uppercase tracking-[0.14em] text-gold transition-colors duration-300 hover:border-gold hover:bg-gold hover:text-charcoal sm:px-5 sm:py-4 sm:text-xs sm:tracking-[0.28em]"
                   >
-                    <span>Start the Diagnostic</span>
+                    <span className="min-w-0">Start the Diagnostic</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                   <Link
                     to="/book"
-                    className="group flex items-center justify-between rounded-full border border-white/12 px-5 py-4 text-xs uppercase tracking-[0.28em] text-parchment/76 transition-colors duration-300 hover:border-white/30 hover:text-parchment"
+                    className="group flex min-h-12 min-w-0 items-center justify-between gap-3 rounded-full border border-white/12 px-4 py-3 text-[0.68rem] uppercase tracking-[0.14em] text-parchment/76 transition-colors duration-300 hover:border-white/30 hover:text-parchment sm:px-5 sm:py-4 sm:text-xs sm:tracking-[0.28em]"
                   >
-                    <span>Schedule a Call</span>
+                    <span className="min-w-0">Schedule a Call</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                   <div className="pt-4 flex justify-start">
@@ -358,12 +359,12 @@ export default function WorkPageImmersive() {
 
       {selectedProject && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/88 px-4 py-24 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/88 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(5rem,calc(env(safe-area-inset-top)+4rem))] backdrop-blur-sm"
           onClick={() => setSelectedProject(null)}
         >
           <button
             onClick={() => setSelectedProject(null)}
-            className="absolute right-6 top-6 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.25em] text-parchment/70 transition-colors hover:text-parchment"
+            className="absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] min-h-11 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.25em] text-parchment/70 transition-colors hover:text-parchment"
           >
             Close
           </button>

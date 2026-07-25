@@ -60,12 +60,33 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(5.5rem + env(safe-area-inset-top));
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100svh;
   background-color: theme('colors.parchment');
-  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
   -webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
 }
 
 h1,
@@ -86,4 +107,19 @@ h6 {
 
 .onramp-input {
     @apply w-full bg-black/10 border border-black/5 p-6 rounded-lg text-charcoal/90 placeholder:text-charcoal/20 focus:outline-none focus:border-moss/40 transition-all font-sans text-xl font-light leading-relaxed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

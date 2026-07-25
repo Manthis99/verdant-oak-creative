@@ -28,7 +28,7 @@ export default function ContactPage() {
     <div ref={containerRef} className="font-sans">
 
       {/* Intro View (Full Screen Bleed) */}
-      <section className="relative min-h-screen w-full flex flex-col items-center justify-center pt-32 pb-24 contact-reveal overflow-hidden bg-[#F0EFEB] text-charcoal">
+      <section className="contact-reveal relative flex min-h-0 w-full flex-col items-center justify-center overflow-hidden bg-[#F0EFEB] pb-16 pt-28 text-charcoal sm:min-h-screen sm:pb-24 sm:pt-32">
         {/* Stunning Full Screen Background Image, Overlays & Grain */}
         <div className="absolute inset-0 z-0 bg-[#F0EFEB]">
           <img
@@ -43,41 +43,41 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#F0EFEB] via-transparent to-[#F0EFEB]/80"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2 lg:gap-24 lg:px-12">
 
           {/* Left Column: Focused Copy & Scannable Steps */}
-          <div className="text-left space-y-12">
+          <div className="space-y-8 text-left sm:space-y-12">
             <div>
-              <div className="text-sm tracking-[0.2em] text-gold uppercase font-medium mb-6">Inquiry & Partnership</div>
-              <h1 className="font-serif text-5xl md:text-7xl lg:text-[5rem] leading-[1.05] tracking-tighter text-charcoal drop-shadow-sm">
+              <div className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-gold sm:mb-6 sm:text-sm">Inquiry & Partnership</div>
+              <h1 className="font-serif text-[3.2rem] leading-[0.98] tracking-tighter text-charcoal drop-shadow-sm sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.05]">
                 Let's get clear on <br/>
                 <span className="italic text-charcoal/70">what is actually in the way.</span>
               </h1>
             </div>
 
-            <div className="space-y-8 max-w-xl">
+            <div className="max-w-xl space-y-6 sm:space-y-8">
               {/* Scannable Point 1 */}
-              <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
-                <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">1. Name the real problem.</h3>
-                <p className="font-light text-charcoal/70 leading-relaxed text-lg">
+              <div className="border-l-[3px] border-charcoal/20 pl-5 transition-colors duration-500 hover:border-charcoal sm:pl-6">
+                <h3 className="mb-2 font-serif text-[1.35rem] tracking-wide text-charcoal sm:mb-3 sm:text-2xl">1. Name the real problem.</h3>
+                <p className="text-base font-light leading-relaxed text-charcoal/70 sm:text-lg">
                   Finding the right partner should not feel like a gamble. We start by unpacking your friction and identifying the real roadblocks.
                 </p>
               </div>
 
               {/* Scannable Point 2 */}
-              <div className="border-l-[3px] border-charcoal/20 pl-6 hover:border-charcoal transition-colors duration-500">
-                <h3 className="font-serif text-2xl text-charcoal mb-3 tracking-wide">2. Run the diagnostic.</h3>
-                <p className="font-light text-charcoal/70 leading-relaxed text-lg">
+              <div className="border-l-[3px] border-charcoal/20 pl-5 transition-colors duration-500 hover:border-charcoal sm:pl-6">
+                <h3 className="mb-2 font-serif text-[1.35rem] tracking-wide text-charcoal sm:mb-3 sm:text-2xl">2. Run the diagnostic.</h3>
+                <p className="text-base font-light leading-relaxed text-charcoal/70 sm:text-lg">
                   Chat with the automated assistant to frame your tension. We use that to move past "make a video" and toward the real problem.
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 flex flex-col sm:flex-row gap-8 items-center sm:items-start">
+            <div className="flex flex-col items-stretch gap-5 pt-2 sm:flex-row sm:items-center sm:gap-8 sm:pt-4">
               <button
                 type="button"
                 onClick={scrollToDiagnostic}
-                className="relative overflow-hidden rounded-md border border-charcoal bg-charcoal px-10 py-5 text-sm tracking-[0.2em] text-parchment font-medium uppercase transition-all duration-500 hover:bg-transparent hover:text-charcoal w-full sm:w-auto shadow-xl shadow-charcoal/5 group text-center"
+                className="group relative min-h-12 w-full overflow-hidden rounded-md border border-charcoal bg-charcoal px-7 py-4 text-center text-xs font-medium uppercase tracking-[0.2em] text-parchment shadow-xl shadow-charcoal/5 transition-colors duration-500 hover:bg-transparent hover:text-charcoal sm:w-auto sm:px-10 sm:py-5 sm:text-sm"
               >
                 <span className="relative z-10 transition-colors duration-500">Start the Diagnostic</span>
                 <div className="absolute inset-0 h-full w-full translate-y-0 bg-charcoal transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[101%]"></div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
               <Link
                 to="/book"
-                className="text-sm tracking-widest text-charcoal/50 uppercase hover:text-charcoal border-b border-charcoal/20 hover:border-charcoal/50 pb-1 transition-colors mt-2 sm:mt-0"
+                className="inline-flex min-h-11 items-center justify-center border-b border-charcoal/20 text-xs uppercase tracking-widest text-charcoal/50 transition-colors hover:border-charcoal/50 hover:text-charcoal sm:text-sm"
               >
                 Schedule a call
               </Link>
@@ -93,7 +93,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Lead Magnet Visual & Photography Collage */}
-          <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0 items-center h-full group">
+          <div className="group relative hidden h-full items-center justify-center lg:flex lg:justify-end">
 
             {/* Background Ambient Photos for Visual Interest */}
             <div className="absolute -top-6 -left-8 w-36 lg:w-48 h-48 lg:h-64 z-0 hidden sm:block group-hover:-translate-y-6 group-hover:-translate-x-4 group-hover:rotate-[-12deg] transition-all duration-1000 pointer-events-none origin-bottom-right">
@@ -161,10 +161,10 @@ export default function ContactPage() {
       </section>
 
       {/* Embedded AI Chatbot Diagnostic Section */}
-      <section id="diagnostic-form" className="bg-[#111111] border-t border-white/5 pt-24 pb-32 px-4 md:px-8 lg:px-16 w-full relative z-20">
-        <div className="max-w-4xl mx-auto space-y-6 text-center mb-12">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-parchment">Diagnostic AI</h2>
-            <p className="text-parchment/60 font-light text-lg">Use the chat interface below to frame the problem.</p>
+      <section id="diagnostic-form" className="relative z-20 w-full scroll-mt-20 border-t border-white/5 bg-[#111111] px-3 pb-[calc(5rem+env(safe-area-inset-bottom))] pt-24 sm:px-4 md:px-8 md:pb-32 lg:px-16">
+        <div className="mx-auto mb-8 max-w-4xl space-y-4 text-center sm:mb-12 sm:space-y-6">
+            <h2 className="font-serif text-3xl text-parchment sm:text-4xl md:text-5xl lg:text-6xl">Diagnostic AI</h2>
+            <p className="text-base font-light text-parchment/60 sm:text-lg">Use the chat interface below to frame the problem.</p>
         </div>
         <DiagnosticChat />
       </section>

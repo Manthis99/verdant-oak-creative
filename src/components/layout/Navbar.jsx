@@ -28,6 +28,7 @@ const navLinks = [
 export default function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   const closeButtonRef = useRef(null);
 
   const isCurrentPage = (to) => (
@@ -36,7 +37,41 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setNavHidden(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (open) {
+      setNavHidden(false);
+      return undefined;
+    }
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateNav = () => {
+      const currentScrollY = window.scrollY;
+      const distance = currentScrollY - lastScrollY;
+
+      if (currentScrollY < 80) {
+        setNavHidden(false);
+      } else if (Math.abs(distance) > 8) {
+        setNavHidden(distance > 0);
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+      window.requestAnimationFrame(updateNav);
+      ticking = true;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -60,7 +95,7 @@ export default function Navbar() {
     <>
       <Link
         to="/"
-        className="fixed left-4 top-4 z-[90] border border-charcoal/30 bg-[#e9e2d2] px-4 py-3 font-serif text-lg leading-none tracking-[-0.025em] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.13)] transition-transform duration-300 hover:-translate-y-0.5 sm:left-7 sm:top-7 sm:px-5"
+        className={`fixed left-[max(0.75rem,env(safe-area-inset-left))] top-[max(0.75rem,env(safe-area-inset-top))] z-[90] flex min-h-11 items-center border border-charcoal/30 bg-[#e9e2d2] px-3 py-2.5 font-serif text-base leading-none tracking-[-0.025em] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.13)] transition-transform duration-300 hover:-translate-y-0.5 sm:left-7 sm:top-7 sm:px-5 sm:py-3 sm:text-lg ${navHidden ? '-translate-y-[calc(100%+3rem)] sm:translate-y-0' : 'translate-y-0'}`}
         aria-label="Verdant Oak home"
       >
         Verdant Oak
@@ -69,7 +104,7 @@ export default function Navbar() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className={`fixed right-4 top-4 z-[90] flex h-[46px] items-stretch border border-charcoal bg-[#e9e2d2] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_rgba(23,23,23,0.18)] sm:right-7 sm:top-7 ${open ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
+        className={`fixed right-[max(0.75rem,env(safe-area-inset-right))] top-[max(0.75rem,env(safe-area-inset-top))] z-[90] flex h-11 items-stretch border border-charcoal bg-[#e9e2d2] text-charcoal shadow-[5px_5px_0_rgba(23,23,23,0.16)] transition-[opacity,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_rgba(23,23,23,0.18)] sm:right-7 sm:top-7 sm:h-[46px] ${open ? 'pointer-events-none opacity-0' : 'opacity-100'} ${navHidden ? '-translate-y-[calc(100%+3rem)] sm:translate-y-0' : 'translate-y-0'}`}
         aria-label="Open site index"
         aria-expanded={open}
         aria-controls="studio-index"
@@ -84,7 +119,7 @@ export default function Navbar() {
         aria-modal="true"
         aria-hidden={!open}
         role="dialog"
-        className={`fixed inset-0 z-[110] flex flex-col overflow-y-auto bg-charcoal text-parchment transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-full opacity-0'}`}
+        className={`fixed inset-0 z-[110] flex flex-col overflow-y-auto overscroll-contain bg-charcoal pb-[env(safe-area-inset-bottom)] text-parchment transition-[opacity,transform,visibility] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-full opacity-0'}`}
       >
         <header className="flex items-center justify-between border-b border-parchment/25 px-5 py-5 sm:px-9 sm:py-7 lg:px-14">
           <Link to="/" className="font-serif text-xl tracking-[-0.025em] sm:text-2xl">

@@ -13,7 +13,10 @@ export default function Diagnosis() {
   };
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const media = gsap.matchMedia();
+
+    media.add('(min-width: 768px)', () => {
+      const ctx = gsap.context(() => {
       const lines = gsap.utils.toArray('.diagnosis-line');
 
       const tl = gsap.timeline({
@@ -82,21 +85,24 @@ export default function Diagnosis() {
       // Slower end hold on the final message
       tl.to({}, { duration: 4 });
 
-    }, containerRef);
+      }, containerRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    });
+
+    return () => media.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] w-full bg-[#1A1A1A]">
-      <div className="sticky top-0 z-10 flex h-screen w-full items-center justify-center px-6 text-parchment overflow-hidden">
+    <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#1A1A1A] md:h-[200vh]">
+      <div className="relative z-10 flex min-h-[100svh] w-full items-center justify-center overflow-hidden px-5 py-28 text-parchment md:sticky md:top-0 md:h-screen md:min-h-0 md:px-6 md:py-0">
 
         {/* Cinematic Background Image (2026 Trend) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
             <img
                 src="/images/clarity-hero.png"
                 alt=""
-                className="diagnosis-bg absolute inset-0 w-full h-full object-cover opacity-40 scale-110"
+                className="diagnosis-bg absolute inset-0 h-full w-full scale-105 object-cover opacity-40 md:scale-110"
             />
             {/* Overlay gradients for better text legibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]"></div>
@@ -114,25 +120,25 @@ export default function Diagnosis() {
         <div className="diagnosis-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-parchment/5 blur-[120px] pointer-events-none opacity-40"></div>
 
         {/* CSS GRID STACKING */}
-        <div className="relative z-10 w-full max-w-4xl grid grid-cols-1 grid-rows-1 place-items-center text-center px-4">
+        <div className="relative z-10 flex w-full max-w-4xl flex-col place-items-center gap-4 px-0 text-center md:grid md:grid-cols-1 md:grid-rows-1 md:gap-0 md:px-4">
 
           {/* Line 1 — large, authoritative serif */}
-          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-5xl leading-[1.1] text-[#F0EFEB] md:text-7xl lg:text-[6rem] tracking-[0.03em] short:text-4xl xshort:text-3xl md:short:text-5xl lg:short:text-6xl">
+          <h1 className="diagnosis-line w-full font-serif text-[2.25rem] leading-[1.05] tracking-[0.01em] text-[#F0EFEB] md:col-start-1 md:row-start-1 md:text-7xl md:tracking-[0.03em] lg:text-[6rem] short:text-4xl xshort:text-3xl md:short:text-5xl lg:short:text-6xl">
             You don&apos;t have a creative problem.
           </h1>
 
           {/* Line 2 — same scale, serif, slightly lower contrast */}
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line w-full font-serif text-[1.7rem] leading-[1.15] tracking-tight text-[#F0EFEB]/68 md:col-start-1 md:row-start-1 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             You have a clarity problem.
           </p>
 
           {/* Line 3 — serif, gold tone for resolution */}
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#F0EFEB]/85 md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line w-full font-serif text-[1.7rem] leading-[1.15] tracking-tight text-[#F0EFEB]/68 md:col-start-1 md:row-start-1 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             Most teams are solving symptoms,<br className="hidden md:block" />
             {' '}not root problems.
           </p>
 
-          <p className="diagnosis-line opacity-0 col-start-1 row-start-1 w-full font-serif text-4xl leading-[1.2] text-[#D4C3A3] md:text-6xl lg:text-[5rem] tracking-tight short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line mt-2 w-full font-serif text-[1.9rem] leading-[1.12] tracking-tight text-[#D4C3A3] md:col-start-1 md:row-start-1 md:mt-0 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             I help you solve the root problem.
           </p>
 
@@ -141,7 +147,7 @@ export default function Diagnosis() {
         <button
           type="button"
           onClick={handleScrollDown}
-          className="group absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3 text-parchment/72 transition-colors duration-300 hover:text-parchment md:bottom-14 short:bottom-4 xshort:-bottom-2"
+          className="group absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-20 flex min-h-11 -translate-x-1/2 flex-col items-center gap-2 text-parchment/72 transition-colors duration-300 hover:text-parchment md:bottom-14 md:gap-3 short:bottom-4 xshort:bottom-2"
           aria-label="Scroll down to the next section"
         >
           <span className="text-[11px] uppercase tracking-[0.34em]">Scroll Down</span>

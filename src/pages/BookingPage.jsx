@@ -116,14 +116,14 @@ export default function BookingPage() {
       className="min-h-screen bg-parchment text-charcoal font-sans pb-24"
     >
       {/* Hero Header */}
-      <header className="pt-48 pb-16 px-6 md:px-12 text-center max-w-4xl mx-auto">
+      <header className="mx-auto max-w-4xl px-5 pb-12 pt-32 text-center sm:px-6 sm:pb-16 sm:pt-48 md:px-12">
         <p className="book-reveal text-xs uppercase tracking-[0.3em] text-charcoal/40 font-medium mb-6">
           Schedule a Call
         </p>
-        <h1 className="book-reveal font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 text-charcoal">
+        <h1 className="book-reveal mb-6 font-serif text-[2.75rem] leading-[1.05] tracking-tight text-charcoal sm:mb-8 sm:text-5xl md:text-7xl">
           Schedule a <span className="italic">Call</span>
         </h1>
-        <p className="book-reveal text-xl md:text-2xl font-light italic text-charcoal/60 leading-relaxed max-w-2xl mx-auto">
+        <p className="book-reveal mx-auto max-w-2xl text-lg font-light italic leading-relaxed text-charcoal/60 sm:text-xl md:text-2xl">
           Choose whether you want to meet remotely or in person. No pressure, no pitch. Just an honest look at your project and whether we're the right fit.
         </p>
         <div className="book-reveal mt-8">
@@ -135,7 +135,7 @@ export default function BookingPage() {
       <div className="book-reveal w-16 h-[1px] bg-charcoal/15 mx-auto mb-16" />
 
       {/* Calendly Inline Widget */}
-      <div className="max-w-4xl mx-auto px-4 md:px-8">
+      <div className="mx-auto max-w-4xl px-3 sm:px-4 md:px-8">
         <div className="book-reveal mb-8 grid gap-4 md:grid-cols-2">
           {BOOKING_OPTIONS.map((option) => {
             const isActive = selectedOption.id === option.id;
@@ -145,7 +145,7 @@ export default function BookingPage() {
                 key={option.id}
                 type="button"
                 onClick={() => setSelectedOption(option)}
-                className={`rounded-[1.75rem] border px-6 py-5 text-left transition-all duration-300 ${
+                className={`min-h-11 rounded-[1.75rem] border px-5 py-5 text-left transition-[background-color,border-color,box-shadow] duration-300 sm:px-6 ${
                   isActive
                     ? 'border-charcoal bg-charcoal text-parchment shadow-[0_24px_60px_rgba(38,35,32,0.18)]'
                     : 'border-charcoal/10 bg-white/60 text-charcoal hover:border-charcoal/30 hover:bg-white'
@@ -185,7 +185,7 @@ export default function BookingPage() {
           ref={widgetRef}
           className="calendly-inline-widget rounded-2xl overflow-hidden shadow-sm"
           data-url={selectedOption.calendlyUrl}
-          style={{ minWidth: '320px', height: '1150px' }}
+          style={{ minWidth: 0, width: '100%', height: '1150px' }}
         />
 
         {showFallback && (

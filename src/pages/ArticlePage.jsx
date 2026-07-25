@@ -54,7 +54,7 @@ export default function ArticlePage() {
     <div className="min-h-screen bg-parchment pb-32 text-charcoal font-sans" ref={containerRef}>
       
       {/* Full Screen Article Header */}
-      <header className="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-end pb-16 md:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden mb-16 md:mb-24">
+      <header className="relative mb-16 flex min-h-[40rem] w-full flex-col justify-end overflow-hidden px-4 pb-16 pt-32 md:mb-24 md:h-[85vh] md:min-h-[600px] md:px-8 md:pb-24 md:pt-0 lg:px-16">
         {article.image && (
           <div className="absolute inset-0 z-0">
             <img 

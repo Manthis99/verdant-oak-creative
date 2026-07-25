@@ -157,16 +157,16 @@ export default function DiagnosticChat() {
     const showTextInput = !isTyping && (step === 0 || step === 1 || step === 2 || step === 6 || step === 7);
 
     return (
-        <div className="w-full max-w-3xl mx-auto bg-charcoal/80 border border-gold/20 p-4 md:p-8 rounded-2xl backdrop-blur-xl shadow-[0_40px_100px_rgba(0,0,0,0.4)] relative flex flex-col h-[75vh] min-h-[600px] font-sans">
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
+        <div className="relative mx-auto flex h-[min(44rem,calc(100svh-6rem))] min-h-[30rem] w-full max-w-3xl flex-col rounded-2xl border border-gold/20 bg-charcoal/80 p-4 font-sans shadow-[0_40px_100px_rgba(0,0,0,0.4)] backdrop-blur-xl md:h-[75vh] md:min-h-[600px] md:p-8">
+            <div className="mb-4 flex items-center gap-3 border-b border-white/5 pb-4 sm:mb-6">
                 <div className="h-2 w-2 rounded-full bg-gold animate-pulse"></div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-gold/80 font-medium">Verdant Oak Diagnostic Agent</p>
             </div>
 
-            <div ref={scrollContainerRef} className="flex-1 overflow-y-auto pr-2 space-y-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            <div ref={scrollContainerRef} aria-live="polite" className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-1 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 sm:space-y-6 sm:pr-2">
                 {messages.map((msg, i) => (
                     <div key={msg.id} className={`flex w-full ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-500`}>
-                        <div className={`max-w-[85%] md:max-w-[75%] p-5 rounded-2xl font-light text-base md:text-lg leading-relaxed shadow-lg ${
+                        <div className={`max-w-[92%] rounded-2xl p-4 text-sm font-light leading-relaxed shadow-lg sm:max-w-[85%] sm:p-5 sm:text-base md:max-w-[75%] md:text-lg ${
                             msg.sender === 'user'
                                 ? 'bg-gold/10 text-parchment border border-gold/20 rounded-br-sm'
                                 : 'bg-black/60 text-parchment/90 border border-white/10 rounded-bl-sm'
@@ -216,7 +216,7 @@ export default function DiagnosticChat() {
 
             <div className="pt-4 mt-2 relative shrink-0">
                 {showTextInput ? (
-                    <form onSubmit={handleTextSubmit} className="relative flex items-end">
+                    <form onSubmit={handleTextSubmit} className="relative flex flex-col gap-2 sm:block">
                         <textarea
                             ref={inputRef}
                             value={input}
@@ -227,14 +227,17 @@ export default function DiagnosticChat() {
                                     handleTextSubmit(e);
                                 }
                             }}
-                            placeholder="Type your answer here... (Press Enter to send)"
-                            className="w-full bg-black/50 border border-white/15 rounded-xl py-4 flex items-center pl-5 pr-24 text-parchment/90 placeholder:text-parchment/30 focus:outline-none focus:border-gold/50 focus:bg-black/70 transition-all min-h-[60px] max-h-[160px] resize-none font-light leading-relaxed scrollbar-thin scrollbar-thumb-white/10"
+                            placeholder="Type your answer…"
+                            aria-label="Your answer"
+                            name="diagnostic-answer"
+                            autoComplete="off"
+                            className="flex min-h-[58px] max-h-[140px] w-full resize-none items-center rounded-xl border border-white/15 bg-black/50 py-4 pl-4 pr-4 font-light leading-relaxed text-parchment/90 placeholder:text-parchment/30 transition-[background-color,border-color] focus:border-gold/50 focus:bg-black/70 focus:outline-none sm:max-h-[160px] sm:pl-5 sm:pr-24 scrollbar-thin scrollbar-thumb-white/10"
                             rows={1}
                         />
                         <button
                             type="submit"
                             disabled={!input.trim() || isTyping}
-                            className="absolute right-2 bottom-2 bg-gold text-charcoal px-5 flex items-center h-[44px] rounded-lg text-xs uppercase tracking-widest font-bold transition-all hover:bg-gold-bright disabled:opacity-30 disabled:cursor-not-allowed"
+                            className="flex h-11 w-full items-center justify-center rounded-lg bg-gold px-5 text-xs font-bold uppercase tracking-widest text-charcoal transition-colors hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-30 sm:absolute sm:bottom-2 sm:right-2 sm:w-auto"
                         >
                             Send
                         </button>

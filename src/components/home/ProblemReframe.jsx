@@ -36,8 +36,9 @@ export default function ProblemReframe() {
 
       // 4. Reveal cards sequentially
       const cards = gsap.utils.toArray('.reframe-card');
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
       cards.forEach((card, i) => {
-        const xOffset = i % 2 === 0 ? -40 : 40;
+        const xOffset = isMobile ? 0 : (i % 2 === 0 ? -40 : 40);
         gsap.fromTo(card,
           { opacity: 0, x: xOffset, y: 10 },
           { opacity: 1, x: 0, y: 0, duration: 1.0, ease: 'power2.out', scrollTrigger: { trigger: card, start: 'top 85%' } }
@@ -56,30 +57,30 @@ export default function ProblemReframe() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-[#EBE9E1] py-32 md:py-48 lg:py-56 overflow-hidden">
-      <div className="w-full flex flex-col items-center justify-start px-6">
+    <section ref={containerRef} className="w-full overflow-hidden bg-[#EBE9E1] py-24 md:py-48 lg:py-56">
+      <div className="flex w-full flex-col items-center justify-start px-5 md:px-6">
 
         {/* The Headline */}
-        <h2 className="reframe-headline z-20 max-w-4xl text-center font-serif text-4xl leading-tight tracking-tight text-charcoal md:text-[3.5rem] lg:text-[4rem] short:max-w-3xl short:text-[3rem] short:leading-[1.05] xshort:max-w-[13ch] xshort:text-[2.5rem] xshort:leading-[1.02]">
+        <h2 className="reframe-headline z-20 max-w-4xl text-center font-serif text-[2.6rem] leading-[1.02] tracking-tight text-charcoal sm:text-5xl md:text-[3.5rem] lg:text-[4rem] short:max-w-3xl short:text-[3rem] short:leading-[1.05] xshort:max-w-[13ch] xshort:text-[2.5rem] xshort:leading-[1.02]">
           The request is not always the real problem.
         </h2>
 
-        <div className="reframe-intro mt-6 z-20 rounded-full border-[1.5px] border-moss/30 bg-[#EBE9E1] px-6 py-2 text-xs font-medium uppercase tracking-widest text-moss shadow-sm md:text-sm short:mt-3 short:px-5 short:text-[11px] xshort:max-w-[92vw] xshort:text-center xshort:leading-relaxed">
+        <div className="reframe-intro z-20 mt-6 max-w-full rounded-full border-[1.5px] border-moss/30 bg-[#EBE9E1] px-5 py-2 text-center text-[0.68rem] font-medium uppercase leading-relaxed tracking-[0.16em] text-moss shadow-sm md:text-sm short:mt-3 short:px-5 short:text-[11px] xshort:max-w-[92vw]">
             Sometimes "We need a video" actually means:
         </div>
 
         {/* Central Architectural Area */}
-        <div className="reframe-spine-container relative flex w-full max-w-5xl flex-1 items-center justify-center pt-24 pb-24 md:pt-32 md:pb-32">
+        <div className="reframe-spine-container relative flex w-full max-w-5xl flex-1 items-center justify-center py-16 md:py-32">
 
             {/* The Spine - explicitly centered now */}
             <div className="reframe-spine absolute left-1/2 -translate-x-1/2 top-0 bottom-0 z-0 w-[1.5px] bg-charcoal/30"></div>
 
             {/* Cards Grid */}
-            <div className="relative z-10 grid w-full grid-cols-1 md:grid-cols-2 md:items-center gap-y-16 md:gap-y-0">
+            <div className="relative z-10 grid min-w-0 w-full grid-cols-1 gap-y-6 md:grid-cols-2 md:items-center md:gap-y-0">
                 {symptoms.map((item, i) => (
                     <div
                       key={i}
-                      className={`reframe-card relative flex flex-col justify-center rounded-sm border border-charcoal/10 bg-[#FAF9F5]/80 p-8 shadow-sm backdrop-blur-md lg:p-10 short:p-5 xshort:p-4 ${i % 2 === 0 ? 'md:mr-12 md:text-right lg:mr-20' : 'md:ml-12 md:mt-32 lg:ml-20 lg:mt-48'}`}
+                      className={`reframe-card relative flex min-w-0 flex-col justify-center rounded-sm border border-charcoal/10 bg-[#FAF9F5]/90 p-6 shadow-sm backdrop-blur-md lg:p-10 short:p-5 xshort:p-4 ${i % 2 === 0 ? 'md:mr-12 md:text-right lg:mr-20' : 'md:ml-12 md:mt-32 lg:ml-20 lg:mt-48'}`}
                     >
                         {/* Connecting line to spine (desktop only) */}
                         <div className={`absolute top-1/2 hidden h-[1.5px] w-12 -translate-y-1/2 bg-charcoal/30 lg:w-20 md:block ${i % 2 === 0 ? '-right-12 lg:-right-20' : '-left-12 lg:-left-20'}`}></div>
@@ -87,7 +88,7 @@ export default function ProblemReframe() {
                         <div className={`absolute top-1/2 hidden h-[6px] w-[6px] -translate-y-1/2 rounded-full bg-charcoal md:block ${i % 2 === 0 ? '-right-[51px] lg:-right-[83px]' : '-left-[51px] lg:-left-[83px]'}`}></div>
 
                         <span className={`pointer-events-none absolute top-4 select-none font-serif text-5xl text-moss/20 short:text-4xl xshort:text-[2.75rem] lg:text-6xl ${i % 2 === 0 ? 'md:right-8 short:md:right-6' : 'md:left-8 short:md:left-6'} md:-top-4 short:md:-top-2`}>{item.num}</span>
-                        <p className="relative z-10 pt-4 font-sans text-xl font-light leading-relaxed text-charcoal md:pt-6 short:pt-2 short:text-lg short:leading-[1.4] xshort:text-base lg:text-2xl">
+                        <p className="relative z-10 pt-4 font-sans text-lg font-light leading-relaxed text-charcoal md:pt-6 md:text-xl short:pt-2 short:text-lg short:leading-[1.4] xshort:text-base lg:text-2xl">
                             {item.text}
                         </p>
                     </div>
@@ -96,7 +97,7 @@ export default function ProblemReframe() {
         </div>
 
         {/* Core Insight */}
-        <div className="reframe-insight relative z-20 w-full max-w-4xl mx-auto overflow-hidden rounded-xl border border-charcoal/10 bg-[#EBE9E1]/80 px-6 py-6 text-center backdrop-blur-md md:py-8 short:max-w-3xl short:py-4 xshort:max-w-[92vw] xshort:py-3 mt-12 md:mt-24">
+        <div className="reframe-insight relative z-20 mx-auto mt-6 w-full max-w-4xl overflow-hidden rounded-xl border border-charcoal/10 bg-[#EBE9E1]/80 px-5 py-5 text-center backdrop-blur-md md:mt-24 md:py-8 short:max-w-3xl short:py-4 xshort:max-w-[92vw] xshort:py-3">
             <div className="reframe-insight-sheen pointer-events-none absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0"></div>
             <p className="font-serif text-3xl leading-relaxed text-charcoal md:text-4xl short:text-[2rem] short:leading-[1.2] xshort:text-[1.55rem] lg:text-[2.5rem] lg:leading-[1.3]">
                 Creative is often where the pain shows up.<br className="hidden md:block" />
