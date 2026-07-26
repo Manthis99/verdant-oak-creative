@@ -75,3 +75,24 @@
 - Refined the reviewed preview with a soft black hero gradient, `Menu` navigation language, a persistent `Let's Talk` CTA, and Michael Proctor identification inside the expanded menu.
 - Added a custom eased project-anchor animation that works without native smooth-scroll support, then verified intermediate scroll positions and final hash behavior.
 - Removed the One Collective website from Personal Projects while leaving the professional portfolio unchanged.
+
+## 2026-07-26
+
+- Extended the homepage diagnosis timeline to mobile and converted its phone layout into a sticky, layered scroll scene.
+- Moved problem-card numbers into a dedicated mobile column so they no longer sit behind the copy.
+- Corrected the insight line to read as one sentence: `Creative is often where the pain shows up, not where it starts.`
+- Verified all four forward hero states and reverse scrolling at 390px, then confirmed the initial state and card spacing at 320px.
+- Confirmed no horizontal overflow, no browser console errors, and a successful production build.
+- Replaced the homepage Michael section’s three-part animated essay with one concise guide statement, one paragraph, three proof points, one portrait, and an About link.
+- Added a route-split `/about` page with an editorial profile, first-person career story, three working principles, personal-project context, proof, and a closing invitation.
+- Added About Michael to the global menu and verified the five-link menu at mobile width.
+- Created dedicated 32 KB and 103 KB responsive WebP portraits for the About hero so it does not repeat the homepage image.
+- Verified the About page at 320px, 429px, and 1440px with no horizontal overflow, broken images, or browser console errors.
+- Replaced the diagnostic completion download with the supplied five-page `Why a Great Video Is a Waste of Money` PDF.
+- Verified all five PDF pages render cleanly and confirmed the published copy matches the supplied file byte for byte.
+- Reframed the About page around the audience-facing outcome of making complicated work easier to understand and act on.
+- Replaced broad biography copy with concrete cross-functional experience, collaborative operational proof, and a clear description of where Michael is most useful.
+- Translated the Working Genius findings into three plain-language working principles without exposing assessment jargon.
+- Added a compact `A good fit` section so visitors can quickly recognize whether their situation matches Michael's strengths.
+- Verified the revised About page at 320px, 377px, and 1440px with no horizontal overflow, failed visible images, or browser console warnings.
+- Kept `easier to` together as a single typographic phrase so the About headline no longer leaves `to` orphaned at common responsive widths.

@@ -175,7 +175,7 @@ export default function DiagnosticChat() {
                             {msg.isSuccess && (
                                 <div className="mt-6 pt-4 border-t border-white/10">
                                     <a
-                                      href="/Verdant_Oak_Field_Guide_Mock.pdf.html"
+                                      href="/Why-a-Great-Video-Is-a-Waste-of-Money.pdf"
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gold/10 border border-gold text-xs tracking-[0.2em] text-gold uppercase hover:bg-gold hover:text-charcoal transition-all"

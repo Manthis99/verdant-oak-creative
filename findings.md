@@ -24,3 +24,11 @@
 - Route-level splitting reduces the initial JavaScript payload by about 28% minified and 23% gzip without changing route behavior.
 - Rendering containment was deliberately not added globally because the site relies heavily on scroll-triggered animation and sticky scenes; indiscriminate containment could change those layouts.
 - Scroll-triggered image sequences must not attach image sources through React state during an active GSAP timeline. Preload the small optimized sequence assets and let GSAP remain the sole owner of their visibility.
+- The homepage diagnosis animation was scoped to `(min-width: 768px)`, leaving all four lines in a static flex stack on phones. Mobile needs the same layered sticky scene, with a taller scroll runway for comfortable pacing.
+- The problem-reframe numbers were absolutely positioned as watermarks on every breakpoint, causing the copy to overlap them on narrow cards.
+- The homepage Michael introduction repeats the same clarity/problem framing already established by the hero and problem-reframe sections. Its three desktop animation states collapse into a long sequential essay on mobile.
+- The homepage only needs to establish Michael as a trustworthy guide; the fuller interdisciplinary story belongs on a dedicated About route.
+- The diagnostic completion state was still linked to an HTML field-guide mockup. The supplied five-page PDF is the finished resource and should be served from a stable public PDF URL.
+- Michael's strongest audience-facing position is not simply multidisciplinary creativity. It is helping teams understand complicated work, translate across functions, and move unclear ideas into finished results.
+- The Working Genius assessment identifies Wonder and Galvanizing as Michael's energizing strengths. Public copy should express this as asking the question others skip and creating momentum around a clearer direction, without relying on assessment terminology.
+- The strongest proof is operational and specific: managing 12-15 active projects, helping oversee roughly 22 per quarter, improving completion from about 40% to 90%+, coordinating more than ten contractors, and producing documentary work in approximately ten countries.

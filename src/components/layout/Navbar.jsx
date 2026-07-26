@@ -9,6 +9,11 @@ const navLinks = [
     description: 'What I do and how I approach the work.'
   },
   {
+    to: '/about',
+    label: 'About Michael',
+    description: 'How I think, work, and got here.'
+  },
+  {
     to: '/work',
     label: 'Selected Work',
     description: 'Films, campaigns, and brand projects.'

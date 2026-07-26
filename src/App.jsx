@@ -11,6 +11,7 @@ const WorkPageImmersive = lazy(() => import('./pages/WorkPageImmersive'));
 const WritingPage = lazy(() => import('./pages/WritingPage'));
 const ArticlePage = lazy(() => import('./pages/ArticlePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 const CaseStudyUkraine = lazy(() => import('./pages/CaseStudyUkraine'));
 const CaseStudyNicaragua = lazy(() => import('./pages/CaseStudyNicaragua'));
 const BookingPage = lazy(() => import('./pages/BookingPage'));
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="/work-archive" element={<WorkPage />} />
             <Route path="/work-immersive" element={<WorkPageImmersive />} />
             <Route path="/projects" element={<PersonalProjectsPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/writing" element={<WritingPage />} />
             <Route path="/writing/:slug" element={<ArticlePage />} />
             <Route path="/start" element={<ContactPage />} />

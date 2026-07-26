@@ -15,9 +15,11 @@ export default function Diagnosis() {
   useEffect(() => {
     const media = gsap.matchMedia();
 
-    media.add('(min-width: 768px)', () => {
+    media.add('(min-width: 0px)', () => {
       const ctx = gsap.context(() => {
       const lines = gsap.utils.toArray('.diagnosis-line');
+
+      gsap.set(lines.slice(1), { opacity: 0 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -85,8 +87,8 @@ export default function Diagnosis() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#0D0D0D] md:h-[200vh]">
-      <div className="relative z-10 flex min-h-[100svh] w-full items-center justify-center overflow-hidden px-5 py-28 text-parchment md:sticky md:top-0 md:h-screen md:min-h-0 md:px-6 md:py-0">
+    <section ref={containerRef} className="relative h-[300svh] w-full bg-[#0D0D0D] md:h-[200vh]">
+      <div className="sticky top-0 z-10 flex h-[100svh] w-full items-center justify-center overflow-hidden px-5 py-28 text-parchment md:px-6 md:py-0">
 
         {/* Barely-there center light keeps the black field from feeling flat. */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(240,239,235,0.075)_0%,rgba(240,239,235,0.032)_34%,transparent_70%)]"></div>
@@ -95,25 +97,25 @@ export default function Diagnosis() {
         <div className="diagnosis-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-parchment/5 blur-[120px] pointer-events-none opacity-40"></div>
 
         {/* CSS GRID STACKING */}
-        <div className="relative z-10 flex w-full max-w-4xl flex-col place-items-center gap-4 px-0 text-center md:grid md:grid-cols-1 md:grid-rows-1 md:gap-0 md:px-4">
+        <div className="relative z-10 grid w-full max-w-4xl grid-cols-1 grid-rows-1 place-items-center px-0 text-center md:px-4">
 
           {/* Line 1 — large, authoritative serif */}
-          <h1 className="diagnosis-line w-full font-serif text-[2.25rem] leading-[1.05] tracking-[0.01em] text-[#F0EFEB] md:col-start-1 md:row-start-1 md:text-7xl md:tracking-[0.03em] lg:text-[6rem] short:text-4xl xshort:text-3xl md:short:text-5xl lg:short:text-6xl">
+          <h1 className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-[2.25rem] leading-[1.05] tracking-[0.01em] text-[#F0EFEB] md:text-7xl md:tracking-[0.03em] lg:text-[6rem] short:text-4xl xshort:text-3xl md:short:text-5xl lg:short:text-6xl">
             You don&apos;t have a creative problem.
           </h1>
 
           {/* Line 2 — same scale, serif, slightly lower contrast */}
-          <p className="diagnosis-line w-full font-serif text-[1.7rem] leading-[1.15] tracking-tight text-[#F0EFEB]/68 md:col-start-1 md:row-start-1 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-[1.9rem] leading-[1.12] tracking-tight text-[#F0EFEB]/68 opacity-0 md:text-6xl lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             You have a clarity problem.
           </p>
 
           {/* Line 3 — serif, gold tone for resolution */}
-          <p className="diagnosis-line w-full font-serif text-[1.7rem] leading-[1.15] tracking-tight text-[#F0EFEB]/68 md:col-start-1 md:row-start-1 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-[1.9rem] leading-[1.12] tracking-tight text-[#F0EFEB]/68 opacity-0 md:text-6xl lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             Most teams are solving symptoms,<br className="hidden md:block" />
             {' '}not root problems.
           </p>
 
-          <p className="diagnosis-line mt-2 w-full font-serif text-[1.9rem] leading-[1.12] tracking-tight text-[#D4C3A3] md:col-start-1 md:row-start-1 md:mt-0 md:text-6xl md:opacity-0 lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
+          <p className="diagnosis-line col-start-1 row-start-1 w-full font-serif text-[2rem] leading-[1.12] tracking-tight text-[#D4C3A3] opacity-0 md:text-6xl lg:text-[5rem] short:text-3xl xshort:text-2xl md:short:text-4xl lg:short:text-5xl">
             I help you solve the root problem.
           </p>
 

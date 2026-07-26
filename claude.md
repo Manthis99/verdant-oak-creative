@@ -33,3 +33,6 @@
 - Public routes must remain independently loadable through React route-level code splitting.
 - The homepage hero image must be a local responsive asset with an eager, high-priority mobile source.
 - Below-the-fold photographs must use lazy loading and asynchronous decoding unless they are actively visible.
+- `src/pages/AboutPage.jsx` owns the full personal profile, while the homepage introduction remains a concise guide-and-proof summary.
+- The `/about` page must stay personal and first-person while connecting Michael's breadth back to how it helps clients.
+- About-page authority claims must remain collaborative and concrete; do not turn attributed revenue, team output, or shared campaign outcomes into individual credit.
