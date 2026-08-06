@@ -19,6 +19,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const PersonalProjectsPage = lazy(() => import('./pages/PersonalProjectsPage'));
 const IndexPage = lazy(() => import('./pages/IndexPage'));
 const RoommateListingPage = lazy(() => import('./pages/RoommateListingPage'));
+const HeadshotPrepPage = lazy(() => import('./pages/HeadshotPrepPage'));
 const Analytics = lazy(() => import('@vercel/analytics/react').then((module) => ({ default: module.Analytics })));
 
 function ScrollToTop() {
@@ -79,6 +80,7 @@ export default function App() {
             <Route path="/work/nicaragua" element={<CaseStudyNicaragua />} />
             <Route path="/book" element={<BookingPage />} />
             <Route path="/roommate" element={<RoommateListingPage />} />
+            <Route path="/headshot-prep" element={<HeadshotPrepPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
