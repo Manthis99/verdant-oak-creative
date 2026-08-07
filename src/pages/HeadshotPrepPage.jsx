@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
 
 const steps = [
@@ -59,6 +60,49 @@ const steps = [
 ];
 
 export default function HeadshotPrepPage() {
+  useEffect(() => {
+    const previousTitle = document.title;
+    const metadata = [
+      ['name', 'description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
+      ['property', 'og:title', 'How to prepare for your headshots'],
+      ['property', 'og:description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
+      ['property', 'og:image', 'https://creative.michaelproctor.co/images/headshot-prep-social-vertical.jpg'],
+      ['property', 'og:image:alt', 'Headshot preparation guide by Michael Proctor'],
+      ['property', 'og:url', 'https://creative.michaelproctor.co/headshot-prep'],
+      ['name', 'twitter:title', 'How to prepare for your headshots'],
+      ['name', 'twitter:description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
+      ['name', 'twitter:image', 'https://creative.michaelproctor.co/images/headshot-prep-social.jpg'],
+    ];
+
+    const previousMetadata = metadata.map(([attribute, key, content]) => {
+      let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
+      const created = !element;
+
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+      }
+
+      const previousContent = element.getAttribute('content');
+      element.setAttribute('content', content);
+      return { element, created, previousContent };
+    });
+
+    document.title = 'How to prepare for your headshots | Michael Proctor';
+
+    return () => {
+      document.title = previousTitle;
+      previousMetadata.forEach(({ element, created, previousContent }) => {
+        if (created) {
+          element.remove();
+        } else if (previousContent !== null) {
+          element.setAttribute('content', previousContent);
+        }
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen overflow-hidden bg-parchment text-charcoal">
       <header className="relative px-5 pb-16 pt-36 sm:px-8 md:pb-20 md:pt-44 lg:px-12">
