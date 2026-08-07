@@ -66,12 +66,12 @@ export default function HeadshotPrepPage() {
       ['name', 'description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
       ['property', 'og:title', 'How to prepare for your headshots'],
       ['property', 'og:description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
-      ['property', 'og:image', 'https://creative.michaelproctor.co/images/headshot-prep-social-vertical.jpg'],
+      ['property', 'og:image', 'https://creative.michaelproctor.co/images/headshot-prep-social-v2.jpg'],
       ['property', 'og:image:alt', 'Headshot preparation guide by Michael Proctor'],
       ['property', 'og:url', 'https://creative.michaelproctor.co/headshot-prep'],
       ['name', 'twitter:title', 'How to prepare for your headshots'],
       ['name', 'twitter:description', 'A simple guide to looking and feeling like yourself before your headshot session.'],
-      ['name', 'twitter:image', 'https://creative.michaelproctor.co/images/headshot-prep-social.jpg'],
+      ['name', 'twitter:image', 'https://creative.michaelproctor.co/images/headshot-prep-social-v2.jpg'],
     ];
 
     const previousMetadata = metadata.map(([attribute, key, content]) => {
