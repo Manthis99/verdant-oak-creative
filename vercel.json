@@ -32,6 +32,10 @@
       "destination": "/headshot-prep.html"
     },
     {
+      "source": "/419-n-spring-st",
+      "destination": "/419-n-spring-st.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }
