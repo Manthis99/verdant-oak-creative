@@ -20,6 +20,7 @@ const PersonalProjectsPage = lazy(() => import('./pages/PersonalProjectsPage'));
 const IndexPage = lazy(() => import('./pages/IndexPage'));
 const RoommateListingPage = lazy(() => import('./pages/RoommateListingPage'));
 const HeadshotPrepPage = lazy(() => import('./pages/HeadshotPrepPage'));
+const SpringPropertyPage = lazy(() => import('./pages/SpringPropertyPage'));
 const Analytics = lazy(() => import('@vercel/analytics/react').then((module) => ({ default: module.Analytics })));
 
 function ScrollToTop() {
@@ -55,12 +56,13 @@ function DeferredAnalytics() {
 export default function App() {
   const location = useLocation();
   const isReviewPage = location.pathname === '/home-review';
-  const hideFooter = location.pathname === '/work' || location.pathname === '/work-immersive' || isReviewPage;
+  const isPropertyPage = ['/419-n-spring-st', '/419-421-n-spring-st', '/spring-house'].includes(location.pathname);
+  const hideFooter = location.pathname === '/work' || location.pathname === '/work-immersive' || isReviewPage || isPropertyPage;
 
   return (
     <div className="min-h-screen bg-parchment text-charcoal font-sans selection:bg-moss selection:text-parchment">
       <ScrollToTop />
-      {!isReviewPage && <Navbar />}
+      {!isReviewPage && !isPropertyPage && <Navbar />}
       <main>
         <Suspense fallback={<div className="min-h-[60svh] bg-parchment" aria-label="Loading page" />}>
           <Routes>
@@ -81,6 +83,9 @@ export default function App() {
             <Route path="/book" element={<BookingPage />} />
             <Route path="/roommate" element={<RoommateListingPage />} />
             <Route path="/headshot-prep" element={<HeadshotPrepPage />} />
+            <Route path="/419-n-spring-st" element={<SpringPropertyPage />} />
+            <Route path="/419-421-n-spring-st" element={<SpringPropertyPage />} />
+            <Route path="/spring-house" element={<SpringPropertyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
